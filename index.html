@@ -12,22 +12,110 @@
             font-family: Arial, sans-serif;
         }
         
+        /* NUEVO: Barra de navegación */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff6600;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6600;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .nav-menu a:hover {
+            color: #ff6600;
+            background-color: rgba(255, 102, 0, 0.1);
+        }
+        
+        /* NUEVO: Hero section con imagen */
+        .hero {
+            width: 100%;
+            height: 60vh; /* Altura ajustable */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 60px; /* Para que no quede debajo del navbar */
+        }
+        
+        .hero-content {
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Ajustamos el body para que empiece después del hero */
         body {
             background-color: #0a0a0a;
             color: white;
             text-align: center;
-            padding: 50px 20px;
             min-height: 100vh;
+            padding-top: 0; /* Quitamos el padding superior anterior */
+        }
+        
+        /* Ajustamos el container original */
+        .container {
+            max-width: 800px;
+            margin: 50px auto; /* Centrado con margen */
+            padding: 20px;
+        }
+        
+        /* Añadimos secciones para el scroll */
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
         }
         
-        .container {
-            max-width: 800px;
+        /* Estilo para cuando una sección está activa en el scroll */
+        .section.active {
+            background-color: rgba(255, 102, 0, 0.05);
         }
         
+        /* Resto de tus estilos... */
         h1 {
             color: #ff6600;
             font-size: 2.5rem;
@@ -60,6 +148,12 @@
             border-radius: 10px;
             width: 200px;
             border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6600;
         }
         
         .game-card h3 {
@@ -73,7 +167,6 @@
             font-size: 0.9rem;
         }
         
-        /* Efecto para Unity devs */
         .unity-badge {
             background: #222;
             padding: 10px 20px;
@@ -85,35 +178,154 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Logo placeholder - puedes reemplazarlo con tu logo -->
-        <div class="logo">🦊 DEV FOX</div>
-        
-        <h1>Desarrollando mundos desde 2019</h1>
-        <p>Desarrollo de videojuegos y aplicaciones con Unity</p>
-        
-        <div class="unity-badge">
-            🎮 Especialistas en Unity Engine
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">🦊 DEV FOX STUDIOS</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#juegos">Nuestros Juegos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
         </div>
-        
-        <div class="games">
-            <div class="game-card">
-                <h3>Videojuegos</h3>
-                <p>Desarrollo completo de juegos 2D y 3D</p>
-            </div>
-            <div class="game-card">
-                <h3>Aplicaciones</h3>
-                <p>Apps interactivas y experiencias inmersivas</p>
-            </div>
-            <div class="game-card">
-                <h3>Asset Store</h3>
-                <p>Assets y herramientas para desarrolladores</p>
+    </nav>
+    
+    <!-- HERO SECTION CON IMAGEN -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Desarrollando mundos desde 2019</h1>
+            <p>Desarrollo de videojuegos y aplicaciones con Unity</p>
+            <div class="unity-badge">
+                🎮 Especialistas en Unity Engine
             </div>
         </div>
+    </section>
+    
+    <!-- SECCIÓN JUEGOS -->
+    <section id="juegos" class="section">
+        <div class="container">
+            <h2>Nuestros Juegos</h2>
+            <p>Explora nuestros proyectos más destacados</p>
+            
+            <div class="games">
+                <div class="game-card">
+                    <h3>Proyecto Alpha</h3>
+                    <p>Juego de aventuras en 3D</p>
+                    <small>Próximamente...</small>
+                </div>
+                <div class="game-card">
+                    <h3>Fox Runner</h3>
+                    <p>Endless runner en 2D</p>
+                    <small>Disponible en Itch.io</small>
+                </div>
+                <div class="game-card">
+                    <h3>Space Odyssey</h3>
+                    <p>Shooter espacial</p>
+                    <small>En desarrollo</small>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECCIÓN SERVICIOS (tu contenido original) -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            
+            <div class="games">
+                <div class="game-card">
+                    <h3>Videojuegos</h3>
+                    <p>Desarrollo completo de juegos 2D y 3D</p>
+                </div>
+                <div class="game-card">
+                    <h3>Aplicaciones</h3>
+                    <p>Apps interactivas y experiencias inmersivas</p>
+                </div>
+                <div class="game-card">
+                    <h3>Asset Store</h3>
+                    <p>Assets y herramientas para desarrolladores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>¿Tienes un proyecto en mente? Hablemos</p>
+            
+            <div class="unity-badge" style="margin: 30px auto; max-width: 400px;">
+                📧 contacto@devfoxstudios.com<br>
+                🐦 @DevFoxStudios<br>
+                📱 +54 9 11 1234-5678
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2019-2026 DEV FOX STUDIOS™</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
+                Desarrollado con ❤️ para la comunidad gamer
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript para el scroll suave -->
+    <script>
+        // Scroll suave al hacer clic en los enlaces
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // 70px para el navbar fijo
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
         
-        <footer>
-            <p>2019-2026 DEV FOX STUDIOS™</p>
-        </footer>
-    </div>
+        // Cambiar navbar al hacer scroll (opcional)
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+                navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+            
+            // Resaltar sección activa (opcional)
+            const sections = document.querySelectorAll('.section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            // Remover clase activa de todas
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Agregar a la activa
+            if(current) {
+                document.querySelector(`#${current}`).classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
