@@ -1,11 +1,119 @@
-<¡DOCTYPE html>
-  <html lang = "es">
-    <head>
-      <meta charset="UTF-8">
-      <title>DEV FOX STUDIOS</title>
-    </head>
-    <body>
-      <h1>Desarrollando mundos desde 2019</h1>
-      <p>Desarrollo de videojuegos y aplicaciones</p>
-    </body>
-  </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEV FOX STUDIOS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+        }
+        
+        h1 {
+            color: #ff6600;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+        
+        .logo {
+            width: 150px;
+            margin-bottom: 30px;
+        }
+        
+        .games {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .game-card {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            border: 1px solid #333;
+        }
+        
+        .game-card h3 {
+            color: #ff6600;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Efecto para Unity devs */
+        .unity-badge {
+            background: #222;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            border-left: 4px solid #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Logo placeholder - puedes reemplazarlo con tu logo -->
+        <div class="logo">🦊 DEV FOX</div>
+        
+        <h1>Desarrollando mundos desde 2019</h1>
+        <p>Desarrollo de videojuegos y aplicaciones con Unity</p>
+        
+        <div class="unity-badge">
+            🎮 Especialistas en Unity Engine
+        </div>
+        
+        <div class="games">
+            <div class="game-card">
+                <h3>Videojuegos</h3>
+                <p>Desarrollo completo de juegos 2D y 3D</p>
+            </div>
+            <div class="game-card">
+                <h3>Aplicaciones</h3>
+                <p>Apps interactivas y experiencias inmersivas</p>
+            </div>
+            <div class="game-card">
+                <h3>Asset Store</h3>
+                <p>Assets y herramientas para desarrolladores</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>2019-2026 DEV FOX STUDIOS™</p>
+        </footer>
+    </div>
+</body>
+</html>
