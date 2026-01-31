@@ -18,8 +18,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(10, 10, 10, 0.95);
-            padding: 15px 0;
+            background-color: transparent !important;
+            padding: 20px 0;
             z-index: 1000;
             border-bottom: 2px solid #ff6600;
             backdrop-filter: blur(10px);
@@ -65,15 +65,15 @@
         .hero {
             width: 100%;
             height: 60vh; /* Altura ajustable */
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                        url('Images/Banner FHD.png');
+            background: url('Images/Banner FHD.png')
+            center center / cover no-repeat;
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin-top: 60px; /* Para que no quede debajo del navbar */
+            margin-top: 0px; /* Para que no quede debajo del navbar */
         }
         
         .hero-content {
