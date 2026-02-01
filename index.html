@@ -12,16 +12,21 @@
             font-family: Arial, sans-serif;
         }
         
-        /* NUEVO: Barra de navegación */
+        /* Barra de navegación */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: transparent !important;
+            background-color: rgba(10, 10, 10, 0.95);
             padding: 20px 0;
             z-index: 1000;
-           
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(10, 10, 10, 0.98);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
         
         .nav-container {
@@ -60,77 +65,98 @@
             background-color: rgba(255, 102, 0, 0.1);
         }
         
-        /* NUEVO: Hero section con imagen */
+        /* Hero section con altura fija igual al banner */
         .hero {
             width: 100%;
-            height: 100vh; /* Altura ajustable */
-            background: url('Images/Banner FHD.png')
-            center center / cover no-repeat;
-            background-size: cover;
-            background-position: center;
+            height: 100vh; /* Altura igual al viewport (como tu banner) */
+            background: url('Images/Banner FHD.png') center center / cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin-top: 0px; /* Para que no quede debajo del navbar */
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
         }
         
-        .hero-content {
-            padding: 20px;
+        /* Contenedor para asegurar que el contenido no se salga */
+        .hero-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 0 80px 150px 0;
         }
         
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        /* Cada sección ocupa exactamente el 100vh (misma altura que el hero) */
+        .section {
+            min-height: 100vh; /* Misma altura que el hero */
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: start; /* Para un scroll más preciso */
+            position: relative;
         }
         
-        /* Ajustamos el body para que empiece después del hero */
+        /* Contenedor interno para cada sección */
+        .section-content {
+            max-width: 1200px;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        /* Ajuste del scroll para cada sección */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px; /* Compensa la altura del navbar */
+        }
+        
+        /* Estilos específicos para cada sección */
+        #inicio {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #juegos {
+            background-color: #0f0f0f;
+        }
+        
+        #servicios {
+            background-color: #0a0a0a;
+        }
+        
+        #contacto {
+            background-color: #111111;
+        }
+        
+        /* Estilos generales */
         body {
             background-color: #0a0a0a;
             color: white;
-            text-align: center;
-            min-height: 100vh;
-            padding-top: 0; /* Quitamos el padding superior anterior */
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
         
-        /* Ajustamos el container original */
-        .container {
-            max-width: 800px;
-            margin: 50px auto; /* Centrado con margen */
-            padding: 20px;
-        }
-        
-        /* Añadimos secciones para el scroll */
-        .section {
-            min-height: 100vh;
-            padding: 80px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        /* Estilo para cuando una sección está activa en el scroll */
-        .section.active {
-            background-color: rgba(255, 102, 0, 0.05);
-        }
-        
-        /* Resto de tus estilos... */
-        h1 {
+        h1, h2 {
             color: #ff6600;
-            font-size: 2.5rem;
             margin-bottom: 20px;
             text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
         }
         
         p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             color: #cccccc;
-        }
-        
-        .logo {
-            width: 150px;
-            margin-bottom: 30px;
         }
         
         .games {
@@ -147,7 +173,7 @@
             border-radius: 10px;
             width: 200px;
             border: 1px solid #333;
-            transition: transform 0.3s;
+            transition: transform 0.3s, border-color 0.3s;
         }
         
         .game-card:hover {
@@ -161,89 +187,32 @@
         }
         
         footer {
-            margin-top: 50px;
+            padding: 30px 20px;
             color: #666;
             font-size: 0.9rem;
+            background-color: #0a0a0a;
+            border-top: 1px solid #333;
         }
         
         .unity-badge {
             background: #222;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 20px;
+            border-radius: 10px;
             display: inline-block;
             margin-top: 20px;
             border-left: 4px solid #ff6600;
+            font-size: 1.1rem;
         }
-    </style>
-</head>
-<body>
-    <!-- BARRA DE NAVEGACIÓN -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#inicio" class="nav-logo">DEV FOX STUDIOS</a>
-            <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#juegos">Nuestros Juegos</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                 <li><a href="#servicios">Portfolio</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- HERO SECTION CON IMAGEN -->
-    <section id="inicio" class="hero">
-    <div class="hero-content" style="
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;  /* Todo abajo */
-        align-items: flex-end;      /* Todo a la derecha */
-        padding: 0 80px 150px 0;    /* Espaciado derecha/abajo */
-    ">
-         <!-- Contenedor para título y párrafo JUNTOS -->
-        <div style="
-            text-align: right;  /* Alineado a la derecha */
-            margin-bottom: 0px;
-            max-width: 600px;
-        ">
-        <!-- Título H1 - Blanco tirando a naranja -->
-        <h1 style="
-            color: #ffcc99;
-                font-family: 'Arial', sans-serif;
-                font-size: 2rem;
-                font-weight: bold;
-                margin: 0 0 5px 0;  /* MARGEN INFERIOR MUY PEQUEÑO */
-                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-                line-height: 1.1;  /* Menor interlineado */
-        ">
-            Creando mundos. Contando historias.
-        </h1>
         
-        <!-- Párrafo P - Más chico, debajo del h1 -->
-        <p style="
-            color: #ffffff;
-                font-family: 'Arial', sans-serif;
-                font-size: 1.5rem;
-                text-align: center;  /* Mismo alineado que h1 */
-                margin: 0;  /* SIN MARGEN - PEGADO AL H1 */
-                line-height: 1.3;
-        ">
-            Creating worlds. Telling stories.
-        </p>
-        
-        <!-- Botón interactivo centrado abajo -->
-        <a href="#juegos" class="game-button" style="
+        /* Botón del hero */
+        .hero-button {
             display: inline-block;
-            background: linear-gradient(45deg, #ff3300, #ff6600); /* Naranja casi rojo */
-            color: white !important;  /* Texto blanco */
+            background: linear-gradient(45deg, #ff3300, #ff6600);
+            color: white !important;
             text-decoration: none;
             padding: 18px 45px;
             font-size: 1.4rem;
             font-weight: bold;
-            font-family: 'Arial', sans-serif;
             border-radius: 50px;
             border: none;
             cursor: pointer;
@@ -252,22 +221,102 @@
             letter-spacing: 1px;
             box-shadow: 0 5px 15px rgba(255, 51, 0, 0.4);
             position: absolute;
-            left: 50%;  /* Centrado horizontalmente */
-            transform: translateX(-50%); /* Centrado exacto */
-            bottom: 50px;  /* Posición desde abajo */
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 50px;
             z-index: 10;
-        " 
-        onmouseover="this.style.transform='translateX(-50%) scale(1.1)'; this.style.boxShadow='0 10px 25px rgba(255, 51, 0, 0.6)';"
-        onmouseout="this.style.transform='translateX(-50%) scale(1)'; this.style.boxShadow='0 5px 15px rgba(255, 51, 0, 0.4)';"
-        onclick="this.style.background='linear-gradient(45deg, #ff5500, #ff8800)'; setTimeout(() => { this.style.background='linear-gradient(45deg, #ff3300, #ff6600)'; }, 200);">
-            🎮 VER JUEGOS
-        </a>
-    </div>
-</section>
+        }
+        
+        .hero-button:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 10px 25px rgba(255, 51, 0, 0.6);
+        }
+        
+        .hero-button:active {
+            background: linear-gradient(45deg, #ff5500, #ff8800);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 15px;
+            }
+            
+            .hero-container {
+                padding: 0 20px 100px 20px;
+                align-items: center;
+            }
+            
+            .games {
+                gap: 15px;
+            }
+            
+            .game-card {
+                width: 150px;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-button {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .game-card {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-logo">DEV FOX STUDIOS</a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#juegos">Nuestros Juegos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <section id="inicio" class="section hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1 style="color: #ffcc99; font-size: 2rem; margin-bottom: 5px;">
+                    Creando mundos. Contando historias.
+                </h1>
+                <p style="color: #ffffff; font-size: 1.5rem;">
+                    Creating worlds. Telling stories.
+                </p>
+            </div>
+            <a href="#juegos" class="hero-button">🎮 VER JUEGOS</a>
+        </div>
+    </section>
     
     <!-- SECCIÓN JUEGOS -->
     <section id="juegos" class="section">
-        <div class="container">
+        <div class="section-content">
             <h2>Nuestros Juegos</h2>
             <p>Explora nuestros proyectos más destacados</p>
             
@@ -291,9 +340,9 @@
         </div>
     </section>
     
-    <!-- SECCIÓN SERVICIOS (tu contenido original) -->
+    <!-- SECCIÓN SERVICIOS -->
     <section id="servicios" class="section">
-        <div class="container">
+        <div class="section-content">
             <h2>Nuestros Servicios</h2>
             
             <div class="games">
@@ -313,13 +362,36 @@
         </div>
     </section>
     
+    <!-- SECCIÓN PORTFOLIO -->
+    <section id="portfolio" class="section">
+        <div class="section-content">
+            <h2>Portfolio</h2>
+            <p>Nuestros proyectos y colaboraciones destacadas</p>
+            
+            <div class="games">
+                <div class="game-card">
+                    <h3>Proyectos AAA</h3>
+                    <p>Trabajos en grandes producciones</p>
+                </div>
+                <div class="game-card">
+                    <h3>Indie Games</h3>
+                    <p>Desarrollos independientes</p>
+                </div>
+                <div class="game-card">
+                    <h3>Clientes</h3>
+                    <p>Trabajos para empresas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="section">
-        <div class="container">
+        <div class="section-content">
             <h2>Contacto</h2>
             <p>¿Tienes un proyecto en mente? Hablemos</p>
             
-            <div class="unity-badge" style="margin: 30px auto; max-width: 400px;">
+            <div class="unity-badge">
                 📧 contacto@devfoxstudios.com<br>
                 🐦 @DevFoxStudios<br>
                 📱 +54 9 11 1234-5678
@@ -328,7 +400,7 @@
     </section>
     
     <footer>
-        <div class="container">
+        <div style="max-width: 1200px; margin: 0 auto;">
             <p>© 2019-2026 DEV FOX STUDIOS™</p>
             <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
                 Desarrollado con ❤️ para la comunidad gamer
@@ -336,9 +408,8 @@
         </div>
     </footer>
     
-    <!-- JavaScript para el scroll suave -->
     <script>
-        // Scroll suave al hacer clic en los enlaces
+        // Scroll suave con offset para el navbar
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -348,45 +419,75 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
+                    const navbarHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 70, // 70px para el navbar fijo
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // Actualizar URL sin recargar
+                    history.pushState(null, null, targetId);
                 }
             });
         });
         
-        // Cambiar navbar al hacer scroll (opcional)
+        // Cambiar navbar al hacer scroll
         window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
+            const navbar = document.getElementById('navbar');
             if(window.scrollY > 50) {
-                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
-                navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
-                navbar.style.boxShadow = 'none';
+                navbar.classList.remove('scrolled');
             }
             
-            // Resaltar sección activa (opcional)
+            // Resaltar enlace activo
             const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
             let current = '';
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if(scrollY >= (sectionTop - 150)) {
+                const navbarHeight = navbar.offsetHeight;
+                
+                if(window.scrollY >= (sectionTop - navbarHeight - 100)) {
                     current = section.getAttribute('id');
                 }
             });
             
-            // Remover clase activa de todas
-            sections.forEach(section => {
-                section.classList.remove('active');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
             });
+        });
+        
+        // Inicializar con el navbar scrolled si estamos más abajo del inicio
+        window.addEventListener('DOMContentLoaded', function() {
+            if(window.scrollY > 50) {
+                document.getElementById('navbar').classList.add('scrolled');
+            }
+        });
+        
+        // Manejar el desplazamiento del botón del hero
+        document.querySelector('.hero-button').addEventListener('click', function(e) {
+            e.preventDefault();
             
-            // Agregar a la activa
-            if(current) {
-                document.querySelector(`#${current}`).classList.add('active');
+            const targetElement = document.querySelector('#juegos');
+            if(targetElement) {
+                const navbarHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                history.pushState(null, null, '#juegos');
             }
         });
     </script>
