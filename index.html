@@ -12,23 +12,19 @@
             font-family: Arial, sans-serif;
         }
         
-        /* BARRA DE NAVEGACIÓN TRANSPARENTE */
+        /* BARRA DE NAVEGACIÓN SIEMPRE TRANSPARENTE */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: transparent !important; /* Transparente por defecto */
+            background-color: transparent !important; /* Siempre transparente */
             padding: 25px 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: padding 0.3s ease;
         }
         
-        .navbar.scrolled {
-            background-color: rgba(10, 10, 10, 0.95) !important;
-            padding: 15px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
+        /* ELIMINADO: .navbar.scrolled - No cambia nunca el fondo */
         
         .nav-container {
             max-width: 1200px;
@@ -44,6 +40,7 @@
             font-weight: bold;
             color: #ff6600;
             text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
         
         .nav-menu {
@@ -59,12 +56,20 @@
             transition: all 0.3s;
             padding: 8px 15px;
             border-radius: 5px;
-            background-color: rgba(0, 0, 0, 0.3); /* Fondo sutil para mejor visibilidad */
+            background-color: rgba(0, 0, 0, 0.3); /* Fondo sutil pero transparente */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
         
         .nav-menu a:hover {
             color: #ff6600;
             background-color: rgba(255, 102, 0, 0.2);
+        }
+        
+        /* Estilo para enlace activo */
+        .nav-menu a.active {
+            color: #ff6600 !important;
+            background-color: rgba(255, 102, 0, 0.15) !important;
+            border: 1px solid rgba(255, 102, 0, 0.5);
         }
         
         /* HERO SECTION */
@@ -280,7 +285,7 @@
     </style>
 </head>
 <body>
-    <!-- BARRA DE NAVEGACIÓN TRANSPARENTE -->
+    <!-- BARRA DE NAVEGACIÓN SIEMPRE TRANSPARENTE -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#inicio" class="nav-logo">DEV FOX STUDIOS</a>
@@ -398,7 +403,7 @@
     </footer>
     
     <script>
-        // SCROLL SUAVE SIN OFFSET - Las secciones comienzan exactamente al tope
+        // SCROLL SUAVE SIN OFFSET
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -420,28 +425,18 @@
             });
         });
         
-        // NAVBAR: Transparente al inicio, oscuro al hacer scroll
+        // RESALTAR ENLACE ACTIVO (pero sin cambiar el fondo del navbar)
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            
-            // Cambia a fondo oscuro después de bajar un poco
-            if(window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            // Opcional: Resaltar enlace activo
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.nav-menu a');
             
             let currentSection = '';
             
+            // Encontrar la sección actual
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
                 
-                // Detectar qué sección está en el viewport
                 if(window.scrollY >= sectionTop - 100) {
                     currentSection = section.getAttribute('id');
                 }
@@ -458,27 +453,16 @@
             });
         });
         
-        // Inicializar estado del navbar
+        // Inicializar enlace activo
         window.addEventListener('DOMContentLoaded', function() {
-            const navbar = document.getElementById('navbar');
-            
-            // Si la página se carga en medio del contenido
-            if(window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+            // Marcar "Inicio" como activo al cargar
+            const inicioLink = document.querySelector('.nav-menu a[href="#inicio"]');
+            if(inicioLink && window.scrollY < 100) {
+                inicioLink.classList.add('active');
             }
-            
-            // Añadir estilos para enlaces activos
-            const style = document.createElement('style');
-            style.textContent = `
-                .nav-menu a.active {
-                    color: #ff6600 !important;
-                    background-color: rgba(255, 102, 0, 0.15) !important;
-                }
-            `;
-            document.head.appendChild(style);
         });
         
-        // Manejar el botón del hero (opcional, pero mantiene consistencia)
+        // Manejar el botón del hero
         document.querySelector('.hero-button').addEventListener('click', function(e) {
             e.preventDefault();
             
