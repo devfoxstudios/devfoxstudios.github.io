@@ -480,16 +480,327 @@
             100% { transform: translate(100px, 100px); }
         }
         
-        /* SOBRE NOSOTROS (manteniendo tarjetas pequeñas) */
-        #nosotros .enhanced-card {
-            height: 300px;
-            min-width: 220px;
-            max-width: 240px;
-        }
-        
-        #nosotros .enhanced-card-image {
-            height: 150px;
-        }
+        /* EL EQUIPO - BANNERS DIAGONALES */
+#equipo {
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 102, 0, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 50%, rgba(156, 39, 176, 0.15) 0%, transparent 60%),
+        #0a0a0a;
+    position: relative;
+    overflow: hidden;
+}
+
+#equipo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 102, 0, 0.05) 10px,
+            rgba(255, 102, 0, 0.05) 20px
+        );
+    pointer-events: none;
+    animation: teamGrid 30s linear infinite;
+}
+
+@keyframes teamGrid {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* CONTENEDOR DE BANNERS DIAGONALES */
+.team-banners-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 40px 20px;
+    perspective: 1000px;
+    overflow: visible;
+}
+
+/* BANNER INDIVIDUAL - ESTILO DIAGONAL */
+.team-banner {
+    position: relative;
+    width: 200px; /* Más estrecho, tipo banner vertical */
+    height: 500px; /* Más alto */
+    background: linear-gradient(145deg, #1a1a1a, #222222);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 102, 0, 0.3);
+    
+    /* Efecto diagonal inicial */
+    transform: rotateY(-5deg) rotateX(5deg) translateZ(0);
+    transform-origin: center center;
+    
+    /* Efecto de profundidad */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Cada banner con una inclinación ligeramente diferente */
+.team-banner:nth-child(1) { transform: rotateY(-10deg) rotateX(5deg); }
+.team-banner:nth-child(2) { transform: rotateY(-5deg) rotateX(3deg); }
+.team-banner:nth-child(3) { transform: rotateY(0deg) rotateX(0deg); }
+.team-banner:nth-child(4) { transform: rotateY(5deg) rotateX(-3deg); }
+.team-banner:nth-child(5) { transform: rotateY(10deg) rotateX(-5deg); }
+
+/* HOVER EFECTS */
+.team-banner:hover {
+    transform: rotateY(0deg) rotateX(0deg) scale(1.15) translateZ(50px) !important;
+    width: 250px; /* Se ensancha un poco al hacer hover */
+    height: 550px; /* Se alarga un poco */
+    z-index: 100;
+    box-shadow: 
+        0 25px 60px rgba(255, 102, 0, 0.4),
+        0 0 0 3px rgba(255, 102, 0, 0.2),
+        inset 0 0 30px rgba(255, 102, 0, 0.1);
+    border-color: #ff6600;
+    border-width: 3px;
+}
+
+/* Cuando un banner está en hover, los otros se alejan */
+.team-banners-container:hover .team-banner:not(:hover) {
+    transform: scale(0.85) !important;
+    opacity: 0.5;
+    filter: blur(2px);
+}
+
+/* CAPA DE IMAGEN CON EFECTO PARALLAX */
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.8s ease;
+    transform: scale(1.1);
+    filter: brightness(0.8) contrast(1.1);
+}
+
+.team-banner:hover .banner-image {
+    transform: scale(1.2);
+    filter: brightness(1) contrast(1.2);
+}
+
+/* OVERLAY DE GRADIENTE PARA MEJOR LEGIBILIDAD */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 30%,
+        rgba(0, 0, 0, 0.7) 70%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
+    transition: all 0.5s ease;
+}
+
+.team-banner:hover .banner-overlay {
+    background: linear-gradient(
+        to bottom,
+        transparent 20%,
+        rgba(0, 0, 0, 0.8) 60%,
+        rgba(0, 0, 0, 0.95) 100%
+    );
+}
+
+/* CONTENIDO DEL BANNER */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    opacity: 0.9;
+}
+
+.team-banner:hover .banner-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.banner-content h3 {
+    color: #ffcc99;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.banner-content p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* BADGE DE ROL/ESPECIALIDAD */
+.role-badge {
+    display: inline-block;
+    background: linear-gradient(45deg, rgba(255, 102, 0, 0.3), rgba(255, 153, 0, 0.2));
+    color: #ffcc99;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 10px;
+    border: 1px solid rgba(255, 102, 0, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* EFECTO DE BRILLO EN EL BORDE */
+.team-banner::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        transparent, 
+        #ff6600, 
+        #ffcc99, 
+        #ff6600, 
+        transparent
+    );
+    border-radius: 17px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.team-banner:hover::before {
+    opacity: 1;
+    animation: borderGlow 2s linear infinite;
+}
+
+@keyframes borderGlow {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* EFECTO DE SELECCIÓN (como en juegos de pelea) */
+.selection-indicator {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    color: #ff6600;
+    font-size: 2.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
+    z-index: 10;
+}
+
+.team-banner:hover .selection-indicator {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+    50% { transform: translateX(-50%) translateY(-10px) scale(1.1); }
+}
+
+/* RESPONSIVE PARA BANNERS */
+@media (max-width: 1200px) {
+    .team-banners-container {
+        height: 500px;
+        gap: 10px;
+    }
+    
+    .team-banner {
+        width: 180px;
+        height: 450px;
+    }
+    
+    .team-banner:hover {
+        width: 220px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 992px) {
+    .team-banners-container {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 20px;
+        padding: 30px 20px;
+    }
+    
+    .team-banner {
+        width: 45%;
+        max-width: 200px;
+        height: 400px;
+        transform: rotateY(0) rotateX(0) !important;
+    }
+    
+    .team-banner:hover {
+        width: 50%;
+        height: 450px;
+        transform: scale(1.1) !important;
+    }
+    
+    .team-banners-container:hover .team-banner:not(:hover) {
+        transform: scale(0.9) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-banners-container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .team-banner {
+        width: 90%;
+        max-width: 300px;
+        height: 350px;
+        margin: 15px 0;
+    }
+    
+    .team-banner:hover {
+        width: 95%;
+        height: 380px;
+    }
+    
+    .team-banners-container:hover .team-banner:not(:hover) {
+        transform: scale(0.95) !important;
+        opacity: 0.8;
+    }
+}
         
         /* CONTACTO */
         #contacto {
@@ -630,7 +941,7 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#juegos">Nuestros Juegos</a></li>
-                <li><a href="#nosotros">Sobre Nosotros</a></li>
+                <li><a href="#equipo">El Equipo</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </div>
@@ -805,59 +1116,84 @@
         </div>
     </section>
     
-    <!-- SECCIÓN SOBRE NOSOTROS -->
-    <section id="nosotros" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Conocé a nuestro equipo</h2>
+   <!-- SECCIÓN EL EQUIPO - BANNERS DIAGONALES -->
+<section id="equipo" class="section">
+    <div class="section-content">
+        <h2 class="section-title">El Equipo</h2>
+        
+        <div class="team-banners-container">
+            <!-- Banner 1: Game Director -->
+            <div class="team-banner">
+                <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Game Director" class="banner-image">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h3>ALEX RIVERA</h3>
+                        <p>Visionario creativo con 8+ años en la industria. Especializado en narrativa y diseño de jugabilidad.</p>
+                        <span class="role-badge">Game Director</span>
+                    </div>
+                </div>
+                <div class="selection-indicator">✦</div>
+            </div>
             
-            <div class="cards-container">
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Nuestra Misión" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <h3>Nuestra Misión</h3>
-                        <p>Crear experiencias de juego memorables que conecten con jugadores de todo el mundo.</p>
+            <!-- Banner 2: Lead Developer -->
+            <div class="team-banner">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Lead Developer" class="banner-image">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h3>MARÍA CHEN</h3>
+                        <p>Experta en Unity y C#. Lidera el desarrollo técnico de todos nuestros proyectos.</p>
+                        <span class="role-badge">Lead Developer</span>
                     </div>
                 </div>
-                
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Equipo Experto" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <h3>Equipo Experto</h3>
-                        <p>+5 años de experiencia combinada en desarrollo, arte y diseño de videojuegos.</p>
+                <div class="selection-indicator">✦</div>
+            </div>
+            
+            <!-- Banner 3: Art Director -->
+            <div class="team-banner">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Art Director" class="banner-image">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h3>SAMUEL KIM</h3>
+                        <p>Artista conceptual y modelador 3D. Crea mundos visualmente impresionantes.</p>
+                        <span class="role-badge">Art Director</span>
                     </div>
                 </div>
-                
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Tecnologías" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <h3>Tecnologías</h3>
-                        <p>Unity, Blender, Photoshop, C#, y las últimas herramientas del mercado.</p>
+                <div class="selection-indicator">✦</div>
+            </div>
+            
+            <!-- Banner 4: Sound Designer -->
+            <div class="team-banner">
+                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Sound Designer" class="banner-image">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h3>LENA WAGNER</h3>
+                        <p>Compositora y diseñadora de sonido. Crea atmósferas auditivas inmersivas.</p>
+                        <span class="role-badge">Sound Designer</span>
                     </div>
                 </div>
-                
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Filosofía" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <h3>Filosofía</h3>
-                        <p>Innovación constante, calidad y atención al detalle en cada proyecto.</p>
+                <div class="selection-indicator">✦</div>
+            </div>
+            
+            <!-- Banner 5: QA Lead -->
+            <div class="team-banner">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="QA Lead" class="banner-image">
+                <div class="banner-overlay">
+                    <div class="banner-content">
+                        <h3>CARLOS MÉNDEZ</h3>
+                        <p>Especialista en testing y experiencia de usuario. Garantiza calidad impecable.</p>
+                        <span class="role-badge">QA Lead</span>
                     </div>
                 </div>
-                
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Comunidad" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <h3>Comunidad</h3>
-                        <p>Activa participación en eventos y desarrollo de la comunidad gamer local.</p>
-                    </div>
-                </div>
+                <div class="selection-indicator">✦</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="section">
