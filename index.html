@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEV FOX STUDIOS</title>
     <style>
+        /* ESTILOS BASE (se mantienen igual) */
         * {
             margin: 0;
             padding: 0;
@@ -12,19 +13,16 @@
             font-family: Arial, sans-serif;
         }
         
-        /* BARRA DE NAVEGACIÓN SIEMPRE TRANSPARENTE */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: transparent !important; /* Siempre transparente */
+            background-color: transparent !important;
             padding: 25px 0;
             z-index: 1000;
             transition: padding 0.3s ease;
         }
-        
-        /* ELIMINADO: .navbar.scrolled - No cambia nunca el fondo */
         
         .nav-container {
             max-width: 1200px;
@@ -35,14 +33,12 @@
             padding: 0 20px;
         }
         
-        /* ESTILOS PARA EL LOGO DE IMAGEN */
         .logo-img {
-            height: 60px; /* Ajusta según tu imagen */
+            height: 60px;
             width: auto;
             transition: all 0.3s ease;
         }
         
-        /* Efecto hover opcional */
         .logo-img:hover {
             transform: scale(1.05);
             opacity: 0.9;
@@ -61,7 +57,7 @@
             transition: all 0.3s;
             padding: 8px 15px;
             border-radius: 5px;
-            background-color: rgba(0, 0, 0, 0.3); /* Fondo sutil pero transparente */
+            background-color: rgba(0, 0, 0, 0.3);
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
         }
         
@@ -70,13 +66,11 @@
             background-color: rgba(255, 102, 0, 0.2);
         }
         
-        /* Estilo para enlace activo */
         .nav-menu a.active {
             color: #ff6600 !important;
             background-color: rgba(255, 102, 0, 0.15) !important;
             border: 1px solid rgba(255, 102, 0, 0.5);
         }
-        
         
         /* HERO SECTION */
         .hero {
@@ -111,7 +105,6 @@
             margin-bottom: 30px;
         }
         
-        /* BOTÓN DEL HERO */
         .hero-button {
             display: inline-block;
             background: linear-gradient(45deg, #ff3300, #ff6600);
@@ -139,7 +132,6 @@
             box-shadow: 0 10px 25px rgba(255, 51, 0, 0.6);
         }
         
-        /* SECCIONES - CADA UNA OCUPA 100% DE LA PANTALLA */
         .section {
             min-height: 100vh;
             width: 100%;
@@ -150,12 +142,10 @@
             margin: 0;
         }
         
-        /* CONFIGURACIÓN DEL SCROLL SUAVE EN HTML */
         html {
             scroll-behavior: smooth;
         }
         
-        /* ESTILOS GENERALES */
         body {
             background-color: #0a0a0a;
             color: white;
@@ -164,219 +154,230 @@
             overflow-x: hidden;
         }
         
-        h2 {
-            color: #ff6600;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-        }
-        
         .section-content {
             max-width: 1200px;
             padding: 20px;
             text-align: center;
         }
         
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #cccccc;
-        }
+        /* ESTILOS MEJORADOS PARA TODAS LAS SECCIONES */
         
-        .games {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 0px;
-            flex-wrap: wrap;
-        }
-        
-        /* Tarjetas para juegos, servicios y portfolio */
-        .game-card {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            height: 300px;
-            border: 1px solid #333;
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        /* Nueva clase para tarjetas más pequeñas (para 4 y 5 en fila) */
-        .smallest-card {
-            width: 200px;
-            height: 200px;
-        }
-        
-        .small-card {
-            width: 250px;
-            height: 250px;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            border-color: #ff6600;
-        }
-        
-        .game-card h3 {
-            color: #ff6600;
-            margin-bottom: 10px;
-        }
-        
-        .unity-badge {
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
+        /* Títulos de sección mejorados */
+        .section-title {
+            font-size: 3.5rem !important;
+            background: linear-gradient(45deg, #ff6600, #ffcc99);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px !important;
+            text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
+            position: relative;
             display: inline-block;
-            margin-top: 20px;
-            border-left: 4px solid #ff6600;
+            padding-bottom: 15px;
         }
-
-        /* Contenedor especial para las tarjetas del portfolio */
-        .portfolio-container {
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
+        }
+        
+        .section-subtitle {
+            font-size: 1.4rem !important;
+            color: #cccccc !important;
+            margin-bottom: 50px !important;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Contenedor para tarjetas en todas las secciones */
+        .cards-container {
             position: relative;
             width: 100%;
             max-width: 1200px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 30px;
+            align-items: stretch;
+            gap: 40px;
             padding: 40px 20px;
             perspective: 1000px;
+            flex-wrap: wrap;
         }
         
-        /* Tarjetas del portfolio con efecto especial */
-        .portfolio-card {
+        /* Tarjetas mejoradas para todas las secciones */
+        .enhanced-card {
             position: relative;
-            width: 320px;
-            height: 400px;
-            background: #1a1a1a;
+            background: linear-gradient(145deg, #1a1a1a, #222222);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid #333;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 102, 0, 0.2);
             flex: 1;
-            min-width: 300px;
+            min-width: 280px;
             max-width: 350px;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
         }
         
-        .portfolio-card:hover {
-            transform: translateY(-20px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(255, 102, 0, 0.3);
+        .enhanced-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 
+                0 25px 50px rgba(255, 102, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
             border-color: #ff6600;
             z-index: 10;
         }
-
-        /* Imagen de la tarjeta */
-        .card-image {
-            width: 100%;
-            height: 60%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-
-        .portfolio-card:hover .card-image {
-            transform: scale(1.1);
-            filter: brightness(1.2) contrast(1.1);
-        }
         
-        /* Contenido de la tarjeta */
-        .card-content {
-            padding: 25px;
-            height: 40%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: linear-gradient(to bottom, transparent, #1a1a1a 30%);
-            position: relative;
-        }
-        
-        /* Cuando una tarjeta está en hover, las otras se achican */
-        .portfolio-container:hover .portfolio-card:not(:hover) {
+        /* Efecto de hover grupal */
+        .cards-container:hover .enhanced-card:not(:hover) {
             transform: scale(0.95);
             opacity: 0.7;
             filter: blur(1px);
         }
-
-         .card-content h3 {
-            color: #ff6600;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+        
+        /* Imágenes para tarjetas */
+        .enhanced-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .enhanced-card:hover .enhanced-card-image {
+            transform: scale(1.1);
+            filter: brightness(1.1) saturate(1.2);
+        }
+        
+        /* Contenido de tarjetas */
+        .enhanced-card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background: linear-gradient(to bottom, transparent, rgba(26, 26, 26, 0.9) 30%);
+        }
+        
+        .enhanced-card h3 {
+            color: #ffcc99;
+            font-size: 1.6rem;
+            margin-bottom: 15px;
             text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
             transition: all 0.3s ease;
         }
         
-        .portfolio-card:hover .card-content h3 {
-            color: #ffcc99;
+        .enhanced-card:hover h3 {
+            color: #ff6600;
             transform: translateX(5px);
         }
         
-        .card-content p {
+        .enhanced-card p {
             color: #cccccc;
             font-size: 1rem;
             margin-bottom: 15px;
-            line-height: 1.4;
+            line-height: 1.5;
+            flex-grow: 1;
         }
         
-        /* Badge de categoría */
-        .card-category {
+        .enhanced-card small {
+            color: #888;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        /* Badges para categorías */
+        .card-badge {
             display: inline-block;
-            background: rgba(255, 102, 0, 0.2);
+            background: linear-gradient(45deg, rgba(255, 102, 0, 0.2), rgba(255, 153, 0, 0.1));
             color: #ffcc99;
-            padding: 5px 15px;
+            padding: 6px 18px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: bold;
-            margin-top: 5px;
+            margin-top: 10px;
             border: 1px solid rgba(255, 102, 0, 0.3);
+            align-self: flex-start;
+        }
+        
+        /* Indicador de plataforma/disponibilidad */
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #4CAF50;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .platform-badge.in-dev {
+            color: #FF9800;
+            border-color: rgba(255, 152, 0, 0.3);
         }
         
         /* Efecto de brillo en hover */
-        .portfolio-card::before {
+        .enhanced-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #ff6600, transparent);
+            background: linear-gradient(90deg, 
+                transparent, 
+                #ff6600, 
+                #ffcc99, 
+                #ff6600, 
+                transparent);
             transform: translateX(-100%);
-            transition: transform 0.6s ease;
+            transition: transform 0.8s ease;
+            z-index: 2;
         }
         
-        .portfolio-card:hover::before {
+        .enhanced-card:hover::before {
             transform: translateX(100%);
         }
         
-        /* Indicador de click */
-        .click-indicator {
+        /* Indicador de interacción */
+        .card-action {
             position: absolute;
             bottom: 20px;
             right: 20px;
             background: rgba(255, 102, 0, 0.9);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
             opacity: 0;
-            transform: scale(0.8);
+            transform: translateY(10px);
             transition: all 0.3s ease;
             box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
         }
         
-        .portfolio-card:hover .click-indicator {
+        .enhanced-card:hover .card-action {
             opacity: 1;
-            transform: scale(1);
+            transform: translateY(0);
             animation: pulse 2s infinite;
         }
         
@@ -386,24 +387,9 @@
             100% { box-shadow: 0 0 15px rgba(255, 102, 0, 0.5); }
         }
         
-        /* Título de sección más llamativo */
-        .portfolio-title {
-            font-size: 3.5rem !important;
-            background: linear-gradient(45deg, #ff6600, #ffcc99);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 10px !important;
-            text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
-        }
+        /* ESTILOS ESPECÍFICOS PARA CADA SECCIÓN */
         
-        .portfolio-subtitle {
-            font-size: 1.4rem !important;
-            color: #cccccc !important;
-            margin-bottom: 50px !important;
-        }
-        
-        /* Efecto de fondo para la sección portfolio */
+        /* PORTFOLIO */
         #portfolio {
             background: 
                 radial-gradient(circle at 20% 80%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
@@ -432,62 +418,100 @@
             animation: gridMove 20s linear infinite;
         }
         
+        /* SERVICIOS */
+        #servicios {
+            background: 
+                radial-gradient(circle at 10% 90%, rgba(0, 150, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 10%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+                #0a0a0a;
+            position: relative;
+        }
+        
+        #servicios::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at center, rgba(255, 102, 0, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        /* NUESTROS JUEGOS */
+        #juegos {
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(156, 39, 176, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+                #0f0f0f;
+            position: relative;
+        }
+        
+        #juegos::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 5px,
+                    rgba(255, 102, 0, 0.02) 5px,
+                    rgba(255, 102, 0, 0.02) 10px
+                );
+            pointer-events: none;
+            animation: diagonalMove 30s linear infinite;
+        }
+        
         @keyframes gridMove {
             0% { transform: translateY(0); }
             100% { transform: translateY(100px); }
         }
         
-        /* Responsive para portfolio */
-        @media (max-width: 1024px) {
-            .portfolio-container {
-                flex-wrap: wrap;
-            }
-            
-            .portfolio-card {
-                width: 45%;
-                min-width: 280px;
-            }
+        @keyframes diagonalMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 100px); }
         }
         
-        @media (max-width: 768px) {
-            .portfolio-card {
-                width: 90%;
-                max-width: 400px;
-                margin: 20px auto;
-            }
-            
-            .portfolio-container:hover .portfolio-card:not(:hover) {
-                transform: scale(1);
-                opacity: 1;
-                filter: blur(0);
-            }
-            
-            .portfolio-title {
-                font-size: 2.8rem !important;
-            }
+        /* SOBRE NOSOTROS (manteniendo tarjetas pequeñas) */
+        #nosotros .enhanced-card {
+            height: 300px;
+            min-width: 220px;
+            max-width: 240px;
         }
         
-        /* COLORES DE FONDO PARA CADA SECCIÓN (NUEVO ORDEN) */
-        #portfolio {
-            background-color: #0f0f0f;
+        #nosotros .enhanced-card-image {
+            height: 150px;
         }
         
-        #servicios {
-            background-color: #0a0a0a;
-        }
-        
-        #juegos {
-            background-color: #0f0f0f;
-        }
-        
-        #nosotros {
-            background-color: #0a0a0a;
-        }
-        
+        /* CONTACTO */
         #contacto {
-            background-color: #0f0f0f;
+            background: 
+                radial-gradient(circle at 50% 30%, rgba(255, 102, 0, 0.15) 0%, transparent 60%),
+                #0f0f0f;
         }
         
+        .unity-badge {
+            background: linear-gradient(145deg, #222, #2a2a2a);
+            padding: 25px 35px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 20px;
+            border-left: 5px solid #ff6600;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .unity-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 102, 0, 0.2);
+        }
+        
+        /* FOOTER */
         footer {
             padding: 30px 20px;
             color: #666;
@@ -498,6 +522,21 @@
         }
         
         /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .cards-container {
+                gap: 30px;
+            }
+            
+            .enhanced-card {
+                width: 45%;
+                min-width: 280px;
+            }
+            
+            .section-title {
+                font-size: 3rem !important;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-content {
                 right: 20px;
@@ -520,17 +559,28 @@
                 font-size: 0.9rem;
             }
             
-            /* Logo más pequeño en móviles */
             .logo-img {
                 height: 40px;
             }
             
-            /* Ajuste para tarjetas en móviles */
-            .game-card, .small-card {
+            .enhanced-card {
                 width: 90%;
-                max-width: 300px;
-                height: auto;
-                min-height: 250px;
+                max-width: 400px;
+                margin: 20px auto;
+            }
+            
+            .cards-container:hover .enhanced-card:not(:hover) {
+                transform: scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+            
+            .section-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .section-subtitle {
+                font-size: 1.2rem !important;
             }
         }
         
@@ -553,23 +603,24 @@
                 justify-content: center;
             }
             
-            /* Logo aún más pequeño en móviles muy pequeños */
             .logo-img {
                 height: 35px;
             }
             
-            h2 {
-                font-size: 2rem;
+            .section-title {
+                font-size: 2.2rem !important;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem !important;
             }
         }
     </style>
 </head>
-    
 <body>
-    <!-- BARRA DE NAVEGACIÓN CON NUEVO ORDEN -->
+    <!-- BARRA DE NAVEGACIÓN -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <!-- LOGO COMO IMAGEN -->
             <img src="Images/Topbar_Tittle_2.png" alt="DEV FOX STUDIOS" class="logo-img">
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
@@ -580,213 +631,278 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </div>
-</nav>
-
-<!-- HERO SECTION -->
-<section id="inicio" class="section hero">
-    <div class="hero-content">
-        <h1>Creando mundos. Contando historias.</h1>
-        <p>Creating worlds. Telling stories.</p>
-    </div>
-    <a href="#portfolio" class="hero-button">VER PORTFOLIO</a>
-</section>
-
-<!-- SECCIÓN PORTFOLIO MEJORADA -->
-<section id="portfolio" class="section">
-    <div class="section-content">
-        <h2 class="portfolio-title">Portfolio</h2>
-        <p class="portfolio-subtitle">Descubre nuestro trabajo más destacado</p>
-        
-        <div class="portfolio-container">
-            <!-- Tarjeta 1: Juegos Completos -->
-            <a href="https://devfoxstudios.com/portfolio/juegos-completos" target="_blank" class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Desarrollo de Juegos" class="card-image">
-                <div class="card-content">
-                    <div>
-                        <h3>Juegos Completos</h3>
-                        <p>Proyectos finalizados desde el concepto inicial hasta la publicación en tiendas digitales.</p>
-                        <span class="card-category">Game Dev</span>
-                    </div>
-                    <div class="click-indicator">
-                        →
-                    </div>
-                </div>
-            </a>
+    </nav>
+    
+    <!-- HERO SECTION -->
+    <section id="inicio" class="section hero">
+        <div class="hero-content">
+            <h1>Creando mundos. Contando historias.</h1>
+            <p>Creating worlds. Telling stories.</p>
+        </div>
+        <a href="#portfolio" class="hero-button">VER PORTFOLIO</a>
+    </section>
+    
+    <!-- SECCIÓN PORTFOLIO -->
+    <section id="portfolio" class="section">
+        <div class="section-content">
+            <h2 class="section-title">Portfolio</h2>
+            <p class="section-subtitle">Mira algunos ejemplos de lo que somos capaces de hacer</p>
             
-            <!-- Tarjeta 2: Modelado 3D -->
-            <a href="https://devfoxstudios.com/portfolio/modelado-3d" target="_blank" class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Modelado 3D" class="card-image">
-                <div class="card-content">
-                    <div>
-                        <h3>Modelado 3D</h3>
-                        <p>Personajes, entornos y assets optimizados para videojuegos y aplicaciones interactivas.</p>
-                        <span class="card-category">3D Art</span>
+            <div class="cards-container">
+                <a href="https://devfoxstudios.com/portfolio/juegos-completos" target="_blank" class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Desarrollo de Juegos" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Juegos Completos</h3>
+                            <p>Proyectos finalizados desde el concepto inicial hasta la publicación en tiendas digitales.</p>
+                            <span class="card-badge">Game Dev</span>
+                        </div>
+                        <div class="card-action">→</div>
                     </div>
-                    <div class="click-indicator">
-                        →
+                </a>
+                
+                <a href="https://devfoxstudios.com/portfolio/modelado-3d" target="_blank" class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Modelado 3D" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Modelado 3D</h3>
+                            <p>Personajes, entornos y assets optimizados para videojuegos y aplicaciones interactivas.</p>
+                            <span class="card-badge">3D Art</span>
+                        </div>
+                        <div class="card-action">→</div>
                     </div>
-                </div>
-            </a>
+                </a>
+                
+                <a href="https://devfoxstudios.com/portfolio/diseno-grafico" target="_blank" class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Diseño Gráfico" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Diseño Gráfico</h3>
+                            <p>Interfaces de usuario, ilustraciones y elementos visuales especializados en gaming.</p>
+                            <span class="card-badge">UI/UX Design</span>
+                        </div>
+                        <div class="card-action">→</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECCIÓN SERVICIOS MEJORADA -->
+    <section id="servicios" class="section">
+        <div class="section-content">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Soluciones completas para hacer realidad tu proyecto</p>
             
-            <!-- Tarjeta 3: Diseño Gráfico -->
-            <a href="https://devfoxstudios.com/portfolio/diseno-grafico" target="_blank" class="portfolio-card">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Diseño Gráfico" class="card-image">
-                <div class="card-content">
-                    <div>
-                        <h3>Diseño Gráfico</h3>
-                        <p>Interfaces de usuario, ilustraciones y elementos visuales especializados en gaming.</p>
-                        <span class="card-category">UI/UX Design</span>
-                    </div>
-                    <div class="click-indicator">
-                        →
+            <div class="cards-container">
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Desarrollo de Videojuegos" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Desarrollo de Videojuegos</h3>
+                            <p>Ciclo completo de desarrollo 2D y 3D, desde el concepto inicial hasta la publicación en tiendas.</p>
+                            <span class="card-badge">Full Cycle</span>
+                        </div>
+                        <div class="card-action">+</div>
                     </div>
                 </div>
-            </a>
-        </div>
-        
-        <p style="margin-top: 40px; color: #888; font-style: italic;">
-            Haz clic en cualquier tarjeta para ver más detalles de cada categoría
-        </p>
-    </div>
-</section>
-
-<!-- SECCIÓN SERVICIOS (AHORA CON 4 TARJETAS) -->
-<section id="servicios" class="section">
-    <div class="section-content">
-        <h2>Nuestros Servicios</h2>
-        <p>Soluciones completas para tu proyecto</p>
-        
-        <div class="games">
-            <div class="game-card small-card">
-                <h3>Desarrollo de Videojuegos</h3>
-                <p>Completo ciclo de desarrollo 2D y 3D</p>
-                <small>Desde concepto hasta publicación</small>
-            </div>
-            <div class="game-card small-card">
-                <h3>Aplicaciones Interactivas</h3>
-                <p>Apps y experiencias inmersivas</p>
-                <small>Realidad virtual y aumentada</small>
-            </div>
-            <div class="game-card small-card">
-                <h3>Asset Store</h3>
-                <p>Assets y herramientas para devs</p>
-                <small>Modelos, scripts, sonidos y más</small>
-            </div>
-            <div class="game-card small-card">
-                <h3>Consultoría</h3>
-                <p>Asesoramiento técnico y de diseño</p>
-                <small>Optimización y mejoras de proyectos</small>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SECCIÓN JUEGOS (AHORA DESPUÉS DE SERVICIOS) -->
-<section id="juegos" class="section">
-    <div class="section-content">
-        <h2>Nuestros Juegos</h2>
-        <p>Explora algunos de nuestros proyectos destacados</p>
-        
-        <div class="games">
-            <div class="game-card">
-                <h3>Kiuby Rush</h3>
-                <p>Versión Alpha 1.1.3</p>
-                <p><small>Juego de acción y aventura móvil</small></p>
-                <small>Disponible en Play Store</small>
-            </div>
-            <div class="game-card">
-                <h3>Reality Hole</h3>
-                <p>Versión Alpha 1.0</p>
-                <p><small>Experiencia de realidad alternativa</small></p>
-                <small>Disponible en Itch.io</small>
-            </div>
-            <div class="game-card">
-                <h3>Juego Plataformas</h3>
-                <p>En desarrollo</p>
-                <p><small>Aventura en 2.5D con física avanzada</small></p>
-                <small>Próximamente en Steam</small>
+                
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Aplicaciones Interactivas" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Aplicaciones Interactivas</h3>
+                            <p>Experiencias inmersivas en realidad virtual y aumentada para diferentes industrias y propósitos.</p>
+                            <span class="card-badge">VR/AR</span>
+                        </div>
+                        <div class="card-action">+</div>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Asset Store" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Asset Store</h3>
+                            <p>Recursos profesionales para desarrolladores: modelos 3D, scripts, sonidos, texturas y más.</p>
+                            <span class="card-badge">Resources</span>
+                        </div>
+                        <div class="card-action">+</div>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Consultoría" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Consultoría Técnica</h3>
+                            <p>Asesoramiento especializado en optimización, diseño y desarrollo de proyectos interactivos.</p>
+                            <span class="card-badge">Expert Advice</span>
+                        </div>
+                        <div class="card-action">+</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- NUEVA SECCIÓN: SOBRE NOSOTROS (CON 5 TARJETAS) -->
-<section id="nosotros" class="section">
-    <div class="section-content">
-        <h2>Sobre Nosotros</h2>
-        <p>Conoce al equipo detrás de DEV FOX STUDIOS</p>
-        
-        <div class="games">
-            <div class="game-card smallest-card">
-                <h3>Nuestra Misión</h3>
-                <p>Crear experiencias de juego memorables que conecten con jugadores de todo el mundo</p>
-            </div>
-            <div class="game-card smallest-card">
-                <h3>Equipo Experto</h3>
-                <p>+5 años de experiencia combinada en desarrollo, arte y diseño de videojuegos</p>
-            </div>
-            <div class="game-card smallest-card">
-                <h3>Tecnologías</h3>
-                <p>Unity, Blender, Photoshop, C#, y las últimas herramientas del mercado</p>
-            </div>
-            <div class="game-card smallest-card">
-                <h3>Filosofía</h3>
-                <p>Innovación constante, calidad y atención al detalle en cada proyecto</p>
-            </div>
-            <div class="game-card smallest-card">
-                <h3>Comunidad</h3>
-                <p>Activa participación en eventos y desarrollo de la comunidad gamer local</p>
+    </section>
+    
+    <!-- SECCIÓN NUESTROS JUEGOS MEJORADA -->
+    <section id="juegos" class="section">
+        <div class="section-content">
+            <h2 class="section-title">Nuestros Juegos</h2>
+            <p class="section-subtitle">Explora nuestras creaciones y proyectos en desarrollo</p>
+            
+            <div class="cards-container">
+                <a href="https://play.google.com/store/apps/details?id=com.devfoxstudios.kiubyrush" target="_blank" class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Kiuby Rush" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Kiuby Rush</h3>
+                            <p>Aventura móvil llena de acción y desafíos. Recolecta gemas, esquiva obstáculos y alcanza la cima.</p>
+                            <span class="platform-badge">✅ Disponible</span>
+                        </div>
+                        <div class="card-action">🎮</div>
+                        <small>Versión Alpha 1.1.3 - Play Store</small>
+                    </div>
+                </a>
+                
+                <a href="https://devfoxstudios.itch.io/realityhole" target="_blank" class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Reality Hole" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Reality Hole</h3>
+                            <p>Experiencia de realidad alternativa donde las dimensiones se colapsan y la física se distorsiona.</p>
+                            <span class="platform-badge">✅ Disponible</span>
+                        </div>
+                        <div class="card-action">🎮</div>
+                        <small>Versión Alpha 1.0 - Itch.io</small>
+                    </div>
+                </a>
+                
+                <a href="https://store.steampowered.com/app/comingsoon" target="_blank" class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Juego Plataformas" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <div>
+                            <h3>Dimension Shift</h3>
+                            <p>Aventura en 2.5D con física avanzada, cambio de dimensiones y mecánicas innovadoras.</p>
+                            <span class="platform-badge in-dev">🛠️ En desarrollo</span>
+                        </div>
+                        <div class="card-action">🎮</div>
+                        <small>Próximamente en Steam</small>
+                    </div>
+                </a>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- SECCIÓN CONTACTO (AHORA LA ÚLTIMA) -->
-<section id="contacto" class="section">
-    <div class="section-content">
-        <h2>Contacto</h2>
-        <p>¿Tienes un proyecto en mente? Hablemos</p>
-        
-        <div class="unity-badge">
-            📧 Próximamente<br>
-            🐦 Próximamente<br>
-            📱 Próximamente
+    </section>
+    
+    <!-- SECCIÓN SOBRE NOSOTROS -->
+    <section id="nosotros" class="section">
+        <div class="section-content">
+            <h2 class="section-title">Sobre Nosotros</h2>
+            <p class="section-subtitle">Conoce al equipo detrás de DEV FOX STUDIOS</p>
+            
+            <div class="cards-container">
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Nuestra Misión" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <h3>Nuestra Misión</h3>
+                        <p>Crear experiencias de juego memorables que conecten con jugadores de todo el mundo.</p>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Equipo Experto" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <h3>Equipo Experto</h3>
+                        <p>+5 años de experiencia combinada en desarrollo, arte y diseño de videojuegos.</p>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Tecnologías" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <h3>Tecnologías</h3>
+                        <p>Unity, Blender, Photoshop, C#, y las últimas herramientas del mercado.</p>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Filosofía" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <h3>Filosofía</h3>
+                        <p>Innovación constante, calidad y atención al detalle en cada proyecto.</p>
+                    </div>
+                </div>
+                
+                <div class="enhanced-card">
+                    <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                         alt="Comunidad" class="enhanced-card-image">
+                    <div class="enhanced-card-content">
+                        <h3>Comunidad</h3>
+                        <p>Activa participación en eventos y desarrollo de la comunidad gamer local.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <p style="margin-top: 30px; font-size: 1rem; color: #888;">
-            Estamos trabajando en nuestro sistema de contacto. ¡Vuelve pronto!
-        </p>
-    </div>
-</section>
-
-<footer>
-    <div>
-        <p>© 2019-2026 DEV FOX STUDIOS™</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
-            Desarrollado con ❤️ para la comunidad gamer
-        </p>
-    </div>
-</footer>
+    </section>
+    
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="section">
+        <div class="section-content">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Tienes un proyecto en mente? Hablemos</p>
+            
+            <div class="unity-badge">
+                📧 contacto@devfoxstudios.com<br>
+                🐦 @DevFoxStudios<br>
+                📱 +1 (234) 567-8900
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1rem; color: #888;">
+                ¡Estamos listos para convertir tus ideas en realidad!
+            </p>
+        </div>
+    </section>
+    
+    <footer>
+        <div>
+            <p>© 2019-2026 DEV FOX STUDIOS™</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
+                Desarrollado con ❤️ para la comunidad gamer
+            </p>
+        </div>
+    </footer>
     
     <script>
-        // SCROLL SUAVE SIN OFFSET
+        // SCROLL SUAVE
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-            
+                
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
-            
+                
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop,
                         behavior: 'smooth'
                     });
-                
+                    
                     history.pushState(null, null, targetId);
                 }
             });
@@ -796,31 +912,20 @@
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.nav-menu a');
-        
+            
             let currentSection = '';
-        
+            
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-            
+                
                 if(window.scrollY >= sectionTop - 100) {
                     currentSection = section.getAttribute('id');
                 }
             });
-        
-            navLinks.forEach(link => {
-                link.classList.remove('active');
             
-                if(link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-            
-            // Quitar clase activa de todos los enlaces
             navLinks.forEach(link => {
                 link.classList.remove('active');
                 
-                // Agregar clase activa al enlace correspondiente
                 if(link.getAttribute('href') === `#${currentSection}`) {
                     link.classList.add('active');
                 }
@@ -835,71 +940,43 @@
             }
         });
         
-        // Manejar el botón del hero
+        // Botón del hero
         document.querySelector('.hero-button').addEventListener('click', function(e) {
             e.preventDefault();
-        
+            
             const targetElement = document.querySelector('#portfolio');
             if(targetElement) {
                 window.scrollTo({
                     top: targetElement.offsetTop,
                     behavior: 'smooth'
                 });
-            
+                
                 history.pushState(null, null, '#portfolio');
             }
         });
-
-        // EFECTO ESPECIAL PARA LAS TARJETAS DEL PORTFOLIO
-        const portfolioCards = document.querySelectorAll('.portfolio-card');
-    
-        portfolioCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                // Añadir una clase especial para el hover
-                this.style.zIndex = '100';
-            
-                // Efecto de sonido opcional (puedes descomentar si quieres)
-                // const hoverSound = new Audio('hover-sound.mp3');
-                // hoverSound.volume = 0.3;
-                // hoverSound.play();
-            });
         
+        // Efectos especiales para tarjetas
+        const enhancedCards = document.querySelectorAll('.enhanced-card');
+        
+        enhancedCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '100';
+            });
+            
             card.addEventListener('mouseleave', function() {
-                // Restaurar z-index
                 this.style.zIndex = '';
             });
         });
-
-        // Ajustes responsive para tarjetas
-        window.addEventListener('resize', function() {
-            const portfolioContainer = document.querySelector('.portfolio-container');
         
-            if(window.innerWidth <= 768) {
-                // En móviles, desactivar el efecto de escalado de otras tarjetas
-                portfolioContainer.style.gap = '20px';
-            } else {
-                // En desktop, reactivar el efecto
-                portfolioContainer.style.gap = '30px';
-            }
-        });
-        
-        // Asegurar que las tarjetas se ajusten en pantallas pequeñas
+        // Ajustes responsive
         window.addEventListener('resize', function() {
-            const gamesContainers = document.querySelectorAll('.games');
-            gamesContainers.forEach(container => {
-                const cards = container.querySelectorAll('.game-card, .small-card');
+            const cardsContainers = document.querySelectorAll('.cards-container');
+            
+            cardsContainers.forEach(container => {
                 if(window.innerWidth <= 768) {
-                    cards.forEach(card => {
-                        card.style.width = '90%';
-                        card.style.maxWidth = '300px';
-                        card.style.margin = '10px auto';
-                    });
+                    container.style.gap = '20px';
                 } else {
-                    cards.forEach(card => {
-                        card.style.width = '';
-                        card.style.maxWidth = '';
-                        card.style.margin = '';
-                    });
+                    container.style.gap = '40px';
                 }
             });
         });
