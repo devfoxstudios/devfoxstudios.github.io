@@ -147,8 +147,8 @@
         }
         
         body {
-            background-color: #0a0a0a;
-            color: white;
+            background-color: #000000;
+            color: black;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
@@ -569,7 +569,7 @@
         }
 
         /* BOTONES DE NAVEGACIÓN MÁS PEQUEÑOS */
-        .nav-button {
+        /*.nav-button {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -595,7 +595,7 @@
 
         .nav-button.next {
             right: -20px;
-        }
+        }*/
 
         /* INDICADORES MÁS PEQUEÑOS */
         .selector-indicators {
@@ -721,7 +721,6 @@
         }
 
         .skill-item {
-            background: rgba(255, 102, 0, 0.1);
             padding: 12px; /* Reducido */
             border-radius: 8px;
             border: 1px solid rgba(255, 102, 0, 0.2);
@@ -1158,8 +1157,8 @@
                 <div class="team-selector">
                     <div class="selector-title">Selecciona un Miembro</div>
                     
-                    <div class="selector-cards-container">
-                        <button class="nav-button prev" id="prevBtn">‹</button>
+                    <!---<div class="selector-cards-container">
+                        <button class="nav-button prev" id="prevBtn">‹</button>-->
                         
                         <!-- TODAS LAS 5 TARJETAS VISIBLES -->
                         <div class="selector-card" data-index="0">
@@ -1182,7 +1181,7 @@
                             <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Carlos">
                         </div>
                         
-                        <button class="nav-button next" id="nextBtn">›</button>
+                        <!---<button class="nav-button next" id="nextBtn">›</button>-->
                     </div>
                     
                     <div class="selector-indicators">
@@ -1326,11 +1325,11 @@
         const teamData = [
             {
                 id: 0,
-                name: "ALEX RIVERA",
-                role: "Game Director",
-                nationality: "México / España",
+                name: "MATY DEV",
+                role: "CEO",
+                nationality: "Argentina",
                 specialty: "Narrativa & Game Design",
-                experience: "8+ años en la industria",
+                experience: "6+ años en la industria",
                 projects: "Todos los proyectos",
                 avatar: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
                 skills: [
@@ -1407,7 +1406,7 @@
         ];
 
         // VARIABLES GLOBALES
-        let currentMemberIndex = 1;
+        let currentMemberIndex = 0;
         const selectorCards = document.querySelectorAll('.selector-card');
         const indicators = document.querySelectorAll('.indicator');
         const prevBtn = document.getElementById('prevBtn');
@@ -1493,8 +1492,8 @@
             });
             
             // Actualizar botones de navegación
-            prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === teamData.length - 1;
+            //prevBtn.disabled = index === 0;
+            //nextBtn.disabled = index === teamData.length - 1;
             
             // Actualizar detalles
             updateMemberDetails(index);
@@ -1520,7 +1519,7 @@
         });
 
         // EVENTOS PARA LOS BOTONES DE NAVEGACIÓN
-        prevBtn.addEventListener('click', () => {
+        /*prevBtn.addEventListener('click', () => {
             if (currentMemberIndex > 0) {
                 currentMemberIndex--;
                 updateSelector(currentMemberIndex);
@@ -1532,7 +1531,7 @@
                 currentMemberIndex++;
                 updateSelector(currentMemberIndex);
             }
-        });
+        });*/
 
         // EVENTOS DE TECLADO
         document.addEventListener('keydown', (e) => {
