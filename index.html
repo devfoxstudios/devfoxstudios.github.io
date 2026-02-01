@@ -35,12 +35,17 @@
             padding: 0 20px;
         }
         
-        .nav-logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #ff6600;
-            text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        /* ESTILOS PARA EL LOGO DE IMAGEN */
+        .logo-img {
+            height: 60px; /* Ajusta según tu imagen */
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        /* Efecto hover opcional */
+        .logo-img:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
         
         .nav-menu {
@@ -71,6 +76,7 @@
             background-color: rgba(255, 102, 0, 0.15) !important;
             border: 1px solid rgba(255, 102, 0, 0.5);
         }
+        
         
         /* HERO SECTION */
         .hero {
@@ -261,6 +267,11 @@
                 padding: 5px 10px;
                 font-size: 0.9rem;
             }
+            
+            /* Logo más pequeño en móviles */
+            .logo-img {
+                height: 40px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -281,6 +292,11 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+            
+            /* Logo aún más pequeño en móviles muy pequeños */
+            .logo-img {
+                height: 35px;
+            }
         }
     </style>
 </head>
@@ -288,7 +304,8 @@
     <!-- BARRA DE NAVEGACIÓN SIEMPRE TRANSPARENTE -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#inicio" class="nav-logo">DEV FOX STUDIOS</a>
+            <!-- LOGO COMO IMAGEN -->
+            <img src="Images/Topbar_Tittle.png" alt="DEV FOX STUDIOS" class="logo-img">
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#juegos">Nuestros Juegos</a></li>
