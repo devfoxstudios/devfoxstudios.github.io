@@ -191,6 +191,7 @@
             flex-wrap: wrap;
         }
         
+        /* Tarjetas para juegos, servicios y portfolio */
         .game-card {
             background: #1a1a1a;
             padding: 20px;
@@ -199,6 +200,15 @@
             height: 300px;
             border: 1px solid #333;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Nueva clase para tarjetas más pequeñas (para 4 y 5 en fila) */
+        .small-card {
+            width: 250px;
+            height: 250px;
         }
         
         .game-card:hover {
@@ -220,8 +230,8 @@
             border-left: 4px solid #ff6600;
         }
         
-        /* COLORES DE FONDO PARA CADA SECCIÓN */
-        #juegos {
+        /* COLORES DE FONDO PARA CADA SECCIÓN (NUEVO ORDEN) */
+        #portfolio {
             background-color: #0f0f0f;
         }
         
@@ -229,12 +239,16 @@
             background-color: #0a0a0a;
         }
         
-        #portfolio {
+        #juegos {
             background-color: #0f0f0f;
         }
         
-        #contacto {
+        #nosotros {
             background-color: #0a0a0a;
+        }
+        
+        #contacto {
+            background-color: #0f0f0f;
         }
         
         footer {
@@ -273,6 +287,14 @@
             .logo-img {
                 height: 40px;
             }
+            
+            /* Ajuste para tarjetas en móviles */
+            .game-card, .small-card {
+                width: 90%;
+                max-width: 300px;
+                height: auto;
+                min-height: 250px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -298,20 +320,25 @@
             .logo-img {
                 height: 35px;
             }
+            
+            h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- BARRA DE NAVEGACIÓN SIEMPRE TRANSPARENTE -->
+    <!-- BARRA DE NAVEGACIÓN CON NUEVO ORDEN -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <!-- LOGO COMO IMAGEN -->
             <img src="Images/Topbar_Tittle_2.png" alt="DEV FOX STUDIOS" class="logo-img">
             <ul class="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#juegos">Nuestros Juegos</a></li>
-                <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#juegos">Nuestros Juegos</a></li>
+                <li><a href="#nosotros">Sobre Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </div>
@@ -323,58 +350,10 @@
             <h1>Creando mundos. Contando historias.</h1>
             <p>Creating worlds. Telling stories.</p>
         </div>
-        <a href="#juegos" class="hero-button">VER JUEGOS</a>
+        <a href="#portfolio" class="hero-button">VER PORTFOLIO</a>
     </section>
     
-    <!-- SECCIÓN JUEGOS -->
-    <section id="juegos" class="section">
-        <div class="section-content">
-            <h2>Nuestros Juegos</h2>
-            <p>Explora algunos de nuestros proyectos</p>
-            
-            <div class="games">
-                <div class="game-card">
-                    <h3>Kiuby Rush</h3>
-                    <p>Versión Alpha 1.1.3</p>
-                    <small>Disponible en Play Store</small>
-                </div>
-                <div class="game-card">
-                    <h3>Reality Hole</h3>
-                    <p>Versión Alpha 1.0</p>
-                    <small>Disponible en Itch.io</small>
-                </div>
-                <div class="game-card">
-                    <h3>Juego Plataformas</h3>
-                    <p>En desarrollo</p>
-                    <small>Próximamente en Steam</small>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SECCIÓN SERVICIOS -->
-    <section id="servicios" class="section">
-        <div class="section-content">
-            <h2>Nuestros Servicios</h2>
-            
-            <div class="games">
-                <div class="game-card">
-                    <h3>Videojuegos</h3>
-                    <p>Desarrollo completo de juegos 2D y 3D</p>
-                </div>
-                <div class="game-card">
-                    <h3>Aplicaciones</h3>
-                    <p>Apps interactivas y experiencias inmersivas</p>
-                </div>
-                <div class="game-card">
-                    <h3>Asset Store</h3>
-                    <p>Assets y herramientas para desarrolladores</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SECCIÓN PORTFOLIO -->
+    <!-- SECCIÓN PORTFOLIO (AHORA PRIMERA DESPUÉS DE INICIO) -->
     <section id="portfolio" class="section">
         <div class="section-content">
             <h2>Portfolio</h2>
@@ -382,22 +361,116 @@
             
             <div class="games">
                 <div class="game-card">
-                    <h3>Juegos / Apps</h3>
-                    <p>Propios y para terceros</p>
+                    <h3>Juegos Completos</h3>
+                    <p>Desarrollos propios y para clientes</p>
+                    <small>Más de 10 proyectos completados</small>
                 </div>
                 <div class="game-card">
                     <h3>Modelado 3D</h3>
-                    <p>Propios y para terceros</p>
+                    <p>Personajes, entornos y assets</p>
+                    <small>Modelado y texturizado profesional</small>
                 </div>
                 <div class="game-card">
                     <h3>Diseño Gráfico</h3>
-                    <p>Propios y para terceros</p>
+                    <p>Interfaces y elementos visuales</p>
+                    <small>UI/UX especializado en videojuegos</small>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- SECCIÓN CONTACTO -->
+    <!-- SECCIÓN SERVICIOS (AHORA CON 4 TARJETAS) -->
+    <section id="servicios" class="section">
+        <div class="section-content">
+            <h2>Nuestros Servicios</h2>
+            <p>Soluciones completas para tu proyecto</p>
+            
+            <div class="games">
+                <div class="game-card small-card">
+                    <h3>Desarrollo de Videojuegos</h3>
+                    <p>Completo ciclo de desarrollo 2D y 3D</p>
+                    <small>Desde concepto hasta publicación</small>
+                </div>
+                <div class="game-card small-card">
+                    <h3>Aplicaciones Interactivas</h3>
+                    <p>Apps y experiencias inmersivas</p>
+                    <small>Realidad virtual y aumentada</small>
+                </div>
+                <div class="game-card small-card">
+                    <h3>Asset Store</h3>
+                    <p>Assets y herramientas para devs</p>
+                    <small>Modelos, scripts, sonidos y más</small>
+                </div>
+                <div class="game-card small-card">
+                    <h3>Consultoría</h3>
+                    <p>Asesoramiento técnico y de diseño</p>
+                    <small>Optimización y mejoras de proyectos</small>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECCIÓN JUEGOS (AHORA DESPUÉS DE SERVICIOS) -->
+    <section id="juegos" class="section">
+        <div class="section-content">
+            <h2>Nuestros Juegos</h2>
+            <p>Explora algunos de nuestros proyectos destacados</p>
+            
+            <div class="games">
+                <div class="game-card">
+                    <h3>Kiuby Rush</h3>
+                    <p>Versión Alpha 1.1.3</p>
+                    <p><small>Juego de acción y aventura móvil</small></p>
+                    <small>Disponible en Play Store</small>
+                </div>
+                <div class="game-card">
+                    <h3>Reality Hole</h3>
+                    <p>Versión Alpha 1.0</p>
+                    <p><small>Experiencia de realidad alternativa</small></p>
+                    <small>Disponible en Itch.io</small>
+                </div>
+                <div class="game-card">
+                    <h3>Juego Plataformas</h3>
+                    <p>En desarrollo</p>
+                    <p><small>Aventura en 2.5D con física avanzada</small></p>
+                    <small>Próximamente en Steam</small>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- NUEVA SECCIÓN: SOBRE NOSOTROS (CON 5 TARJETAS) -->
+    <section id="nosotros" class="section">
+        <div class="section-content">
+            <h2>Sobre Nosotros</h2>
+            <p>Conoce al equipo detrás de DEV FOX STUDIOS</p>
+            
+            <div class="games">
+                <div class="game-card small-card">
+                    <h3>Nuestra Misión</h3>
+                    <p>Crear experiencias de juego memorables que conecten con jugadores de todo el mundo</p>
+                </div>
+                <div class="game-card small-card">
+                    <h3>Equipo Experto</h3>
+                    <p>+5 años de experiencia combinada en desarrollo, arte y diseño de videojuegos</p>
+                </div>
+                <div class="game-card small-card">
+                    <h3>Tecnologías</h3>
+                    <p>Unity, Blender, Photoshop, C#, y las últimas herramientas del mercado</p>
+                </div>
+                <div class="game-card small-card">
+                    <h3>Filosofía</h3>
+                    <p>Innovación constante, calidad y atención al detalle en cada proyecto</p>
+                </div>
+                <div class="game-card small-card">
+                    <h3>Comunidad</h3>
+                    <p>Activa participación en eventos y desarrollo de la comunidad gamer local</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- SECCIÓN CONTACTO (AHORA LA ÚLTIMA) -->
     <section id="contacto" class="section">
         <div class="section-content">
             <h2>Contacto</h2>
@@ -408,6 +481,10 @@
                 🐦 Próximamente<br>
                 📱 Próximamente
             </div>
+            
+            <p style="margin-top: 30px; font-size: 1rem; color: #888;">
+                Estamos trabajando en nuestro sistema de contacto. ¡Vuelve pronto!
+            </p>
         </div>
     </section>
     
@@ -480,19 +557,40 @@
             }
         });
         
-        // Manejar el botón del hero
+        // Manejar el botón del hero (ahora apunta a Portfolio)
         document.querySelector('.hero-button').addEventListener('click', function(e) {
             e.preventDefault();
             
-            const targetElement = document.querySelector('#juegos');
+            const targetElement = document.querySelector('#portfolio');
             if(targetElement) {
                 window.scrollTo({
                     top: targetElement.offsetTop,
                     behavior: 'smooth'
                 });
                 
-                history.pushState(null, null, '#juegos');
+                history.pushState(null, null, '#portfolio');
             }
+        });
+        
+        // Asegurar que las tarjetas se ajusten en pantallas pequeñas
+        window.addEventListener('resize', function() {
+            const gamesContainers = document.querySelectorAll('.games');
+            gamesContainers.forEach(container => {
+                const cards = container.querySelectorAll('.game-card, .small-card');
+                if(window.innerWidth <= 768) {
+                    cards.forEach(card => {
+                        card.style.width = '90%';
+                        card.style.maxWidth = '300px';
+                        card.style.margin = '10px auto';
+                    });
+                } else {
+                    cards.forEach(card => {
+                        card.style.width = '';
+                        card.style.maxWidth = '';
+                        card.style.margin = '';
+                    });
+                }
+            });
         });
     </script>
 </body>
