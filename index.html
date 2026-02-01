@@ -480,11 +480,11 @@
             100% { transform: translate(100px, 100px); }
         }
         
-        /* EL EQUIPO - BANNERS DIAGONALES */
+        /* EL EQUIPO - SELECTOR DE PERSONAJES INTERACTIVO */
 #equipo {
     background: 
-        radial-gradient(circle at 20% 50%, rgba(255, 102, 0, 0.15) 0%, transparent 60%),
-        radial-gradient(circle at 80% 50%, rgba(156, 39, 176, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 20% 30%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(156, 39, 176, 0.1) 0%, transparent 50%),
         #0a0a0a;
     position: relative;
     overflow: hidden;
@@ -499,177 +499,228 @@
     bottom: 0;
     background: 
         repeating-linear-gradient(
-            45deg,
+            0deg,
             transparent,
-            transparent 10px,
-            rgba(255, 102, 0, 0.05) 10px,
-            rgba(255, 102, 0, 0.05) 20px
+            transparent 2px,
+            rgba(255, 102, 0, 0.03) 2px,
+            rgba(255, 102, 0, 0.03) 4px
         );
     pointer-events: none;
-    animation: teamGrid 30s linear infinite;
+    animation: scanlines 20s linear infinite;
 }
 
-@keyframes teamGrid {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(50px, 50px); }
+@keyframes scanlines {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
 }
 
-/* CONTENEDOR DE BANNERS DIAGONALES */
-.team-banners-container {
-    position: relative;
+/* CONTENEDOR PRINCIPAL DEL SELECTOR */
+.team-selector-container {
+    display: flex;
     width: 100%;
     max-width: 1400px;
     height: 600px;
+    gap: 40px;
+    padding: 20px;
+}
+
+/* PANEL IZQUIERDO - SELECTOR DE PERSONAJES */
+.team-selector {
+    flex: 0 0 40%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    padding: 40px 20px;
-    perspective: 1000px;
-    overflow: visible;
-}
-
-/* BANNER INDIVIDUAL - ESTILO DIAGONAL */
-.team-banner {
     position: relative;
-    width: 200px; /* Más estrecho, tipo banner vertical */
-    height: 500px; /* Más alto */
-    background: linear-gradient(145deg, #1a1a1a, #222222);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-    cursor: pointer;
-    box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.7),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 102, 0, 0.3);
-    
-    /* Efecto diagonal inicial */
-    transform: rotateY(-5deg) rotateX(5deg) translateZ(0);
-    transform-origin: center center;
-    
-    /* Efecto de profundidad */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
-/* Cada banner con una inclinación ligeramente diferente */
-.team-banner:nth-child(1) { transform: rotateY(-10deg) rotateX(5deg); }
-.team-banner:nth-child(2) { transform: rotateY(-5deg) rotateX(3deg); }
-.team-banner:nth-child(3) { transform: rotateY(0deg) rotateX(0deg); }
-.team-banner:nth-child(4) { transform: rotateY(5deg) rotateX(-3deg); }
-.team-banner:nth-child(5) { transform: rotateY(10deg) rotateX(-5deg); }
+.selector-title {
+    color: #ffcc99;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+    position: relative;
+    padding-bottom: 10px;
+}
 
-/* HOVER EFECTS */
-.team-banner:hover {
-    transform: rotateY(0deg) rotateX(0deg) scale(1.15) translateZ(50px) !important;
-    width: 250px; /* Se ensancha un poco al hacer hover */
-    height: 550px; /* Se alarga un poco */
-    z-index: 100;
-    box-shadow: 
-        0 25px 60px rgba(255, 102, 0, 0.4),
-        0 0 0 3px rgba(255, 102, 0, 0.2),
-        inset 0 0 30px rgba(255, 102, 0, 0.1);
+.selector-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff6600, transparent);
+}
+
+/* CONTENEDOR DE TARJETAS DEL SELECTOR */
+.selector-cards-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    position: relative;
+    height: 400px;
+}
+
+/* TARJETAS DEL SELECTOR (pequeñas, a los costados) */
+.selector-card {
+    width: 120px;
+    height: 160px;
+    background: linear-gradient(145deg, #1a1a1a, #222222);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    opacity: 0.6;
+    transform: scale(0.85);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 102, 0, 0.2);
+}
+
+.selector-card.active {
+    width: 150px;
+    height: 200px;
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
     border-color: #ff6600;
     border-width: 3px;
 }
 
-/* Cuando un banner está en hover, los otros se alejan */
-.team-banners-container:hover .team-banner:not(:hover) {
-    transform: scale(0.85) !important;
-    opacity: 0.5;
-    filter: blur(2px);
-}
-
-/* CAPA DE IMAGEN CON EFECTO PARALLAX */
-.banner-image {
-    position: absolute;
-    top: 0;
-    left: 0;
+.selector-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.8s ease;
+    transition: transform 0.4s ease;
+}
+
+.selector-card.active img {
     transform: scale(1.1);
-    filter: brightness(0.8) contrast(1.1);
 }
 
-.team-banner:hover .banner-image {
-    transform: scale(1.2);
-    filter: brightness(1) contrast(1.2);
+/* BOTONES DE NAVEGACIÓN */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 102, 0, 0.8);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    z-index: 20;
+    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
 }
 
-/* OVERLAY DE GRADIENTE PARA MEJOR LEGIBILIDAD */
-.banner-overlay {
+.nav-button:hover {
+    background: rgba(255, 102, 0, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 102, 0, 0.5);
+}
+
+.nav-button.prev {
+    left: -25px;
+}
+
+.nav-button.next {
+    right: -25px;
+}
+
+.nav-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: translateY(-50%) scale(1);
+}
+
+/* PANEL DERECHO - DETALLES DEL PERSONAJE */
+.team-details-panel {
+    flex: 0 0 55%;
+    background: linear-gradient(145deg, #1a1a1a, #222222);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 102, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* EFECTO DE BRILLO EN EL PANEL */
+.team-details-panel::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        #ff6600, 
+        #ffcc99, 
+        #ff6600, 
+        transparent
+    );
+    animation: panelGlow 3s linear infinite;
+}
+
+@keyframes panelGlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* CONTENIDO DEL PANEL */
+.character-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 102, 0, 0.2);
+}
+
+.character-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ff6600;
+    box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
+}
+
+.character-avatar img {
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        transparent 30%,
-        rgba(0, 0, 0, 0.7) 70%,
-        rgba(0, 0, 0, 0.9) 100%
-    );
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 25px;
-    transition: all 0.5s ease;
+    object-fit: cover;
 }
 
-.team-banner:hover .banner-overlay {
-    background: linear-gradient(
-        to bottom,
-        transparent 20%,
-        rgba(0, 0, 0, 0.8) 60%,
-        rgba(0, 0, 0, 0.95) 100%
-    );
-}
-
-/* CONTENIDO DEL BANNER */
-.banner-content {
-    position: relative;
-    z-index: 2;
-    text-align: left;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-    opacity: 0.9;
-}
-
-.team-banner:hover .banner-content {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.banner-content h3 {
+.character-info h2 {
     color: #ffcc99;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
 }
 
-.banner-content p {
-    color: #cccccc;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    line-height: 1.4;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-}
-
-/* BADGE DE ROL/ESPECIALIDAD */
-.role-badge {
+.character-role {
     display: inline-block;
     background: linear-gradient(45deg, rgba(255, 102, 0, 0.3), rgba(255, 153, 0, 0.2));
     color: #ffcc99;
-    padding: 6px 15px;
-    border-radius: 15px;
-    font-size: 0.8rem;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 1rem;
     font-weight: bold;
     margin-top: 10px;
     border: 1px solid rgba(255, 102, 0, 0.4);
@@ -677,128 +728,136 @@
     letter-spacing: 1px;
 }
 
-/* EFECTO DE BRILLO EN EL BORDE */
-.team-banner::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, 
-        transparent, 
-        #ff6600, 
-        #ffcc99, 
-        #ff6600, 
-        transparent
-    );
-    border-radius: 17px;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+/* DETALLES DEL PERSONAJE */
+.character-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 30px;
 }
 
-.team-banner:hover::before {
-    opacity: 1;
-    animation: borderGlow 2s linear infinite;
+.detail-item {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #ff6600;
 }
 
-@keyframes borderGlow {
-    0% { opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { opacity: 0.5; }
-}
-
-/* EFECTO DE SELECCIÓN (como en juegos de pelea) */
-.selection-indicator {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
+.detail-item h4 {
     color: #ff6600;
-    font-size: 2.5rem;
-    opacity: 0;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.detail-item p {
+    color: #cccccc;
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* HABILIDADES */
+.character-skills {
+    margin-top: 20px;
+}
+
+.character-skills h3 {
+    color: #ffcc99;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.skill-item {
+    background: rgba(255, 102, 0, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 102, 0, 0.2);
     transition: all 0.3s ease;
-    text-shadow: 0 0 20px rgba(255, 102, 0, 0.8);
-    z-index: 10;
 }
 
-.team-banner:hover .selection-indicator {
-    transform: translateX(-50%) scale(1);
-    opacity: 1;
-    animation: float 2s ease-in-out infinite;
+.skill-item:hover {
+    background: rgba(255, 102, 0, 0.2);
+    transform: translateY(-3px);
+    border-color: #ff6600;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
-    50% { transform: translateX(-50%) translateY(-10px) scale(1.1); }
+.skill-item h4 {
+    color: #ffcc99;
+    font-size: 1rem;
+    margin-bottom: 8px;
 }
 
-/* RESPONSIVE PARA BANNERS */
+.skill-item p {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* RESPONSIVE */
 @media (max-width: 1200px) {
-    .team-banners-container {
-        height: 500px;
-        gap: 10px;
-    }
-    
-    .team-banner {
-        width: 180px;
-        height: 450px;
-    }
-    
-    .team-banner:hover {
-        width: 220px;
-        height: 500px;
-    }
-}
-
-@media (max-width: 992px) {
-    .team-banners-container {
-        flex-wrap: wrap;
+    .team-selector-container {
         height: auto;
-        gap: 20px;
-        padding: 30px 20px;
+        flex-direction: column;
+        gap: 30px;
     }
     
-    .team-banner {
-        width: 45%;
-        max-width: 200px;
-        height: 400px;
-        transform: rotateY(0) rotateX(0) !important;
+    .team-selector, .team-details-panel {
+        flex: 1;
+        width: 100%;
     }
     
-    .team-banner:hover {
-        width: 50%;
-        height: 450px;
-        transform: scale(1.1) !important;
-    }
-    
-    .team-banners-container:hover .team-banner:not(:hover) {
-        transform: scale(0.9) !important;
+    .selector-cards-container {
+        height: 200px;
     }
 }
 
 @media (max-width: 768px) {
-    .team-banners-container {
+    .team-selector-container {
+        padding: 10px;
+    }
+    
+    .team-details-panel {
+        padding: 25px;
+    }
+    
+    .character-header {
         flex-direction: column;
-        height: auto;
+        text-align: center;
+        gap: 15px;
     }
     
-    .team-banner {
-        width: 90%;
-        max-width: 300px;
-        height: 350px;
-        margin: 15px 0;
+    .character-details {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
     
-    .team-banner:hover {
-        width: 95%;
-        height: 380px;
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
     
-    .team-banners-container:hover .team-banner:not(:hover) {
-        transform: scale(0.95) !important;
-        opacity: 0.8;
+    .nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .nav-button.prev {
+        left: -20px;
+    }
+    
+    .nav-button.next {
+        right: -20px;
     }
 }
         
@@ -1116,80 +1175,96 @@
         </div>
     </section>
     
-   <!-- SECCIÓN EL EQUIPO - BANNERS DIAGONALES -->
+   <!-- SECCIÓN EL EQUIPO - SELECTOR INTERACTIVO -->
 <section id="equipo" class="section">
     <div class="section-content">
         <h2 class="section-title">El Equipo</h2>
         
-        <div class="team-banners-container">
-            <!-- Banner 1: Game Director -->
-            <div class="team-banner">
-                <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Game Director" class="banner-image">
-                <div class="banner-overlay">
-                    <div class="banner-content">
-                        <h3>ALEX RIVERA</h3>
-                        <p>Visionario creativo con 8+ años en la industria. Especializado en narrativa y diseño de jugabilidad.</p>
-                        <span class="role-badge">Game Director</span>
+        <div class="team-selector-container">
+            <!-- PANEL IZQUIERDO: SELECTOR -->
+            <div class="team-selector">
+                <div class="selector-title">Selecciona un Miembro</div>
+                
+                <div class="selector-cards-container">
+                    <button class="nav-button prev" id="prevBtn">‹</button>
+                    
+                    <div class="selector-card" data-index="0">
+                        <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Alex">
                     </div>
+                    
+                    <div class="selector-card active" data-index="1">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="María">
+                    </div>
+                    
+                    <div class="selector-card" data-index="2">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Samuel">
+                    </div>
+                    
+                    <button class="nav-button next" id="nextBtn">›</button>
                 </div>
-                <div class="selection-indicator">✦</div>
+                
+                <div class="selector-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
             </div>
             
-            <!-- Banner 2: Lead Developer -->
-            <div class="team-banner">
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Lead Developer" class="banner-image">
-                <div class="banner-overlay">
-                    <div class="banner-content">
-                        <h3>MARÍA CHEN</h3>
-                        <p>Experta en Unity y C#. Lidera el desarrollo técnico de todos nuestros proyectos.</p>
-                        <span class="role-badge">Lead Developer</span>
+            <!-- PANEL DERECHO: DETALLES -->
+            <div class="team-details-panel">
+                <!-- El contenido se actualiza con JavaScript -->
+                <div class="character-header">
+                    <div class="character-avatar">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="María Chen">
+                    </div>
+                    <div class="character-info">
+                        <h2>MARÍA CHEN</h2>
+                        <span class="character-role">Lead Developer</span>
                     </div>
                 </div>
-                <div class="selection-indicator">✦</div>
-            </div>
-            
-            <!-- Banner 3: Art Director -->
-            <div class="team-banner">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Art Director" class="banner-image">
-                <div class="banner-overlay">
-                    <div class="banner-content">
-                        <h3>SAMUEL KIM</h3>
-                        <p>Artista conceptual y modelador 3D. Crea mundos visualmente impresionantes.</p>
-                        <span class="role-badge">Art Director</span>
+                
+                <div class="character-details">
+                    <div class="detail-item">
+                        <h4>📍 Nacionalidad</h4>
+                        <p>Argentina / China</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>🎓 Especialidad</h4>
+                        <p>Unity Engine & C#</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>⏳ Experiencia</h4>
+                        <p>6+ años en desarrollo de juegos</p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>🎮 Proyectos</h4>
+                        <p>Kiuby Rush, Reality Hole</p>
                     </div>
                 </div>
-                <div class="selection-indicator">✦</div>
-            </div>
-            
-            <!-- Banner 4: Sound Designer -->
-            <div class="team-banner">
-                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="Sound Designer" class="banner-image">
-                <div class="banner-overlay">
-                    <div class="banner-content">
-                        <h3>LENA WAGNER</h3>
-                        <p>Compositora y diseñadora de sonido. Crea atmósferas auditivas inmersivas.</p>
-                        <span class="role-badge">Sound Designer</span>
+                
+                <div class="character-skills">
+                    <h3>🛠️ Habilidades Principales</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <h4>Programación C#</h4>
+                            <p>Experta en patrones de diseño y arquitectura</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Optimización</h4>
+                            <p>Especialista en rendimiento y profiling</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Unity 3D</h4>
+                            <p>Conocimiento avanzado del motor gráfico</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Shaders</h4>
+                            <p>Creación de efectos visuales personalizados</p>
+                        </div>
                     </div>
                 </div>
-                <div class="selection-indicator">✦</div>
-            </div>
-            
-            <!-- Banner 5: QA Lead -->
-            <div class="team-banner">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                     alt="QA Lead" class="banner-image">
-                <div class="banner-overlay">
-                    <div class="banner-content">
-                        <h3>CARLOS MÉNDEZ</h3>
-                        <p>Especialista en testing y experiencia de usuario. Garantiza calidad impecable.</p>
-                        <span class="role-badge">QA Lead</span>
-                    </div>
-                </div>
-                <div class="selection-indicator">✦</div>
             </div>
         </div>
     </div>
@@ -1314,6 +1389,210 @@
                 }
             });
         });
+
+        // DATOS DEL EQUIPO
+const teamData = [
+    {
+        id: 0,
+        name: "ALEX RIVERA",
+        role: "Game Director",
+        nationality: "México / España",
+        specialty: "Narrativa & Game Design",
+        experience: "8+ años en la industria",
+        projects: "Todos los proyectos",
+        avatar: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        skills: [
+            { name: "Diseño de Juego", desc: "Mecánicas y balance" },
+            { name: "Narrativa", desc: "Storytelling y worldbuilding" },
+            { name: "Liderazgo", desc: "Gestión de equipos creativos" },
+            { name: "Prototipado", desc: "Rápida iteración de ideas" }
+        ]
+    },
+    {
+        id: 1,
+        name: "MARÍA CHEN",
+        role: "Lead Developer",
+        nationality: "Argentina / China",
+        specialty: "Unity Engine & C#",
+        experience: "6+ años en desarrollo",
+        projects: "Kiuby Rush, Reality Hole",
+        avatar: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        skills: [
+            { name: "Programación C#", desc: "Patrones de diseño avanzados" },
+            { name: "Optimización", desc: "Rendimiento y profiling" },
+            { name: "Unity 3D", desc: "Motor gráfico avanzado" },
+            { name: "Shaders", desc: "Efectos visuales personalizados" }
+        ]
+    },
+    {
+        id: 2,
+        name: "SAMUEL KIM",
+        role: "Art Director",
+        nationality: "Corea del Sur",
+        specialty: "Arte 3D & Concept Art",
+        experience: "7+ años en arte digital",
+        projects: "Dimension Shift, Reality Hole",
+        avatar: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        skills: [
+            { name: "Modelado 3D", desc: "Personajes y entornos" },
+            { name: "Texturizado", desc: "PBR materials avanzados" },
+            { name: "Concept Art", desc: "Diseño visual y estilo" },
+            { name: "Animación", desc: "Rigging y keyframe" }
+        ]
+    },
+    {
+        id: 3,
+        name: "LENA WAGNER",
+        role: "Sound Designer",
+        nationality: "Alemania",
+        specialty: "Audio & Música Original",
+        experience: "5+ años en audio para juegos",
+        projects: "Kiuby Rush, Dimension Shift",
+        avatar: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        skills: [
+            { name: "Composición", desc: "Bandas sonoras originales" },
+            { name: "SFX Design", desc: "Efectos de sonido inmersivos" },
+            { name: "Audio 3D", desc: "Posicionamiento espacial" },
+            { name: "Voice Direction", desc: "Dirección de actores de voz" }
+        ]
+    },
+    {
+        id: 4,
+        name: "CARLOS MÉNDEZ",
+        role: "QA Lead",
+        nationality: "Colombia",
+        specialty: "Testing & Experiencia de Usuario",
+        experience: "4+ años en QA especializado",
+        projects: "Todos los proyectos",
+        avatar: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+        skills: [
+            { name: "Testing", desc: "Pruebas exhaustivas de jugabilidad" },
+            { name: "UX Research", desc: "Análisis de experiencia de usuario" },
+            { name: "Bug Tracking", desc: "Sistemas de reporte avanzados" },
+            { name: "Balance", desc: "Ajuste de dificultad y progresión" }
+        ]
+    }
+];
+
+// VARIABLES GLOBALES
+let currentMemberIndex = 1;
+const selectorCards = document.querySelectorAll('.selector-card');
+const indicators = document.querySelectorAll('.indicator');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+// FUNCIÓN PARA ACTUALIZAR EL PANEL DE DETALLES
+function updateMemberDetails(index) {
+    const member = teamData[index];
+    const panel = document.querySelector('.team-details-panel');
+    
+    panel.innerHTML = `
+        <div class="character-header">
+            <div class="character-avatar">
+                <img src="${member.avatar}" alt="${member.name}">
+            </div>
+            <div class="character-info">
+                <h2>${member.name}</h2>
+                <span class="character-role">${member.role}</span>
+            </div>
+        </div>
+        
+        <div class="character-details">
+            <div class="detail-item">
+                <h4>📍 Nacionalidad</h4>
+                <p>${member.nationality}</p>
+            </div>
+            <div class="detail-item">
+                <h4>🎓 Especialidad</h4>
+                <p>${member.specialty}</p>
+            </div>
+            <div class="detail-item">
+                <h4>⏳ Experiencia</h4>
+                <p>${member.experience}</p>
+            </div>
+            <div class="detail-item">
+                <h4>🎮 Proyectos</h4>
+                <p>${member.projects}</p>
+            </div>
+        </div>
+        
+        <div class="character-skills">
+            <h3>🛠️ Habilidades Principales</h3>
+            <div class="skills-grid">
+                ${member.skills.map(skill => `
+                    <div class="skill-item">
+                        <h4>${skill.name}</h4>
+                        <p>${skill.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+// FUNCIÓN PARA ACTUALIZAR EL SELECTOR
+function updateSelector(index) {
+    // Actualizar tarjetas
+    selectorCards.forEach((card, i) => {
+        const cardIndex = parseInt(card.dataset.index);
+        const isActive = cardIndex === index;
+        
+        card.classList.toggle('active', isActive);
+        card.style.opacity = isActive ? '1' : '0.6';
+        card.style.transform = isActive ? 'scale(1)' : 'scale(0.85)';
+        card.style.zIndex = isActive ? '10' : '1';
+    });
+    
+    // Actualizar indicadores
+    indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === index);
+    });
+    
+    // Actualizar botones
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === teamData.length - 1;
+    
+    // Actualizar detalles
+    updateMemberDetails(index);
+}
+
+// EVENTOS PARA LAS TARJETAS
+selectorCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const index = parseInt(card.dataset.index);
+        currentMemberIndex = index;
+        updateSelector(currentMemberIndex);
+    });
+});
+
+// EVENTOS PARA LOS BOTONES DE NAVEGACIÓN
+prevBtn.addEventListener('click', () => {
+    if (currentMemberIndex > 0) {
+        currentMemberIndex--;
+        updateSelector(currentMemberIndex);
+    }
+});
+
+nextBtn.addEventListener('click', () => {
+    if (currentMemberIndex < teamData.length - 1) {
+        currentMemberIndex++;
+        updateSelector(currentMemberIndex);
+    }
+});
+
+// EVENTOS DE TECLADO
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && currentMemberIndex > 0) {
+        currentMemberIndex--;
+        updateSelector(currentMemberIndex);
+    } else if (e.key === 'ArrowRight' && currentMemberIndex < teamData.length - 1) {
+        currentMemberIndex++;
+        updateSelector(currentMemberIndex);
+    }
+});
+
+// INICIALIZAR
+updateSelector(currentMemberIndex);
     </script>
 </body>
 </html>
