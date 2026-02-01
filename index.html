@@ -1146,47 +1146,6 @@
                 </a>
             </div>
         </div>
-    </section>
-        <div class="character-header">
-            <div class="character-avatar">
-                <img src="${member.avatar}" alt="${member.name}" loading="lazy">
-            </div>
-            <div class="character-info">
-                <h2>${member.name}</h2>
-                <span class="character-role">${member.role}</span>
-            </div>
-        </div>
-        
-        <div class="character-details">
-            <div class="detail-item">
-                <h4>📍 Nacionalidad</h4>
-                <p>${member.nationality}</p>
-            </div>
-            <div class="detail-item">
-                <h4>🎓 Especialidad</h4>
-                <p>${member.specialty}</p>
-            </div>
-            <div class="detail-item">
-                <h4>⏳ Experiencia</h4>
-                <p>${member.experience}</p>
-            </div>
-            <div class="detail-item">
-                <h4>🎮 Proyectos</h4>
-                <p>${member.projects}</p>
-            </div>
-        </div>
-        
-        <div class="character-skills">
-            <h3>🛠️ Habilidades Principales</h3>
-            <div class="skills-grid">
-                ${member.skills.map(skill => `
-                    <div class="skill-item">
-                        <h4>${skill.name}</h4>
-                        <p>${skill.desc}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
     `;
 }
 
@@ -1243,7 +1202,7 @@
         </div>
     </div>
 </section>
-
+        
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="section">
         <div class="section-content">
