@@ -1147,8 +1147,224 @@
             </div>
         </div>
     </section>
+        <div class="character-header">
+            <div class="character-avatar">
+                <img src="${member.avatar}" alt="${member.name}" loading="lazy">
+            </div>
+            <div class="character-info">
+                <h2>${member.name}</h2>
+                <span class="character-role">${member.role}</span>
+            </div>
+        </div>
+        
+        <div class="character-details">
+            <div class="detail-item">
+                <h4>📍 Nacionalidad</h4>
+                <p>${member.nationality}</p>
+            </div>
+            <div class="detail-item">
+                <h4>🎓 Especialidad</h4>
+                <p>${member.specialty}</p>
+            </div>
+            <div class="detail-item">
+                <h4>⏳ Experiencia</h4>
+                <p>${member.experience}</p>
+            </div>
+            <div class="detail-item">
+                <h4>🎮 Proyectos</h4>
+                <p>${member.projects}</p>
+            </div>
+        </div>
+        
+        <div class="character-skills">
+            <h3>🛠️ Habilidades Principales</h3>
+            <div class="skills-grid">
+                ${member.skills.map(skill => `
+                    <div class="skill-item">
+                        <h4>${skill.name}</h4>
+                        <p>${skill.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+    <!-- SECCIÓN EL EQUIPO - SELECTOR INTERACTIVO -->
+<section id="equipo" class="section">
+    <div class="section-content">
+        <h2 class="section-title">El Equipo</h2>
+        
+        <div class="team-selector-container">
+            <!-- PANEL IZQUIERDO: SELECTOR -->
+            <div class="team-selector">
+                <div class="selector-title">Selecciona un Miembro</div>
+                
+                <div class="selector-cards-container">
+                    <button class="nav-button prev" id="prevBtn">‹</button>
+                    
+                    <!-- TODAS LAS 5 TARJETAS VISIBLES -->
+                    <div class="selector-card" data-index="0">
+                        <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Alex">
+                    </div>
+                    
+                    <div class="selector-card active" data-index="1">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="María">
+                    </div>
+                    
+                    <div class="selector-card" data-index="2">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Samuel">
+                    </div>
+                    
+                    <div class="selector-card" data-index="3">
+                        <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lena">
+                    </div>
+                    
+                    <div class="selector-card" data-index="4">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Carlos">
+                    </div>
+                    
+                    <button class="nav-button next" id="nextBtn">›</button>
+                </div>
+                
+                <div class="selector-indicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                    <span class="indicator" data-index="3"></span>
+                    <span class="indicator" data-index="4"></span>
+                </div>
+            </div>
+            
+            <!-- PANEL DERECHO: DETALLES (se actualizará con JS) -->
+            <div class="team-details-panel" id="detailsPanel">
+                <!-- El contenido se carga dinámicamente -->
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="section">
+        <div class="section-content">
+            <h2 class="section-title">¿Tienes un proyecto en mente? Hablemos<</h2>
+            
+            <div class="unity-badge">
+                📧 contacto@devfoxstudios.com<br>
+                🐦 @DevFoxStudios<br>
+                📱 +1 (234) 567-8900
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1rem; color: #888;">
+                ¡Estamos listos para convertir tus ideas en realidad!
+            </p>
+        </div>
+    </section>
     
-   // DATOS DEL EQUIPO (mismo que antes)
+    <footer>
+        <div>
+            <p>© 2019-2026 DEV FOX STUDIOS™</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
+                Desarrollado con ❤️ para la comunidad gamer
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // SCROLL SUAVE
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+        
+        // RESALTAR ENLACE ACTIVO
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                
+                if(window.scrollY >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                
+                if(link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Inicializar enlace activo
+        window.addEventListener('DOMContentLoaded', function() {
+            const inicioLink = document.querySelector('.nav-menu a[href="#inicio"]');
+            if(inicioLink && window.scrollY < 100) {
+                inicioLink.classList.add('active');
+            }
+        });
+        
+        // Botón del hero
+        document.querySelector('.hero-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetElement = document.querySelector('#portfolio');
+            if(targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                history.pushState(null, null, '#portfolio');
+            }
+        });
+        
+        // Efectos especiales para tarjetas
+        const enhancedCards = document.querySelectorAll('.enhanced-card');
+        
+        enhancedCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.zIndex = '100';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.zIndex = '';
+            });
+        });
+        
+        // Ajustes responsive
+        window.addEventListener('resize', function() {
+            const cardsContainers = document.querySelectorAll('.cards-container');
+            
+            cardsContainers.forEach(container => {
+                if(window.innerWidth <= 768) {
+                    container.style.gap = '20px';
+                } else {
+                    container.style.gap = '40px';
+                }
+            });
+        });
+
+        // DATOS DEL EQUIPO (mismo que antes)
 const teamData = [
     {
         id: 0,
@@ -1288,331 +1504,7 @@ function updateMemberDetails(index) {
     `;
 }
 
-    <!-- SECCIÓN CONTACTO -->
-    <section id="contacto" class="section">
-        <div class="section-content">
-            <h2 class="section-title">¿Tienes un proyecto en mente? Hablemos<</h2>
-            
-            <div class="unity-badge">
-                📧 contacto@devfoxstudios.com<br>
-                🐦 @DevFoxStudios<br>
-                📱 +1 (234) 567-8900
-            </div>
-            
-            <p style="margin-top: 30px; font-size: 1rem; color: #888;">
-                ¡Estamos listos para convertir tus ideas en realidad!
-            </p>
-        </div>
-    </section>
-    
-    <footer>
-        <div>
-            <p>© 2019-2026 DEV FOX STUDIOS™</p>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
-                Desarrollado con ❤️ para la comunidad gamer
-            </p>
-        </div>
-    </footer>
-    
-    <script>
-        // SCROLL SUAVE
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                    
-                    history.pushState(null, null, targetId);
-                }
-            });
-        });
-        
-        // RESALTAR ENLACE ACTIVO
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section');
-            const navLinks = document.querySelectorAll('.nav-menu a');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                
-                if(window.scrollY >= sectionTop - 100) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                
-                if(link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // Inicializar enlace activo
-        window.addEventListener('DOMContentLoaded', function() {
-            const inicioLink = document.querySelector('.nav-menu a[href="#inicio"]');
-            if(inicioLink && window.scrollY < 100) {
-                inicioLink.classList.add('active');
-            }
-        });
-        
-        // Botón del hero
-        document.querySelector('.hero-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetElement = document.querySelector('#portfolio');
-            if(targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                history.pushState(null, null, '#portfolio');
-            }
-        });
-        
-        // Efectos especiales para tarjetas
-        const enhancedCards = document.querySelectorAll('.enhanced-card');
-        
-        enhancedCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.zIndex = '100';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.zIndex = '';
-            });
-        });
-        
-        // Ajustes responsive
-        window.addEventListener('resize', function() {
-            const cardsContainers = document.querySelectorAll('.cards-container');
-            
-            cardsContainers.forEach(container => {
-                if(window.innerWidth <= 768) {
-                    container.style.gap = '20px';
-                } else {
-                    container.style.gap = '40px';
-                }
-            });
-        });
-
-        // DATOS DEL EQUIPO
-const teamData = [
-    {
-        id: 0,
-        name: "ALEX RIVERA",
-        role: "Game Director",
-        nationality: "México / España",
-        specialty: "Narrativa & Game Design",
-        experience: "8+ años en la industria",
-        projects: "Todos los proyectos",
-        avatar: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        skills: [
-            { name: "Diseño de Juego", desc: "Mecánicas y balance" },
-            { name: "Narrativa", desc: "Storytelling y worldbuilding" },
-            { name: "Liderazgo", desc: "Gestión de equipos creativos" },
-            { name: "Prototipado", desc: "Rápida iteración de ideas" }
-        ]
-    },
-    {
-        id: 1,
-        name: "MARÍA CHEN",
-        role: "Lead Developer",
-        nationality: "Argentina / China",
-        specialty: "Unity Engine & C#",
-        experience: "6+ años en desarrollo",
-        projects: "Kiuby Rush, Reality Hole",
-        avatar: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        skills: [
-            { name: "Programación C#", desc: "Patrones de diseño avanzados" },
-            { name: "Optimización", desc: "Rendimiento y profiling" },
-            { name: "Unity 3D", desc: "Motor gráfico avanzado" },
-            { name: "Shaders", desc: "Efectos visuales personalizados" }
-        ]
-    },
-    {
-        id: 2,
-        name: "SAMUEL KIM",
-        role: "Art Director",
-        nationality: "Corea del Sur",
-        specialty: "Arte 3D & Concept Art",
-        experience: "7+ años en arte digital",
-        projects: "Dimension Shift, Reality Hole",
-        avatar: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        skills: [
-            { name: "Modelado 3D", desc: "Personajes y entornos" },
-            { name: "Texturizado", desc: "PBR materials avanzados" },
-            { name: "Concept Art", desc: "Diseño visual y estilo" },
-            { name: "Animación", desc: "Rigging y keyframe" }
-        ]
-    },
-    {
-        id: 3,
-        name: "LENA WAGNER",
-        role: "Sound Designer",
-        nationality: "Alemania",
-        specialty: "Audio & Música Original",
-        experience: "5+ años en audio para juegos",
-        projects: "Kiuby Rush, Dimension Shift",
-        avatar: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        skills: [
-            { name: "Composición", desc: "Bandas sonoras originales" },
-            { name: "SFX Design", desc: "Efectos de sonido inmersivos" },
-            { name: "Audio 3D", desc: "Posicionamiento espacial" },
-            { name: "Voice Direction", desc: "Dirección de actores de voz" }
-        ]
-    },
-    {
-        id: 4,
-        name: "CARLOS MÉNDEZ",
-        role: "QA Lead",
-        nationality: "Colombia",
-        specialty: "Testing & Experiencia de Usuario",
-        experience: "4+ años en QA especializado",
-        projects: "Todos los proyectos",
-        avatar: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-        skills: [
-            { name: "Testing", desc: "Pruebas exhaustivas de jugabilidad" },
-            { name: "UX Research", desc: "Análisis de experiencia de usuario" },
-            { name: "Bug Tracking", desc: "Sistemas de reporte avanzados" },
-            { name: "Balance", desc: "Ajuste de dificultad y progresión" }
-        ]
-    }
-];
-
-// VARIABLES GLOBALES
-let currentMemberIndex = 1;
-const selectorCards = document.querySelectorAll('.selector-card');
-const indicators = document.querySelectorAll('.indicator');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-
-// FUNCIÓN PARA ACTUALIZAR EL PANEL DE DETALLES
-function updateMemberDetails(index) {
-    const member = teamData[index];
-    const panel = document.querySelector('.team-details-panel');
-    
-    panel.innerHTML = `
-        <div class="character-header">
-            <div class="character-avatar">
-                <img src="${member.avatar}" alt="${member.name}">
-            </div>
-            <div class="character-info">
-                <h2>${member.name}</h2>
-                <span class="character-role">${member.role}</span>
-            </div>
-        </div>
-        
-        <div class="character-details">
-            <div class="detail-item">
-                <h4>📍 Nacionalidad</h4>
-                <p>${member.nationality}</p>
-            </div>
-            <div class="detail-item">
-                <h4>🎓 Especialidad</h4>
-                <p>${member.specialty}</p>
-            </div>
-            <div class="detail-item">
-                <h4>⏳ Experiencia</h4>
-                <p>${member.experience}</p>
-            </div>
-            <div class="detail-item">
-                <h4>🎮 Proyectos</h4>
-                <p>${member.projects}</p>
-            </div>
-        </div>
-        
-        <div class="character-skills">
-            <h3>🛠️ Habilidades Principales</h3>
-            <div class="skills-grid">
-                ${member.skills.map(skill => `
-                    <div class="skill-item">
-                        <h4>${skill.name}</h4>
-                        <p>${skill.desc}</p>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `;
-}
-
 // FUNCIÓN PARA ACTUALIZAR EL SELECTOR
-function updateSelector(index) {
-    // Actualizar tarjetas
-    selectorCards.forEach((card, i) => {
-        const cardIndex = parseInt(card.dataset.index);
-        const isActive = cardIndex === index;
-        
-        card.classList.toggle('active', isActive);
-        card.style.opacity = isActive ? '1' : '0.6';
-        card.style.transform = isActive ? 'scale(1)' : 'scale(0.85)';
-        card.style.zIndex = isActive ? '10' : '1';
-    });
-    
-    // Actualizar indicadores
-    indicators.forEach((indicator, i) => {
-        indicator.classList.toggle('active', i === index);
-    });
-    
-    // Actualizar botones
-    prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === teamData.length - 1;
-    
-    // Actualizar detalles
-    updateMemberDetails(index);
-}
-
-// EVENTOS PARA LAS TARJETAS
-selectorCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const index = parseInt(card.dataset.index);
-        currentMemberIndex = index;
-        updateSelector(currentMemberIndex);
-    });
-});
-
-// EVENTOS PARA LOS BOTONES DE NAVEGACIÓN
-prevBtn.addEventListener('click', () => {
-    if (currentMemberIndex > 0) {
-        currentMemberIndex--;
-        updateSelector(currentMemberIndex);
-    }
-});
-
-nextBtn.addEventListener('click', () => {
-    if (currentMemberIndex < teamData.length - 1) {
-        currentMemberIndex++;
-        updateSelector(currentMemberIndex);
-    }
-});
-
-// EVENTOS DE TECLADO
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft' && currentMemberIndex > 0) {
-        currentMemberIndex--;
-        updateSelector(currentMemberIndex);
-    } else if (e.key === 'ArrowRight' && currentMemberIndex < teamData.length - 1) {
-        currentMemberIndex++;
-        updateSelector(currentMemberIndex);
-    }
-});
-
-// INICIALIZAR
-updateSelector(currentMemberIndex);
-
-        // FUNCIÓN PARA ACTUALIZAR EL SELECTOR
 function updateSelector(index) {
     // Actualizar tarjetas
     selectorCards.forEach((card, i) => {
