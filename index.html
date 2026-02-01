@@ -480,7 +480,7 @@
             100% { transform: translate(100px, 100px); }
         }
         
-        /* EL EQUIPO - SELECTOR DE PERSONAJES INTERACTIVO */
+        /* EL EQUIPO - SELECTOR MEJORADO */
 #equipo {
     background: 
         radial-gradient(circle at 20% 30%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
@@ -488,376 +488,349 @@
         #0a0a0a;
     position: relative;
     overflow: hidden;
+    min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#equipo::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 102, 0, 0.03) 2px,
-            rgba(255, 102, 0, 0.03) 4px
-        );
-    pointer-events: none;
-    animation: scanlines 20s linear infinite;
-}
-
-@keyframes scanlines {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(100px); }
-}
-
-/* CONTENEDOR PRINCIPAL DEL SELECTOR */
+/* CONTENEDOR PRINCIPAL MEJORADO */
 .team-selector-container {
     display: flex;
     width: 100%;
     max-width: 1400px;
-    height: 600px;
-    gap: 40px;
+    height: 70vh; /* 70% del viewport height en lugar de fijo */
+    max-height: 700px;
+    min-height: 500px;
+    gap: 30px;
     padding: 20px;
+    align-items: center;
 }
 
-/* PANEL IZQUIERDO - SELECTOR DE PERSONAJES */
+/* PANEL IZQUIERDO - SELECTOR MÁS COMPACTO */
 .team-selector {
-    flex: 0 0 40%;
+    flex: 0 0 35%; /* Reducido de 40% a 35% */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    height: 100%;
 }
 
 .selector-title {
     color: #ffcc99;
-    font-size: 2rem;
-    margin-bottom: 30px;
+    font-size: 1.5rem; /* Reducido */
+    margin-bottom: 20px;
     text-align: center;
-    text-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
-.selector-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #ff6600, transparent);
-}
-
-/* CONTENEDOR DE TARJETAS DEL SELECTOR */
+/* CONTENEDOR DE TARJETAS MÁS COMPACTO */
 .selector-cards-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 15px; /* Reducido el gap */
     width: 100%;
     position: relative;
-    height: 400px;
+    height: 250px; /* Altura reducida */
+    overflow: visible; /* IMPORTANTE: Para que se vean todas las tarjetas */
 }
 
-/* TARJETAS DEL SELECTOR (pequeñas, a los costados) */
+/* TARJETAS MÁS PEQUEÑAS Y MEJOR VISIBLES */
 .selector-card {
-    width: 120px;
-    height: 160px;
+    width: 100px; /* Reducido */
+    height: 130px; /* Reducido */
     background: linear-gradient(145deg, #1a1a1a, #222222);
-    border-radius: 10px;
+    border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    opacity: 0.6;
-    transform: scale(0.85);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    transform: scale(0.8);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
     border: 2px solid rgba(255, 102, 0, 0.2);
+    flex-shrink: 0; /* Evita que se encojan */
 }
 
 .selector-card.active {
-    width: 150px;
-    height: 200px;
+    width: 130px; /* Reducido proporcionalmente */
+    height: 170px; /* Reducido proporcionalmente */
     opacity: 1;
     transform: scale(1);
     z-index: 10;
-    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
     border-color: #ff6600;
     border-width: 3px;
 }
 
-.selector-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-
-.selector-card.active img {
-    transform: scale(1.1);
-}
-
-/* BOTONES DE NAVEGACIÓN */
+/* BOTONES DE NAVEGACIÓN MÁS PEQUEÑOS */
 .nav-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(255, 102, 0, 0.8);
     color: white;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
     z-index: 20;
-    box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
-}
-
-.nav-button:hover {
-    background: rgba(255, 102, 0, 1);
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 8px 20px rgba(255, 102, 0, 0.5);
+    box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
 }
 
 .nav-button.prev {
-    left: -25px;
+    left: -20px;
 }
 
 .nav-button.next {
-    right: -25px;
+    right: -20px;
 }
 
-.nav-button:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    transform: translateY(-50%) scale(1);
+/* INDICADORES MÁS PEQUEÑOS */
+.selector-indicators {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
 }
 
-/* PANEL DERECHO - DETALLES DEL PERSONAJE */
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 102, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #ff6600;
+    transform: scale(1.2);
+}
+
+/* PANEL DERECHO - MÁS COMPACTO */
 .team-details-panel {
-    flex: 0 0 55%;
+    flex: 0 0 60%; /* Ajustado */
     background: linear-gradient(145deg, #1a1a1a, #222222);
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 15px;
+    padding: 30px; /* Reducido */
     box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.7),
+        0 10px 25px rgba(0, 0, 0, 0.7),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    border: 3px solid rgba(255, 102, 0, 0.3);
+    border: 2px solid rgba(255, 102, 0, 0.3);
     position: relative;
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* EFECTO DE BRILLO EN EL PANEL */
-.team-details-panel::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(90deg, 
-        transparent, 
-        #ff6600, 
-        #ffcc99, 
-        #ff6600, 
-        transparent
-    );
-    animation: panelGlow 3s linear infinite;
-}
-
-@keyframes panelGlow {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* CONTENIDO DEL PANEL */
+/* HEADER MÁS COMPACTO */
 .character-header {
     display: flex;
     align-items: center;
-    gap: 25px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid rgba(255, 102, 0, 0.2);
+    gap: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 102, 0, 0.2);
 }
 
 .character-avatar {
-    width: 120px;
-    height: 120px;
+    width: 90px; /* Reducido */
+    height: 90px; /* Reducido */
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid #ff6600;
-    box-shadow: 0 0 25px rgba(255, 102, 0, 0.4);
-}
-
-.character-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border: 3px solid #ff6600;
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
 }
 
 .character-info h2 {
     color: #ffcc99;
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Reducido */
     margin-bottom: 5px;
-    text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+    text-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
 }
 
 .character-role {
     display: inline-block;
     background: linear-gradient(45deg, rgba(255, 102, 0, 0.3), rgba(255, 153, 0, 0.2));
     color: #ffcc99;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 1rem;
+    padding: 6px 15px; /* Reducido */
+    border-radius: 15px;
+    font-size: 0.9rem; /* Reducido */
     font-weight: bold;
-    margin-top: 10px;
     border: 1px solid rgba(255, 102, 0, 0.4);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-/* DETALLES DEL PERSONAJE */
+/* DETALLES MÁS COMPACTOS */
 .character-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-bottom: 30px;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 .detail-item {
     background: rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #ff6600;
+    padding: 15px; /* Reducido */
+    border-radius: 8px;
+    border-left: 3px solid #ff6600;
 }
 
 .detail-item h4 {
     color: #ff6600;
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 0.95rem; /* Reducido */
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .detail-item p {
     color: #cccccc;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Reducido */
     margin: 0;
 }
 
-/* HABILIDADES */
-.character-skills {
-    margin-top: 20px;
-}
-
+/* HABILIDADES MÁS COMPACTAS */
 .character-skills h3 {
     color: #ffcc99;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem; /* Reducido */
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 12px;
 }
 
 .skill-item {
     background: rgba(255, 102, 0, 0.1);
-    padding: 15px;
-    border-radius: 10px;
+    padding: 12px; /* Reducido */
+    border-radius: 8px;
     border: 1px solid rgba(255, 102, 0, 0.2);
     transition: all 0.3s ease;
 }
 
-.skill-item:hover {
-    background: rgba(255, 102, 0, 0.2);
-    transform: translateY(-3px);
-    border-color: #ff6600;
-}
-
 .skill-item h4 {
     color: #ffcc99;
-    font-size: 1rem;
-    margin-bottom: 8px;
+    font-size: 0.95rem; /* Reducido */
+    margin-bottom: 5px;
 }
 
 .skill-item p {
     color: #999;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Reducido */
     margin: 0;
 }
 
-/* RESPONSIVE */
+/* MEJORAS PARA MOSTRAR TODAS LAS TARJETAS */
+/* Asegurar que el contenedor pueda mostrar todas las tarjetas */
+.selector-cards-container {
+    width: 100%;
+    max-width: 600px; /* Ancho máximo suficiente para 5 tarjetas */
+    margin: 0 auto;
+}
+
+/* Ajustar el desplazamiento de tarjetas */
+.selector-card {
+    transition: all 0.4s ease;
+}
+
+/* Para pantallas más pequeñas, reducir aún más */
 @media (max-width: 1200px) {
     .team-selector-container {
-        height: auto;
+        height: 65vh;
+        gap: 20px;
+    }
+    
+    .selector-cards-container {
+        height: 220px;
+        gap: 12px;
+    }
+    
+    .selector-card {
+        width: 90px;
+        height: 120px;
+    }
+    
+    .selector-card.active {
+        width: 115px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 992px) {
+    .team-selector-container {
         flex-direction: column;
-        gap: 30px;
+        height: auto;
+        min-height: 80vh;
+        gap: 25px;
     }
     
     .team-selector, .team-details-panel {
         flex: 1;
         width: 100%;
+        max-width: 600px;
+    }
+    
+    .team-selector {
+        height: 250px;
     }
     
     .selector-cards-container {
-        height: 200px;
+        height: 180px;
     }
 }
 
 @media (max-width: 768px) {
     .team-selector-container {
-        padding: 10px;
+        padding: 15px;
+        min-height: 85vh;
     }
     
-    .team-details-panel {
-        padding: 25px;
+    .selector-cards-container {
+        gap: 10px;
     }
     
-    .character-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
+    .selector-card {
+        width: 80px;
+        height: 110px;
     }
     
-    .character-details {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .selector-card.active {
+        width: 100px;
+        height: 140px;
     }
     
     .nav-button {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
     }
     
     .nav-button.prev {
-        left: -20px;
+        left: -15px;
     }
     
     .nav-button.next {
-        right: -20px;
+        right: -15px;
     }
 }
         
@@ -1175,101 +1148,146 @@
         </div>
     </section>
     
-   <!-- SECCIÓN EL EQUIPO - SELECTOR INTERACTIVO -->
-<section id="equipo" class="section">
-    <div class="section-content">
-        <h2 class="section-title">El Equipo</h2>
-        
-        <div class="team-selector-container">
-            <!-- PANEL IZQUIERDO: SELECTOR -->
-            <div class="team-selector">
-                <div class="selector-title">Selecciona un Miembro</div>
-                
-                <div class="selector-cards-container">
-                    <button class="nav-button prev" id="prevBtn">‹</button>
-                    
-                    <div class="selector-card" data-index="0">
-                        <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Alex">
-                    </div>
-                    
-                    <div class="selector-card active" data-index="1">
-                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="María">
-                    </div>
-                    
-                    <div class="selector-card" data-index="2">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Samuel">
-                    </div>
-                    
-                    <button class="nav-button next" id="nextBtn">›</button>
-                </div>
-                
-                <div class="selector-indicators">
-                    <span class="indicator active"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
-                    <span class="indicator"></span>
-                </div>
+   // DATOS DEL EQUIPO (mismo que antes)
+const teamData = [
+    {
+        id: 0,
+        name: "ALEX RIVERA",
+        role: "Game Director",
+        nationality: "México / España",
+        specialty: "Narrativa & Game Design",
+        experience: "8+ años en la industria",
+        projects: "Todos los proyectos",
+        avatar: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        skills: [
+            { name: "Diseño de Juego", desc: "Mecánicas y balance" },
+            { name: "Narrativa", desc: "Storytelling y worldbuilding" },
+            { name: "Liderazgo", desc: "Gestión de equipos creativos" },
+            { name: "Prototipado", desc: "Rápida iteración de ideas" }
+        ]
+    },
+    {
+        id: 1,
+        name: "MARÍA CHEN",
+        role: "Lead Developer",
+        nationality: "Argentina / China",
+        specialty: "Unity Engine & C#",
+        experience: "6+ años en desarrollo",
+        projects: "Kiuby Rush, Reality Hole",
+        avatar: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        skills: [
+            { name: "Programación C#", desc: "Patrones de diseño avanzados" },
+            { name: "Optimización", desc: "Rendimiento y profiling" },
+            { name: "Unity 3D", desc: "Motor gráfico avanzado" },
+            { name: "Shaders", desc: "Efectos visuales personalizados" }
+        ]
+    },
+    {
+        id: 2,
+        name: "SAMUEL KIM",
+        role: "Art Director",
+        nationality: "Corea del Sur",
+        specialty: "Arte 3D & Concept Art",
+        experience: "7+ años en arte digital",
+        projects: "Dimension Shift, Reality Hole",
+        avatar: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        skills: [
+            { name: "Modelado 3D", desc: "Personajes y entornos" },
+            { name: "Texturizado", desc: "PBR materials avanzados" },
+            { name: "Concept Art", desc: "Diseño visual y estilo" },
+            { name: "Animación", desc: "Rigging y keyframe" }
+        ]
+    },
+    {
+        id: 3,
+        name: "LENA WAGNER",
+        role: "Sound Designer",
+        nationality: "Alemania",
+        specialty: "Audio & Música Original",
+        experience: "5+ años en audio para juegos",
+        projects: "Kiuby Rush, Dimension Shift",
+        avatar: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        skills: [
+            { name: "Composición", desc: "Bandas sonoras originales" },
+            { name: "SFX Design", desc: "Efectos de sonido inmersivos" },
+            { name: "Audio 3D", desc: "Posicionamiento espacial" },
+            { name: "Voice Direction", desc: "Dirección de actores de voz" }
+        ]
+    },
+    {
+        id: 4,
+        name: "CARLOS MÉNDEZ",
+        role: "QA Lead",
+        nationality: "Colombia",
+        specialty: "Testing & Experiencia de Usuario",
+        experience: "4+ años en QA especializado",
+        projects: "Todos los proyectos",
+        avatar: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+        skills: [
+            { name: "Testing", desc: "Pruebas exhaustivas de jugabilidad" },
+            { name: "UX Research", desc: "Análisis de experiencia de usuario" },
+            { name: "Bug Tracking", desc: "Sistemas de reporte avanzados" },
+            { name: "Balance", desc: "Ajuste de dificultad y progresión" }
+        ]
+    }
+];
+
+// VARIABLES GLOBALES
+let currentMemberIndex = 1;
+const selectorCards = document.querySelectorAll('.selector-card');
+const indicators = document.querySelectorAll('.indicator');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const detailsPanel = document.getElementById('detailsPanel');
+
+// FUNCIÓN PARA ACTUALIZAR EL PANEL DE DETALLES
+function updateMemberDetails(index) {
+    const member = teamData[index];
+    
+    detailsPanel.innerHTML = `
+        <div class="character-header">
+            <div class="character-avatar">
+                <img src="${member.avatar}" alt="${member.name}" loading="lazy">
             </div>
-            
-            <!-- PANEL DERECHO: DETALLES -->
-            <div class="team-details-panel">
-                <!-- El contenido se actualiza con JavaScript -->
-                <div class="character-header">
-                    <div class="character-avatar">
-                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="María Chen">
-                    </div>
-                    <div class="character-info">
-                        <h2>MARÍA CHEN</h2>
-                        <span class="character-role">Lead Developer</span>
-                    </div>
-                </div>
-                
-                <div class="character-details">
-                    <div class="detail-item">
-                        <h4>📍 Nacionalidad</h4>
-                        <p>Argentina / China</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>🎓 Especialidad</h4>
-                        <p>Unity Engine & C#</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>⏳ Experiencia</h4>
-                        <p>6+ años en desarrollo de juegos</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>🎮 Proyectos</h4>
-                        <p>Kiuby Rush, Reality Hole</p>
-                    </div>
-                </div>
-                
-                <div class="character-skills">
-                    <h3>🛠️ Habilidades Principales</h3>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <h4>Programación C#</h4>
-                            <p>Experta en patrones de diseño y arquitectura</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>Optimización</h4>
-                            <p>Especialista en rendimiento y profiling</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>Unity 3D</h4>
-                            <p>Conocimiento avanzado del motor gráfico</p>
-                        </div>
-                        <div class="skill-item">
-                            <h4>Shaders</h4>
-                            <p>Creación de efectos visuales personalizados</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="character-info">
+                <h2>${member.name}</h2>
+                <span class="character-role">${member.role}</span>
             </div>
         </div>
-    </div>
-</section>
-    
+        
+        <div class="character-details">
+            <div class="detail-item">
+                <h4>📍 Nacionalidad</h4>
+                <p>${member.nationality}</p>
+            </div>
+            <div class="detail-item">
+                <h4>🎓 Especialidad</h4>
+                <p>${member.specialty}</p>
+            </div>
+            <div class="detail-item">
+                <h4>⏳ Experiencia</h4>
+                <p>${member.experience}</p>
+            </div>
+            <div class="detail-item">
+                <h4>🎮 Proyectos</h4>
+                <p>${member.projects}</p>
+            </div>
+        </div>
+        
+        <div class="character-skills">
+            <h3>🛠️ Habilidades Principales</h3>
+            <div class="skills-grid">
+                ${member.skills.map(skill => `
+                    <div class="skill-item">
+                        <h4>${skill.name}</h4>
+                        <p>${skill.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="section">
         <div class="section-content">
@@ -1593,6 +1611,97 @@ document.addEventListener('keydown', (e) => {
 
 // INICIALIZAR
 updateSelector(currentMemberIndex);
+
+        // FUNCIÓN PARA ACTUALIZAR EL SELECTOR
+function updateSelector(index) {
+    // Actualizar tarjetas
+    selectorCards.forEach((card, i) => {
+        const cardIndex = parseInt(card.dataset.index);
+        const isActive = cardIndex === index;
+        
+        if (isActive) {
+            card.classList.add('active');
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+            card.style.zIndex = '10';
+        } else {
+            card.classList.remove('active');
+            card.style.opacity = '0.5';
+            card.style.transform = 'scale(0.8)';
+            card.style.zIndex = '1';
+        }
+    });
+    
+    // Actualizar indicadores
+    indicators.forEach((indicator, i) => {
+        const indicatorIndex = parseInt(indicator.dataset.index);
+        if (indicatorIndex === index) {
+            indicator.classList.add('active');
+        } else {
+            indicator.classList.remove('active');
+        }
+    });
+    
+    // Actualizar botones de navegación
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === teamData.length - 1;
+    
+    // Actualizar detalles
+    updateMemberDetails(index);
+    
+    // Asegurar que la tarjeta activa sea visible
+    const activeCard = document.querySelector(`.selector-card[data-index="${index}"]`);
+    if (activeCard) {
+        activeCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+    }
+}
+
+// EVENTOS PARA LAS TARJETAS
+selectorCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const index = parseInt(card.dataset.index);
+        currentMemberIndex = index;
+        updateSelector(currentMemberIndex);
+    });
+});
+
+// EVENTOS PARA LOS BOTONES DE NAVEGACIÓN
+prevBtn.addEventListener('click', () => {
+    if (currentMemberIndex > 0) {
+        currentMemberIndex--;
+        updateSelector(currentMemberIndex);
+    }
+});
+
+nextBtn.addEventListener('click', () => {
+    if (currentMemberIndex < teamData.length - 1) {
+        currentMemberIndex++;
+        updateSelector(currentMemberIndex);
+    }
+});
+
+// EVENTOS DE TECLADO
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && currentMemberIndex > 0) {
+        currentMemberIndex--;
+        updateSelector(currentMemberIndex);
+    } else if (e.key === 'ArrowRight' && currentMemberIndex < teamData.length - 1) {
+        currentMemberIndex++;
+        updateSelector(currentMemberIndex);
+    }
+});
+
+// INICIALIZAR CON EL MIEMBRO 1 (María)
+updateSelector(currentMemberIndex);
+
+// Ajustar al redimensionar la ventana
+window.addEventListener('resize', () => {
+    updateSelector(currentMemberIndex);
+});
     </script>
 </body>
 </html>
