@@ -234,6 +234,238 @@
             margin-top: 20px;
             border-left: 4px solid #ff6600;
         }
+
+        /* Contenedor especial para las tarjetas del portfolio */
+        .portfolio-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 40px 20px;
+            perspective: 1000px;
+        }
+        
+        /* Tarjetas del portfolio con efecto especial */
+        .portfolio-card {
+            position: relative;
+            width: 320px;
+            height: 400px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            flex: 1;
+            min-width: 300px;
+            max-width: 350px;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 102, 0, 0.3);
+            border-color: #ff6600;
+            z-index: 10;
+        }
+
+        /* Imagen de la tarjeta */
+        .card-image {
+            width: 100%;
+            height: 60%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .portfolio-card:hover .card-image {
+            transform: scale(1.1);
+            filter: brightness(1.2) contrast(1.1);
+        }
+        
+        /* Contenido de la tarjeta */
+        .card-content {
+            padding: 25px;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(to bottom, transparent, #1a1a1a 30%);
+            position: relative;
+        }
+        
+        /* Cuando una tarjeta está en hover, las otras se achican */
+        .portfolio-container:hover .portfolio-card:not(:hover) {
+            transform: scale(0.95);
+            opacity: 0.7;
+            filter: blur(1px);
+        }
+
+         .card-content h3 {
+            color: #ff6600;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-card:hover .card-content h3 {
+            color: #ffcc99;
+            transform: translateX(5px);
+        }
+        
+        .card-content p {
+            color: #cccccc;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        /* Badge de categoría */
+        .card-category {
+            display: inline-block;
+            background: rgba(255, 102, 0, 0.2);
+            color: #ffcc99;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 5px;
+            border: 1px solid rgba(255, 102, 0, 0.3);
+        }
+        
+        /* Efecto de brillo en hover */
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .portfolio-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        /* Indicador de click */
+        .click-indicator {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 102, 0, 0.9);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+        }
+        
+        .portfolio-card:hover .click-indicator {
+            opacity: 1;
+            transform: scale(1);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 15px rgba(255, 102, 0, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(255, 102, 0, 0.8); }
+            100% { box-shadow: 0 0 15px rgba(255, 102, 0, 0.5); }
+        }
+        
+        /* Título de sección más llamativo */
+        .portfolio-title {
+            font-size: 3.5rem !important;
+            background: linear-gradient(45deg, #ff6600, #ffcc99);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px !important;
+            text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
+        }
+        
+        .portfolio-subtitle {
+            font-size: 1.4rem !important;
+            color: #cccccc !important;
+            margin-bottom: 50px !important;
+        }
+        
+        /* Efecto de fondo para la sección portfolio */
+        #portfolio {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 102, 0, 0.05) 0%, transparent 50%),
+                #0f0f0f;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #portfolio::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 102, 0, 0.03) 2px,
+                    rgba(255, 102, 0, 0.03) 4px
+                );
+            pointer-events: none;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100px); }
+        }
+        
+        /* Responsive para portfolio */
+        @media (max-width: 1024px) {
+            .portfolio-container {
+                flex-wrap: wrap;
+            }
+            
+            .portfolio-card {
+                width: 45%;
+                min-width: 280px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .portfolio-card {
+                width: 90%;
+                max-width: 400px;
+                margin: 20px auto;
+            }
+            
+            .portfolio-container:hover .portfolio-card:not(:hover) {
+                transform: scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+            
+            .portfolio-title {
+                font-size: 2.8rem !important;
+            }
+        }
         
         /* COLORES DE FONDO PARA CADA SECCIÓN (NUEVO ORDEN) */
         #portfolio {
@@ -332,6 +564,7 @@
         }
     </style>
 </head>
+    
 <body>
     <!-- BARRA DE NAVEGACIÓN CON NUEVO ORDEN -->
     <nav class="navbar" id="navbar">
@@ -347,200 +580,241 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </div>
-    </nav>
-    
-    <!-- HERO SECTION -->
-    <section id="inicio" class="section hero">
-        <div class="hero-content">
-            <h1>Creando mundos. Contando historias.</h1>
-            <p>Creating worlds. Telling stories.</p>
-        </div>
-        <a href="#portfolio" class="hero-button">VER PORTFOLIO</a>
-    </section>
-    
-    <!-- SECCIÓN PORTFOLIO (AHORA PRIMERA DESPUÉS DE INICIO) -->
-    <section id="portfolio" class="section">
-        <div class="section-content">
-            <h2>Portfolio</h2>
-            <p>Mira algunos ejemplos de lo que somos capaces de hacer</p>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="inicio" class="section hero">
+    <div class="hero-content">
+        <h1>Creando mundos. Contando historias.</h1>
+        <p>Creating worlds. Telling stories.</p>
+    </div>
+    <a href="#portfolio" class="hero-button">VER PORTFOLIO</a>
+</section>
+
+<!-- SECCIÓN PORTFOLIO MEJORADA -->
+<section id="portfolio" class="section">
+    <div class="section-content">
+        <h2 class="portfolio-title">Portfolio</h2>
+        <p class="portfolio-subtitle">Descubre nuestro trabajo más destacado</p>
+        
+        <div class="portfolio-container">
+            <!-- Tarjeta 1: Juegos Completos -->
+            <a href="https://devfoxstudios.com/portfolio/juegos-completos" target="_blank" class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Desarrollo de Juegos" class="card-image">
+                <div class="card-content">
+                    <div>
+                        <h3>Juegos Completos</h3>
+                        <p>Proyectos finalizados desde el concepto inicial hasta la publicación en tiendas digitales.</p>
+                        <span class="card-category">Game Dev</span>
+                    </div>
+                    <div class="click-indicator">
+                        →
+                    </div>
+                </div>
+            </a>
             
-            <div class="games">
-                <div class="game-card">
-                    <h3>Juegos Completos</h3>
-                    <p>Desarrollos propios y para clientes</p>
-                    <small>Más de 10 proyectos completados</small>
+            <!-- Tarjeta 2: Modelado 3D -->
+            <a href="https://devfoxstudios.com/portfolio/modelado-3d" target="_blank" class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Modelado 3D" class="card-image">
+                <div class="card-content">
+                    <div>
+                        <h3>Modelado 3D</h3>
+                        <p>Personajes, entornos y assets optimizados para videojuegos y aplicaciones interactivas.</p>
+                        <span class="card-category">3D Art</span>
+                    </div>
+                    <div class="click-indicator">
+                        →
+                    </div>
                 </div>
-                <div class="game-card">
-                    <h3>Modelado 3D</h3>
-                    <p>Personajes, entornos y assets</p>
-                    <small>Modelado y texturizado profesional</small>
+            </a>
+            
+            <!-- Tarjeta 3: Diseño Gráfico -->
+            <a href="https://devfoxstudios.com/portfolio/diseno-grafico" target="_blank" class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                     alt="Diseño Gráfico" class="card-image">
+                <div class="card-content">
+                    <div>
+                        <h3>Diseño Gráfico</h3>
+                        <p>Interfaces de usuario, ilustraciones y elementos visuales especializados en gaming.</p>
+                        <span class="card-category">UI/UX Design</span>
+                    </div>
+                    <div class="click-indicator">
+                        →
+                    </div>
                 </div>
-                <div class="game-card">
-                    <h3>Diseño Gráfico</h3>
-                    <p>Interfaces y elementos visuales</p>
-                    <small>UI/UX especializado en videojuegos</small>
-                </div>
+            </a>
+        </div>
+        
+        <p style="margin-top: 40px; color: #888; font-style: italic;">
+            Haz clic en cualquier tarjeta para ver más detalles de cada categoría
+        </p>
+    </div>
+</section>
+
+<!-- SECCIÓN SERVICIOS (AHORA CON 4 TARJETAS) -->
+<section id="servicios" class="section">
+    <div class="section-content">
+        <h2>Nuestros Servicios</h2>
+        <p>Soluciones completas para tu proyecto</p>
+        
+        <div class="games">
+            <div class="game-card small-card">
+                <h3>Desarrollo de Videojuegos</h3>
+                <p>Completo ciclo de desarrollo 2D y 3D</p>
+                <small>Desde concepto hasta publicación</small>
+            </div>
+            <div class="game-card small-card">
+                <h3>Aplicaciones Interactivas</h3>
+                <p>Apps y experiencias inmersivas</p>
+                <small>Realidad virtual y aumentada</small>
+            </div>
+            <div class="game-card small-card">
+                <h3>Asset Store</h3>
+                <p>Assets y herramientas para devs</p>
+                <small>Modelos, scripts, sonidos y más</small>
+            </div>
+            <div class="game-card small-card">
+                <h3>Consultoría</h3>
+                <p>Asesoramiento técnico y de diseño</p>
+                <small>Optimización y mejoras de proyectos</small>
             </div>
         </div>
-    </section>
-    
-    <!-- SECCIÓN SERVICIOS (AHORA CON 4 TARJETAS) -->
-    <section id="servicios" class="section">
-        <div class="section-content">
-            <h2>Nuestros Servicios</h2>
-            <p>Soluciones completas para tu proyecto</p>
-            
-            <div class="games">
-                <div class="game-card small-card">
-                    <h3>Desarrollo de Videojuegos</h3>
-                    <p>Completo ciclo de desarrollo 2D y 3D</p>
-                    <small>Desde concepto hasta publicación</small>
-                </div>
-                <div class="game-card small-card">
-                    <h3>Aplicaciones Interactivas</h3>
-                    <p>Apps y experiencias inmersivas</p>
-                    <small>Realidad virtual y aumentada</small>
-                </div>
-                <div class="game-card small-card">
-                    <h3>Asset Store</h3>
-                    <p>Assets y herramientas para devs</p>
-                    <small>Modelos, scripts, sonidos y más</small>
-                </div>
-                <div class="game-card small-card">
-                    <h3>Consultoría</h3>
-                    <p>Asesoramiento técnico y de diseño</p>
-                    <small>Optimización y mejoras de proyectos</small>
-                </div>
+    </div>
+</section>
+
+<!-- SECCIÓN JUEGOS (AHORA DESPUÉS DE SERVICIOS) -->
+<section id="juegos" class="section">
+    <div class="section-content">
+        <h2>Nuestros Juegos</h2>
+        <p>Explora algunos de nuestros proyectos destacados</p>
+        
+        <div class="games">
+            <div class="game-card">
+                <h3>Kiuby Rush</h3>
+                <p>Versión Alpha 1.1.3</p>
+                <p><small>Juego de acción y aventura móvil</small></p>
+                <small>Disponible en Play Store</small>
+            </div>
+            <div class="game-card">
+                <h3>Reality Hole</h3>
+                <p>Versión Alpha 1.0</p>
+                <p><small>Experiencia de realidad alternativa</small></p>
+                <small>Disponible en Itch.io</small>
+            </div>
+            <div class="game-card">
+                <h3>Juego Plataformas</h3>
+                <p>En desarrollo</p>
+                <p><small>Aventura en 2.5D con física avanzada</small></p>
+                <small>Próximamente en Steam</small>
             </div>
         </div>
-    </section>
-    
-    <!-- SECCIÓN JUEGOS (AHORA DESPUÉS DE SERVICIOS) -->
-    <section id="juegos" class="section">
-        <div class="section-content">
-            <h2>Nuestros Juegos</h2>
-            <p>Explora algunos de nuestros proyectos destacados</p>
-            
-            <div class="games">
-                <div class="game-card">
-                    <h3>Kiuby Rush</h3>
-                    <p>Versión Alpha 1.1.3</p>
-                    <p><small>Juego de acción y aventura móvil</small></p>
-                    <small>Disponible en Play Store</small>
-                </div>
-                <div class="game-card">
-                    <h3>Reality Hole</h3>
-                    <p>Versión Alpha 1.0</p>
-                    <p><small>Experiencia de realidad alternativa</small></p>
-                    <small>Disponible en Itch.io</small>
-                </div>
-                <div class="game-card">
-                    <h3>Juego Plataformas</h3>
-                    <p>En desarrollo</p>
-                    <p><small>Aventura en 2.5D con física avanzada</small></p>
-                    <small>Próximamente en Steam</small>
-                </div>
+    </div>
+</section>
+
+<!-- NUEVA SECCIÓN: SOBRE NOSOTROS (CON 5 TARJETAS) -->
+<section id="nosotros" class="section">
+    <div class="section-content">
+        <h2>Sobre Nosotros</h2>
+        <p>Conoce al equipo detrás de DEV FOX STUDIOS</p>
+        
+        <div class="games">
+            <div class="game-card smallest-card">
+                <h3>Nuestra Misión</h3>
+                <p>Crear experiencias de juego memorables que conecten con jugadores de todo el mundo</p>
+            </div>
+            <div class="game-card smallest-card">
+                <h3>Equipo Experto</h3>
+                <p>+5 años de experiencia combinada en desarrollo, arte y diseño de videojuegos</p>
+            </div>
+            <div class="game-card smallest-card">
+                <h3>Tecnologías</h3>
+                <p>Unity, Blender, Photoshop, C#, y las últimas herramientas del mercado</p>
+            </div>
+            <div class="game-card smallest-card">
+                <h3>Filosofía</h3>
+                <p>Innovación constante, calidad y atención al detalle en cada proyecto</p>
+            </div>
+            <div class="game-card smallest-card">
+                <h3>Comunidad</h3>
+                <p>Activa participación en eventos y desarrollo de la comunidad gamer local</p>
             </div>
         </div>
-    </section>
-    
-    <!-- NUEVA SECCIÓN: SOBRE NOSOTROS (CON 5 TARJETAS) -->
-    <section id="nosotros" class="section">
-        <div class="section-content">
-            <h2>Sobre Nosotros</h2>
-            <p>Conoce al equipo detrás de DEV FOX STUDIOS</p>
-            
-            <div class="games">
-                <div class="game-card smallest-card">
-                    <h3>Nuestra Misión</h3>
-                    <p>Crear experiencias de juego memorables que conecten con jugadores de todo el mundo</p>
-                </div>
-                <div class="game-card smallest-card">
-                    <h3>Equipo Experto</h3>
-                    <p>+5 años de experiencia combinada en desarrollo, arte y diseño de videojuegos</p>
-                </div>
-                <div class="game-card smallest-card">
-                    <h3>Tecnologías</h3>
-                    <p>Unity, Blender, Photoshop, C#, y las últimas herramientas del mercado</p>
-                </div>
-                <div class="game-card smallest-card">
-                    <h3>Filosofía</h3>
-                    <p>Innovación constante, calidad y atención al detalle en cada proyecto</p>
-                </div>
-                <div class="game-card smallest-card">
-                    <h3>Comunidad</h3>
-                    <p>Activa participación en eventos y desarrollo de la comunidad gamer local</p>
-                </div>
-            </div>
+    </div>
+</section>
+
+<!-- SECCIÓN CONTACTO (AHORA LA ÚLTIMA) -->
+<section id="contacto" class="section">
+    <div class="section-content">
+        <h2>Contacto</h2>
+        <p>¿Tienes un proyecto en mente? Hablemos</p>
+        
+        <div class="unity-badge">
+            📧 Próximamente<br>
+            🐦 Próximamente<br>
+            📱 Próximamente
         </div>
-    </section>
-    
-    <!-- SECCIÓN CONTACTO (AHORA LA ÚLTIMA) -->
-    <section id="contacto" class="section">
-        <div class="section-content">
-            <h2>Contacto</h2>
-            <p>¿Tienes un proyecto en mente? Hablemos</p>
-            
-            <div class="unity-badge">
-                📧 Próximamente<br>
-                🐦 Próximamente<br>
-                📱 Próximamente
-            </div>
-            
-            <p style="margin-top: 30px; font-size: 1rem; color: #888;">
-                Estamos trabajando en nuestro sistema de contacto. ¡Vuelve pronto!
-            </p>
-        </div>
-    </section>
-    
-    <footer>
-        <div>
-            <p>© 2019-2026 DEV FOX STUDIOS™</p>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
-                Desarrollado con ❤️ para la comunidad gamer
-            </p>
-        </div>
-    </footer>
+        
+        <p style="margin-top: 30px; font-size: 1rem; color: #888;">
+            Estamos trabajando en nuestro sistema de contacto. ¡Vuelve pronto!
+        </p>
+    </div>
+</section>
+
+<footer>
+    <div>
+        <p>© 2019-2026 DEV FOX STUDIOS™</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
+            Desarrollado con ❤️ para la comunidad gamer
+        </p>
+    </div>
+</footer>
     
     <script>
         // SCROLL SUAVE SIN OFFSET
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
+            
                 const targetId = this.getAttribute('href');
                 if(targetId === '#') return;
-                
+            
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
-                    // SIN compensación - va exactamente al inicio de la sección
                     window.scrollTo({
                         top: targetElement.offsetTop,
                         behavior: 'smooth'
                     });
-                    
-                    // Actualizar URL
+                
                     history.pushState(null, null, targetId);
                 }
             });
         });
         
-        // RESALTAR ENLACE ACTIVO (pero sin cambiar el fondo del navbar)
+        // RESALTAR ENLACE ACTIVO
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.nav-menu a');
-            
+        
             let currentSection = '';
-            
-            // Encontrar la sección actual
+        
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
+            
                 if(window.scrollY >= sectionTop - 100) {
                     currentSection = section.getAttribute('id');
                 }
             });
+        
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            
+                if(link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
             
             // Quitar clase activa de todos los enlaces
             navLinks.forEach(link => {
@@ -555,25 +829,57 @@
         
         // Inicializar enlace activo
         window.addEventListener('DOMContentLoaded', function() {
-            // Marcar "Inicio" como activo al cargar
             const inicioLink = document.querySelector('.nav-menu a[href="#inicio"]');
             if(inicioLink && window.scrollY < 100) {
                 inicioLink.classList.add('active');
             }
         });
         
-        // Manejar el botón del hero (ahora apunta a Portfolio)
+        // Manejar el botón del hero
         document.querySelector('.hero-button').addEventListener('click', function(e) {
             e.preventDefault();
-            
+        
             const targetElement = document.querySelector('#portfolio');
             if(targetElement) {
                 window.scrollTo({
                     top: targetElement.offsetTop,
                     behavior: 'smooth'
                 });
-                
+            
                 history.pushState(null, null, '#portfolio');
+            }
+        });
+
+        // EFECTO ESPECIAL PARA LAS TARJETAS DEL PORTFOLIO
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+    
+        portfolioCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                // Añadir una clase especial para el hover
+                this.style.zIndex = '100';
+            
+                // Efecto de sonido opcional (puedes descomentar si quieres)
+                // const hoverSound = new Audio('hover-sound.mp3');
+                // hoverSound.volume = 0.3;
+                // hoverSound.play();
+            });
+        
+            card.addEventListener('mouseleave', function() {
+                // Restaurar z-index
+                this.style.zIndex = '';
+            });
+        });
+
+        // Ajustes responsive para tarjetas
+        window.addEventListener('resize', function() {
+            const portfolioContainer = document.querySelector('.portfolio-container');
+        
+            if(window.innerWidth <= 768) {
+                // En móviles, desactivar el efecto de escalado de otras tarjetas
+                portfolioContainer.style.gap = '20px';
+            } else {
+                // En desktop, reactivar el efecto
+                portfolioContainer.style.gap = '30px';
             }
         });
         
