@@ -480,357 +480,418 @@
             100% { transform: translate(100px, 100px); }
         }
         
-        /* EL EQUIPO - SELECTOR MEJORADO */
+        /* SECCIÓN EL EQUIPO - FORMATO HORIZONTAL */
         #equipo {
+            min-height: 100vh;
+            width: 100%;
             background: 
                 radial-gradient(circle at 20% 30%, rgba(255, 102, 0, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(156, 39, 176, 0.1) 0%, transparent 50%),
                 #0a0a0a;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh; /* Asegura que ocupe toda la pantalla */
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
-        /* CONTENEDOR PRINCIPAL MEJORADO */
-        .team-selector-container {
+        /* CONTENEDOR HORIZONTAL PRINCIPAL */
+        .horizontal-container {
             display: flex;
             width: 100%;
             max-width: 1400px;
-            height: 70vh; /* 70% del viewport height en lugar de fijo */
-            max-height: 700px;
-            min-height: 500px;
-            gap: 30px;
-            padding: 20px;
-            align-items: center;
+            height: 80vh;
+            min-height: 600px;
+            gap: 40px;
+            padding: 30px;
+            background: rgba(20, 20, 20, 0.7);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
-        /* PANEL IZQUIERDO - SELECTOR MÁS COMPACTO */
-        .team-selector {
-            flex: 0 0 35%; /* Reducido de 40% a 35% */
+        /* LADO IZQUIERDO */
+        .left-side {
+            flex: 0 0 60%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
             position: relative;
-            height: 100%;
         }
 
-        .selector-title {
-            color: #ffcc99;
-            font-size: 1.5rem; /* Reducido */
-            margin-bottom: 20px;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(255, 102, 0, 0.5);
-            position: relative;
-            padding-bottom: 8px;
-        }
-
-        /* CONTENEDOR DE TARJETAS MÁS COMPACTO */
-        .selector-cards-container {
+        /* PERSONAJE GRANDE */
+        .large-character-container {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px; /* Reducido el gap */
-            width: 100%;
+            margin-bottom: 30px;
             position: relative;
-            height: 250px; /* Altura reducida */
-            overflow: visible; /* IMPORTANTE: Para que se vean todas las tarjetas */
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
         }
 
-        /* TARJETAS MÁS PEQUEÑAS Y MEJOR VISIBLES */
-        .selector-card {
-            width: 100px; /* Reducido */
-            height: 130px; /* Reducido */
-            background: linear-gradient(145deg, #1a1a1a, #222222);
+        .large-character {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: all 0.5s ease;
+            border: 2px solid rgba(255, 102, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .large-character:hover {
+            transform: scale(1.02);
+            border-color: #ff6600;
+        }
+
+        /* SELECTOR DE PERSONAJES PEQUEÑO */
+        .character-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 102, 0, 0.2);
+            height: 120px;
+        }
+
+        .selector-item {
+            width: 80px;
+            height: 80px;
             border-radius: 8px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
             position: relative;
-            opacity: 0.5;
-            transform: scale(0.8);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-            border: 2px solid rgba(255, 102, 0, 0.2);
-            flex-shrink: 0; /* Evita que se encojan */
+            flex-shrink: 0;
         }
 
-        .selector-card.active {
-            width: 130px; /* Reducido proporcionalmente */
-            height: 170px; /* Reducido proporcionalmente */
-            opacity: 1;
-            transform: scale(1);
-            z-index: 10;
-            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+        .selector-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .selector-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 102, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+        }
+
+        .selector-item.active {
             border-color: #ff6600;
-            border-width: 3px;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+            z-index: 10;
         }
 
-        /* BOTONES DE NAVEGACIÓN MÁS PEQUEÑOS */
-        /*.nav-button {
+        .selector-item.active img {
+            filter: brightness(1.2);
+        }
+
+        /* Indicador de selección */
+        .selector-item.active::after {
+            content: '✓';
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 102, 0, 0.8);
+            top: -8px;
+            right: -8px;
+            background: #ff6600;
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            border: none;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            z-index: 20;
-            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
-        }*/
-
-        /*.nav-button.prev {
-            left: -20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 11;
         }
 
-        .nav-button.next {
-            right: -20px;
-        }*/
-
-        /* INDICADORES MÁS PEQUEÑOS */
-        .selector-indicators {
+        /* LADO DERECHO - PANEL DE INFORMACIÓN */
+        .right-side {
+            flex: 0 0 40%;
             display: flex;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 102, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .indicator.active {
-            background: #ff6600;
-            transform: scale(1.2);
-        }
-
-        /* PANEL DERECHO - MÁS COMPACTO */
-        .team-details-panel {
-            flex: 0 0 60%; /* Ajustado */
+            flex-direction: column;
+            padding: 30px;
             background: linear-gradient(145deg, #1a1a1a, #222222);
             border-radius: 15px;
-            padding: 30px; /* Reducido */
-            box-shadow: 
-                0 10px 25px rgba(0, 0, 0, 0.7),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 102, 0, 0.3);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 10px 25px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
-            height: 100%;
+        }
+
+        /* Efecto decorativo en el panel */
+        .right-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
+        }
+
+        /* Título de la sección */
+        .section-title {
+            text-align: center;
+            color: #ffcc99;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
+        }
+
+        /* CONTENIDO DEL PANEL */
+        .panel-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        /* HEADER MÁS COMPACTO */
-        .character-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 102, 0, 0.2);
-        }
-
-        .character-avatar {
-            width: 90px; /* Reducido */
-            height: 90px; /* Reducido */
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid #ff6600;
-            box-shadow: 0 0 15px rgba(255, 102, 0, 0.4);
-        }
-
-        .character-info h2 {
+        /* NOMBRE DEL PERSONAJE */
+        .character-name {
+            text-align: center;
+            font-size: 2.8rem;
             color: #ffcc99;
-            font-size: 1.8rem; /* Reducido */
-            margin-bottom: 5px;
-            text-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
-        }
-
-        .character-role {
-            display: inline-block;
-            background: linear-gradient(45deg, rgba(255, 102, 0, 0.3), rgba(255, 153, 0, 0.2));
-            color: #ffcc99;
-            padding: 6px 15px; /* Reducido */
-            border-radius: 15px;
-            font-size: 0.9rem; /* Reducido */
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
             font-weight: bold;
-            border: 1px solid rgba(255, 102, 0, 0.4);
+            letter-spacing: 1px;
+        }
+
+        /* ROL EN EL ESTUDIO */
+        .character-role {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ff6600;
+            margin-bottom: 40px;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* DETALLES MÁS COMPACTOS */
-        .character-details {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
+        /* INFORMACIÓN DE PAÍS */
+        .character-country {
+            margin-bottom: 35px;
         }
 
-        .detail-item {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 15px; /* Reducido */
-            border-radius: 8px;
-            border-left: 3px solid #ff6600;
-        }
-
-        .detail-item h4 {
-            color: #ff6600;
-            font-size: 0.95rem; /* Reducido */
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .detail-item p {
+        .country-label {
+            font-size: 1.2rem;
             color: #cccccc;
-            font-size: 0.9rem; /* Reducido */
-            margin: 0;
+            margin-bottom: 8px;
+            font-weight: bold;
+            display: block;
         }
 
-        /* HABILIDADES MÁS COMPACTAS */
-        .character-skills h3 {
+        .country-value {
+            font-size: 1.5rem;
             color: #ffcc99;
-            font-size: 1.2rem; /* Reducido */
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            padding-left: 20px;
+            position: relative;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+        .country-value::before {
+            content: '📍';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* HABILIDADES */
+        .character-skills {
+            margin-bottom: 30px;
+        }
+
+        .skills-label {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 20px;
         }
 
         .skill-item {
-            padding: 12px; /* Reducido */
-            border-radius: 8px;
-            border: 1px solid rgba(255, 102, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .skill-item h4 {
+            font-size: 1.3rem;
             color: #ffcc99;
-            font-size: 0.95rem; /* Reducido */
-            margin-bottom: 5px;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.4;
         }
 
-        .skill-item p {
-            color: #999;
-            font-size: 0.85rem; /* Reducido */
-            margin: 0;
+        .skill-item::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #ff6600;
+            font-size: 1.1rem;
         }
 
-        /* MEJORAS PARA MOSTRAR TODAS LAS TARJETAS */
-        /* Asegurar que el contenedor pueda mostrar todas las tarjetas */
-        .selector-cards-container {
-            width: 100%;
-            max-width: 600px; /* Ancho máximo suficiente para 5 tarjetas */
-            margin: 0 auto;
+        /* EFECTO DE TRANSICIÓN */
+        .large-character,
+        .character-name,
+        .character-role,
+        .character-country,
+        .character-skills {
+            transition: opacity 0.4s ease;
         }
 
-        /* Ajustar el desplazamiento de tarjetas */
-        .selector-card {
-            transition: all 0.4s ease;
-        }
-
-        /* Para pantallas más pequeñas, reducir aún más */
+        /* RESPONSIVE DESIGN */
         @media (max-width: 1200px) {
-            .team-selector-container {
-                height: 65vh;
-                gap: 20px;
+            .horizontal-container {
+                height: 70vh;
+                gap: 30px;
+                padding: 20px;
             }
             
-            .selector-cards-container {
-                height: 220px;
-                gap: 12px;
+            .character-name {
+                font-size: 2.4rem;
             }
             
-            .selector-card {
-                width: 90px;
-                height: 120px;
-            }
-            
-            .selector-card.active {
-                width: 115px;
-                height: 150px;
+            .character-role {
+                font-size: 1.5rem;
             }
         }
 
         @media (max-width: 992px) {
-            .team-selector-container {
+            .horizontal-container {
                 flex-direction: column;
                 height: auto;
-                min-height: 80vh;
-                gap: 25px;
+                min-height: 90vh;
             }
             
-            .team-selector, .team-details-panel {
+            .left-side,
+            .right-side {
                 flex: 1;
                 width: 100%;
-                max-width: 600px;
             }
             
-            .team-selector {
-                height: 250px;
+            .large-character-container {
+                height: 400px;
             }
             
-            .selector-cards-container {
-                height: 180px;
+            .character-selector {
+                height: 100px;
+            }
+            
+            .selector-item {
+                width: 70px;
+                height: 70px;
             }
         }
 
         @media (max-width: 768px) {
-            .team-selector-container {
+            .horizontal-container {
                 padding: 15px;
-                min-height: 85vh;
+                gap: 20px;
             }
             
-            .selector-cards-container {
+            .large-character-container {
+                height: 350px;
+                margin-bottom: 20px;
+            }
+            
+            .character-selector {
                 gap: 10px;
+                padding: 10px;
+                height: 90px;
             }
             
-            .selector-card {
-                width: 80px;
-                height: 110px;
+            .selector-item {
+                width: 60px;
+                height: 60px;
             }
             
-            .selector-card.active {
-                width: 100px;
-                height: 140px;
+            .right-side {
+                padding: 20px;
             }
             
-            .nav-button {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+            .character-name {
+                font-size: 2rem;
             }
             
-            .nav-button.prev {
-                left: -15px;
+            .character-role {
+                font-size: 1.3rem;
+                margin-bottom: 30px;
             }
             
-            .nav-button.next {
-                right: -15px;
+            .country-value,
+            .skill-item {
+                font-size: 1.1rem;
             }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+            
+            .large-character-container {
+                height: 300px;
+            }
+            
+            .character-selector {
+                height: 80px;
+            }
+            
+            .selector-item {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .character-name {
+                font-size: 1.8rem;
+            }
+            
+            .character-role {
+                font-size: 1.1rem;
+                margin-bottom: 25px;
+            }
+        }
+
+        /* ANIMACIÓN DE ENTRADA */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .horizontal-container {
+            animation: fadeIn 0.8s ease-out;
         }
         
         /* CONTACTO */
@@ -1147,55 +1208,50 @@
         </div>
     </section>
     
-    <!-- SECCIÓN EL EQUIPO - SELECTOR INTERACTIVO -->
+    <!-- SECCIÓN EL EQUIPO - FORMATO HORIZONTAL -->
     <section id="equipo" class="section">
         <div class="section-content">
-            <h2 class="section-title">El Equipo</h2>
+            <h2 class="section-title">EL EQUIPO</h2>
             
-            <div class="team-selector-container">
-                <!-- PANEL IZQUIERDO: SELECTOR -->
-                <div class="team-selector">
-                    <div class="selector-title">Selecciona un Miembro</div>
-                    
-                    <div class="selector-cards-container">
-                        <!---<button class="nav-button prev" id="prevBtn">‹</button>-->
-                        
-                        <!-- TODAS LAS 5 TARJETAS VISIBLES -->
-                        <div class="selector-card" data-index="0">
-                            <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Alex">
-                        </div>
-                        
-                        <div class="selector-card active" data-index="1">
-                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="María">
-                        </div>
-                        
-                        <div class="selector-card" data-index="2">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Samuel">
-                        </div>
-                        
-                        <div class="selector-card" data-index="3">
-                            <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lena">
-                        </div>
-                        
-                        <div class="selector-card" data-index="4">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Carlos">
-                        </div>
-                        
-                        <!---<button class="nav-button next" id="nextBtn">›</button>-->
+            <div class="horizontal-container">
+                <!-- LADO IZQUIERDO -->
+                <div class="left-side">
+                    <!-- PERSONAJE GRANDE -->
+                    <div class="large-character-container">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="María Chen" class="large-character" id="largeCharacter">
                     </div>
                     
-                    <div class="selector-indicators">
-                        <span class="indicator active" data-index="0"></span>
-                        <span class="indicator" data-index="1"></span>
-                        <span class="indicator" data-index="2"></span>
-                        <span class="indicator" data-index="3"></span>
-                        <span class="indicator" data-index="4"></span>
+                    <!-- SELECTOR DE PERSONAJES -->
+                    <div class="character-selector">
+                        <div class="selector-item active" data-index="0">
+                            <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Maty Dev">
+                        </div>
+                        <div class="selector-item" data-index="1">
+                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="María Chen">
+                        </div>
+                        <div class="selector-item" data-index="2">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Samuel Kim">
+                        </div>
+                        <div class="selector-item" data-index="3">
+                            <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Lena Wagner">
+                        </div>
+                        <div class="selector-item" data-index="4">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Carlos Méndez">
+                        </div>
                     </div>
                 </div>
                 
-                <!-- PANEL DERECHO: DETALLES (se actualizará con JS) -->
-                <div class="team-details-panel" id="detailsPanel">
-                    <!-- El contenido se carga dinámicamente -->
+                <!-- LADO DERECHO - PANEL DE INFORMACIÓN -->
+                <div class="right-side">
+                    <div class="panel-content" id="panelContent">
+                        <!-- El contenido se actualizará dinámicamente -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -1326,231 +1382,183 @@
             {
                 id: 0,
                 name: "MATY DEV",
-                role: "CEO",
-                nationality: "Argentina",
-                specialty: "Narrativa & Game Design",
-                experience: "6+ años en la industria",
-                projects: "Todos los proyectos",
-                avatar: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                role: "CEO & FUNDADOR",
+                country: "ARGENTINA",
                 skills: [
-                    { name: "Diseño de Juego", desc: "Mecánicas y balance" },
-                    { name: "Narrativa", desc: "Storytelling y worldbuilding" },
-                    { name: "Liderazgo", desc: "Gestión de equipos creativos" },
-                    { name: "Prototipado", desc: "Rápida iteración de ideas" }
-                ]
+                    "Diseño de Juegos & Narrativa",
+                    "Gestión de Proyectos Creativos",
+                    "Desarrollo de Negocio"
+                ],
+                largeImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
                 id: 1,
                 name: "MARÍA CHEN",
-                role: "Lead Developer",
-                nationality: "Argentina / China",
-                specialty: "Unity Engine & C#",
-                experience: "6+ años en desarrollo",
-                projects: "Kiuby Rush, Reality Hole",
-                avatar: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                role: "LEAD DEVELOPER",
+                country: "ARGENTINA / CHINA",
                 skills: [
-                    { name: "Programación C#", desc: "Patrones de diseño avanzados" },
-                    { name: "Optimización", desc: "Rendimiento y profiling" },
-                    { name: "Unity 3D", desc: "Motor gráfico avanzado" },
-                    { name: "Shaders", desc: "Efectos visuales personalizados" }
-                ]
+                    "Programación C# Avanzada",
+                    "Unity Engine & Optimización",
+                    "Arquitectura de Software"
+                ],
+                largeImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
                 id: 2,
                 name: "SAMUEL KIM",
-                role: "Art Director",
-                nationality: "Corea del Sur",
-                specialty: "Arte 3D & Concept Art",
-                experience: "7+ años en arte digital",
-                projects: "Dimension Shift, Reality Hole",
-                avatar: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                role: "ART DIRECTOR",
+                country: "COREA DEL SUR",
                 skills: [
-                    { name: "Modelado 3D", desc: "Personajes y entornos" },
-                    { name: "Texturizado", desc: "PBR materials avanzados" },
-                    { name: "Concept Art", desc: "Diseño visual y estilo" },
-                    { name: "Animación", desc: "Rigging y keyframe" }
-                ]
+                    "Modelado 3D & Escultura Digital",
+                    "Concept Art & Diseño Visual",
+                    "Animación de Personajes"
+                ],
+                largeImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
                 id: 3,
                 name: "LENA WAGNER",
-                role: "Sound Designer",
-                nationality: "Alemania",
-                specialty: "Audio & Música Original",
-                experience: "5+ años en audio para juegos",
-                projects: "Kiuby Rush, Dimension Shift",
-                avatar: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                role: "SOUND DESIGNER",
+                country: "ALEMANIA",
                 skills: [
-                    { name: "Composición", desc: "Bandas sonoras originales" },
-                    { name: "SFX Design", desc: "Efectos de sonido inmersivos" },
-                    { name: "Audio 3D", desc: "Posicionamiento espacial" },
-                    { name: "Voice Direction", desc: "Dirección de actores de voz" }
-                ]
+                    "Composición Musical Original",
+                    "Diseño de Efectos de Sonido",
+                    "Audio 3D & Espacialización"
+                ],
+                largeImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
                 id: 4,
                 name: "CARLOS MÉNDEZ",
-                role: "QA Lead",
-                nationality: "Colombia",
-                specialty: "Testing & Experiencia de Usuario",
-                experience: "4+ años en QA especializado",
-                projects: "Todos los proyectos",
-                avatar: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                role: "QA LEAD",
+                country: "COLOMBIA",
                 skills: [
-                    { name: "Testing", desc: "Pruebas exhaustivas de jugabilidad" },
-                    { name: "UX Research", desc: "Análisis de experiencia de usuario" },
-                    { name: "Bug Tracking", desc: "Sistemas de reporte avanzados" },
-                    { name: "Balance", desc: "Ajuste de dificultad y progresión" }
-                ]
+                    "Testing de Jugabilidad",
+                    "Análisis de Experiencia de Usuario",
+                    "Control de Calidad y Balance"
+                ],
+                largeImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             }
         ];
 
-        // VARIABLES GLOBALES
+        // ELEMENTOS DEL DOM
+        const selectorItems = document.querySelectorAll('.selector-item');
+        const largeCharacterImg = document.getElementById('largeCharacter');
+        const panelContent = document.getElementById('panelContent');
         let currentMemberIndex = 0;
-        const selectorCards = document.querySelectorAll('.selector-card');
-        const indicators = document.querySelectorAll('.indicator');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const detailsPanel = document.getElementById('detailsPanel');
 
-        // FUNCIÓN PARA ACTUALIZAR EL PANEL DE DETALLES
-        function updateMemberDetails(index) {
+        // FUNCIÓN PARA ACTUALIZAR LA VISTA
+        function updateTeamView(index) {
             const member = teamData[index];
             
-            detailsPanel.innerHTML = `
-                <div class="character-header">
-                    <div class="character-avatar">
-                        <img src="${member.avatar}" alt="${member.name}" loading="lazy">
-                    </div>
-                    <div class="character-info">
-                        <h2>${member.name}</h2>
-                        <span class="character-role">${member.role}</span>
-                    </div>
-                </div>
+            // Actualizar imagen grande
+            largeCharacterImg.src = member.largeImage;
+            largeCharacterImg.alt = member.name;
+            
+            // Actualizar panel de información
+            panelContent.innerHTML = `
+                <div class="character-name">${member.name}</div>
+                <div class="character-role">${member.role}</div>
                 
-                <div class="character-details">
-                    <div class="detail-item">
-                        <h4>📍 Nacionalidad</h4>
-                        <p>${member.nationality}</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>🎓 Especialidad</h4>
-                        <p>${member.specialty}</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>⏳ Experiencia</h4>
-                        <p>${member.experience}</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>🎮 Proyectos</h4>
-                        <p>${member.projects}</p>
-                    </div>
+                <div class="character-country">
+                    <span class="country-label">PAÍS DE ORIGEN</span>
+                    <div class="country-value">${member.country}</div>
                 </div>
                 
                 <div class="character-skills">
-                    <h3>🛠️ Habilidades Principales</h3>
-                    <div class="skills-grid">
+                    <span class="skills-label">HABILIDADES</span>
+                    <ul class="skills-list">
                         ${member.skills.map(skill => `
-                            <div class="skill-item">
-                                <h4>${skill.name}</h4>
-                                <p>${skill.desc}</p>
-                            </div>
+                            <li class="skill-item">${skill}</li>
                         `).join('')}
-                    </div>
+                    </ul>
                 </div>
             `;
-        }
-
-        // FUNCIÓN PARA ACTUALIZAR EL SELECTOR
-        function updateSelector(index) {
-            // Actualizar tarjetas
-            selectorCards.forEach((card, i) => {
-                const cardIndex = parseInt(card.dataset.index);
-                const isActive = cardIndex === index;
-                
-                if (isActive) {
-                    card.classList.add('active');
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                    card.style.zIndex = '10';
+            
+            // Actualizar selector
+            selectorItems.forEach((item, i) => {
+                if (i === index) {
+                    item.classList.add('active');
                 } else {
-                    card.classList.remove('active');
-                    card.style.opacity = '0.5';
-                    card.style.transform = 'scale(0.8)';
-                    card.style.zIndex = '1';
+                    item.classList.remove('active');
                 }
             });
             
-            // Actualizar indicadores
-            indicators.forEach((indicator, i) => {
-                const indicatorIndex = parseInt(indicator.dataset.index);
-                if (indicatorIndex === index) {
-                    indicator.classList.add('active');
-                } else {
-                    indicator.classList.remove('active');
+            // Animación de transición
+            largeCharacterImg.style.opacity = '0';
+            panelContent.style.opacity = '0';
+            
+            setTimeout(() => {
+                largeCharacterImg.style.opacity = '1';
+                panelContent.style.opacity = '1';
+            }, 200);
+            
+            currentMemberIndex = index;
+        }
+
+        // EVENTOS PARA LOS ITEMS DEL SELECTOR
+        selectorItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                updateTeamView(index);
+            });
+            
+            // Hover effects
+            item.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(-8px)';
                 }
             });
             
-            // Actualizar botones de navegación
-            //prevBtn.disabled = index === 0;
-            //nextBtn.disabled = index === teamData.length - 1;
-            
-            // Actualizar detalles
-            updateMemberDetails(index);
-            
-            // Asegurar que la tarjeta activa sea visible
-            const activeCard = document.querySelector(`.selector-card[data-index="${index}"]`);
-            if (activeCard) {
-                activeCard.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
-            }
-        }
-
-        // EVENTOS PARA LAS TARJETAS
-        selectorCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const index = parseInt(card.dataset.index);
-                currentMemberIndex = index;
-                updateSelector(currentMemberIndex);
+            item.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(0)';
+                }
             });
         });
 
-        // EVENTOS PARA LOS BOTONES DE NAVEGACIÓN
-        /*prevBtn.addEventListener('click', () => {
-            if (currentMemberIndex > 0) {
-                currentMemberIndex--;
-                updateSelector(currentMemberIndex);
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentMemberIndex < teamData.length - 1) {
-                currentMemberIndex++;
-                updateSelector(currentMemberIndex);
-            }
-        });*/
-
-        // EVENTOS DE TECLADO
+        // NAVEGACIÓN POR TECLADO
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && currentMemberIndex > 0) {
-                currentMemberIndex--;
-                updateSelector(currentMemberIndex);
-            } else if (e.key === 'ArrowRight' && currentMemberIndex < teamData.length - 1) {
-                currentMemberIndex++;
-                updateSelector(currentMemberIndex);
+            if (e.key === 'ArrowLeft') {
+                const newIndex = currentMemberIndex > 0 ? currentMemberIndex - 1 : teamData.length - 1;
+                updateTeamView(newIndex);
+            } else if (e.key === 'ArrowRight') {
+                const newIndex = currentMemberIndex < teamData.length - 1 ? currentMemberIndex + 1 : 0;
+                updateTeamView(newIndex);
             }
         });
 
-        // INICIALIZAR CON EL MIEMBRO 1 (María)
-        updateSelector(currentMemberIndex);
-
+        // CARRUSEL AUTOMÁTICO (OPCIONAL)
+        let autoRotateInterval;
+        
+        function startAutoRotate() {
+            autoRotateInterval = setInterval(() => {
+                const nextIndex = (currentMemberIndex + 1) % teamData.length;
+                updateTeamView(nextIndex);
+            }, 6000); // Cambia cada 6 segundos
+        }
+        
+        function stopAutoRotate() {
+            clearInterval(autoRotateInterval);
+        }
+        
+        // Activar/desactivar carrusel al interactuar
+        const equipoSection = document.getElementById('equipo');
+        equipoSection.addEventListener('mouseenter', stopAutoRotate);
+        equipoSection.addEventListener('mouseleave', startAutoRotate);
+        
+        // INICIALIZAR CON EL PRIMER MIEMBRO
+        updateTeamView(0);
+        startAutoRotate();
         // Ajustar al redimensionar la ventana
-        window.addEventListener('resize', () => {
+       /* window.addEventListener('resize', () => {
             updateSelector(currentMemberIndex);
-        });
+        });*/
     </script>
 </body>
 </html>
