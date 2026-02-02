@@ -191,18 +191,50 @@
         </div>
     </section>
     
-    <!-- SECCIÓN EL EQUIPO -->
+    <!-- SECCIÓN EL EQUIPO - LAYOUT CORREGIDO -->
     <section id="equipo" class="section">
         <div class="section-content">
             <h2 class="section-title">EL EQUIPO</h2>
             
             <div class="horizontal-container">
-                <!-- LADO IZQUIERDO - 50% -->
-                <div class="left-side">
-                    <!-- CONTENEDOR DE IMAGEN VERTICAL -->
-                    <div class="vertical-image-container">
+                <!-- LADO IZQUIERDO - 50% - PANEL CON INFORMACIÓN -->
+                <div class="left-side panel-side">
+                    <div class="panel-container">
+                        <!-- IMAGEN FIJA DEL PANEL (siempre la misma) -->
+                        <img src="Images/Equipo_Panel_Data.png" 
+                             alt="Panel Informativo" 
+                             class="panel-background">
+                        <!-- CONTENIDO DINÁMICO SOBRE EL PANEL -->
+                        <div class="panel-overlay" id="panelOverlay">
+                            <!-- El JavaScript llenará esto -->
+                            <div class="panel-content">
+                                <div class="panel-name">MARÍA CHEN</div>
+                                <div class="panel-role">LEAD DEVELOPER</div>
+                                <div class="character-country">
+                                    <div class="country-label">PAÍS</div>
+                                    <div class="country-value">ARGENTINA / CHINA</div>
+                                </div>
+                                <div class="character-skills">
+                                    <div class="skills-label">HABILIDADES</div>
+                                    <ul class="skills-list">
+                                        <li class="skill-item">Programación C#</li>
+                                        <li class="skill-item">Unity Engine</li>
+                                        <li class="skill-item">Arquitectura de Software</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LADO DERECHO - 50% - PERSONAJE GRANDE Y SELECTOR -->
+                <div class="right-side character-side">
+                    <!-- IMAGEN GRANDE DEL PERSONAJE -->
+                    <div class="character-image-container">
                         <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="María Chen" class="vertical-character" id="largeCharacter">
+                             alt="María Chen" 
+                             class="main-character"
+                             id="largeCharacter">
                     </div>
                     
                     <!-- SELECTOR DE PERSONAJES -->
@@ -230,15 +262,6 @@
                                      alt="Carlos Méndez">
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- LADO DERECHO - 50% - PANEL CON IMAGEN -->
-                <div class="right-side">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                         alt="Panel María Chen" class="panel-image" id="panelImage">
-                    <div class="image-overlay" id="panelOverlay">
-                        <!-- Contenido dinámico aquí -->
                     </div>
                 </div>
             </div>
