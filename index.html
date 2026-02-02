@@ -1465,15 +1465,74 @@
                     </div>
                 </div>
                 
-                <!-- LADO DERECHO - 50% - PANEL DE INFORMACIÓN -->
-                <div class="right-side">
-                    <div class="panel-content" id="panelContent">
-                        <!-- El contenido se actualizará dinámicamente -->
-                    </div>
-                </div>
-            </div>
+                <!-- LADO DERECHO - 50% - PANEL CON IMAGEN PERSONALIZADA -->
+    <div class="right-side">
+        <!-- IMAGEN DEL PANEL (se actualizará dinámicamente) -->
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+             alt="Panel María Chen" class="panel-image" id="panelImage">
+        
+        <!-- INFORMACIÓN SOBREPUESTA EN LA IMAGEN -->
+        <div class="image-overlay" id="panelOverlay">
+            <!-- El contenido se actualizará dinámicamente -->
         </div>
-    </section>
+    </div>
+
+    <script>
+        // DATOS DEL EQUIPO CON IMÁGENES DE PANEL
+        const teamData = [
+            {
+                id: 0,
+                name: "MATY DEV",
+                role: "CEO & FUNDADOR",
+                country: "ARGENTINA",
+                skills: ["Diseño de Juegos", "Gestión Creativa", "Desarrollo de Negocio"],
+                // IMAGEN PARA EL LADO IZQUIERDO (vertical)
+                largeImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                // IMAGEN PARA EL PANEL DERECHO
+                panelImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
+            {
+                id: 1,
+                name: "MARÍA CHEN",
+                role: "LEAD DEVELOPER",
+                country: "ARGENTINA / CHINA",
+                skills: ["Programación C#", "Unity Engine", "Arquitectura de Software"],
+                largeImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
+            {
+                id: 2,
+                name: "SAMUEL KIM",
+                role: "ART DIRECTOR",
+                country: "COREA DEL SUR",
+                skills: ["Modelado 3D", "Concept Art", "Animación de Personajes"],
+                largeImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
+            {
+                id: 3,
+                name: "LENA WAGNER",
+                role: "SOUND DESIGNER",
+                country: "ALEMANIA",
+                skills: ["Composición Musical", "Diseño de SFX", "Audio 3D"],
+                largeImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            },
+            {
+                id: 4,
+                name: "CARLOS MÉNDEZ",
+                role: "QA LEAD",
+                country: "COLOMBIA",
+                skills: ["Testing de Jugabilidad", "Análisis de UX", "Control de Calidad"],
+                largeImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                thumbImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+            }
+        ];
         
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="section">
@@ -1667,34 +1726,36 @@
         // ELEMENTOS DEL DOM
         const selectorItems = document.querySelectorAll('.selector-item');
         const verticalCharacterImg = document.getElementById('largeCharacter');
-        const panelContent = document.getElementById('panelContent');
-        let currentMemberIndex = 1; // Inicia con María Chen
+        const panelImage = document.getElementById('panelImage');
+        const panelOverlay = document.getElementById('panelOverlay');
+        let currentMemberIndex = 1;
 
         // FUNCIÓN PARA ACTUALIZAR LA VISTA
         function updateTeamView(index) {
             const member = teamData[index];
             
-            // Actualizar imagen vertical grande
+            // Actualizar imagen vertical izquierda
             verticalCharacterImg.src = member.largeImage;
             verticalCharacterImg.alt = member.name;
             
-            // Actualizar panel de información
-            panelContent.innerHTML = `
-                <div class="character-name">${member.name}</div>
-                <div class="character-role">${member.role}</div>
+            // Actualizar imagen del panel derecho
+            panelImage.src = member.panelImage;
+            panelImage.alt = `Panel ${member.name}`;
+            
+            // Actualizar información sobrepuesta en el panel
+            panelOverlay.innerHTML = `
+                <div class="panel-name">${member.name}</div>
+                <div class="panel-role">${member.role}</div>
                 
-                <div class="character-country">
-                    <span class="country-label">PAÍS DE ORIGEN</span>
-                    <div class="country-value">${member.country}</div>
-                </div>
-                
-                <div class="character-skills">
-                    <span class="skills-label">HABILIDADES</span>
-                    <ul class="skills-list">
-                        ${member.skills.map(skill => `
-                            <li class="skill-item">${skill}</li>
-                        `).join('')}
-                    </ul>
+                <div class="panel-info">
+                    <div class="info-item">
+                        <span class="info-label">PAÍS:</span>
+                        <span class="info-value">${member.country}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">HABILIDADES:</span>
+                        <span class="info-value">${member.skills.join(', ')}</span>
+                    </div>
                 </div>
             `;
             
@@ -1709,17 +1770,13 @@
             
             // Animación de transición
             verticalCharacterImg.style.opacity = '0';
-            panelContent.style.opacity = '0';
+            panelImage.style.opacity = '0';
+            panelOverlay.style.opacity = '0';
             
             setTimeout(() => {
                 verticalCharacterImg.style.opacity = '1';
-                panelContent.style.opacity = '1';
-                
-                // Re-aplicar animación de entrada
-                panelContent.style.animation = 'none';
-                setTimeout(() => {
-                    panelContent.style.animation = 'slideIn 0.6s ease-out';
-                }, 10);
+                panelImage.style.opacity = '1';
+                panelOverlay.style.opacity = '1';
             }, 200);
             
             currentMemberIndex = index;
