@@ -480,7 +480,7 @@
             100% { transform: translate(100px, 100px); }
         }
         
-        /* SECCIÓN EL EQUIPO - FORMATO HORIZONTAL */
+         /* SECCIÓN EL EQUIPO - FORMATO HORIZONTAL 50/50 */
         #equipo {
             min-height: 100vh;
             width: 100%;
@@ -494,74 +494,97 @@
             padding: 20px;
         }
 
-        /* CONTENEDOR HORIZONTAL PRINCIPAL */
+        /* CONTENEDOR HORIZONTAL PRINCIPAL 50/50 */
         .horizontal-container {
             display: flex;
             width: 100%;
-            max-width: 1400px;
-            height: 80vh;
-            min-height: 600px;
-            gap: 40px;
-            padding: 30px;
+            max-width: 1600px;
+            height: 85vh;
+            min-height: 700px;
+            gap: 50px;
+            padding: 40px;
             background: rgba(20, 20, 20, 0.7);
-            border-radius: 20px;
+            border-radius: 25px;
             border: 1px solid rgba(255, 102, 0, 0.3);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
         }
 
-        /* LADO IZQUIERDO */
+        /* LADO IZQUIERDO - 50% - IMAGEN VERTICAL */
         .left-side {
-            flex: 0 0 60%;
+            flex: 0 0 50%;
             display: flex;
             flex-direction: column;
             position: relative;
+            gap: 30px;
         }
 
-        /* PERSONAJE GRANDE */
-        .large-character-container {
+        /* CONTENEDOR DE IMAGEN VERTICAL GRANDE */
+        .vertical-image-container {
             flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 30px;
             position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
         }
 
-        .large-character {
+        /* IMAGEN VERTICAL DEL PERSONAJE */
+        .vertical-character {
             width: 100%;
-            height: 100%;
+            max-width: 450px;
+            height: 70vh;
             object-fit: cover;
             border-radius: 15px;
             transition: all 0.5s ease;
-            border: 2px solid rgba(255, 102, 0, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            border: 3px solid rgba(255, 102, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
         }
 
-        .large-character:hover {
+        .vertical-character:hover {
             transform: scale(1.02);
             border-color: #ff6600;
+            box-shadow: 0 20px 50px rgba(255, 102, 0, 0.3);
         }
 
-        /* SELECTOR DE PERSONAJES PEQUEÑO */
+        /* SELECTOR DE PERSONAJES - CENTRADO INFERIOR */
+        .character-selector-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 102, 0, 0.2);
+        }
+
+        .selector-label {
+            color: #ffcc99;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+        }
+
         .character-selector {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(30, 30, 30, 0.8);
-            border-radius: 10px;
-            border: 1px solid rgba(255, 102, 0, 0.2);
-            height: 120px;
+            gap: 20px;
+            padding: 15px 25px;
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 12px;
         }
 
         .selector-item {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
+            width: 85px;
+            height: 85px;
+            border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -578,15 +601,15 @@
         }
 
         .selector-item:hover {
-            transform: translateY(-5px);
-            border-color: rgba(255, 102, 0, 0.5);
-            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.3);
+            transform: translateY(-8px);
+            border-color: rgba(255, 102, 0, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4);
         }
 
         .selector-item.active {
             border-color: #ff6600;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);
+            transform: scale(1.15);
+            box-shadow: 0 0 25px rgba(255, 102, 0, 0.7);
             z-index: 10;
         }
 
@@ -598,33 +621,34 @@
         .selector-item.active::after {
             content: '✓';
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: -10px;
+            right: -10px;
             background: #ff6600;
             color: white;
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
             z-index: 11;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* LADO DERECHO - PANEL DE INFORMACIÓN */
+        /* LADO DERECHO - 50% - PANEL DE INFORMACIÓN */
         .right-side {
-            flex: 0 0 40%;
+            flex: 0 0 50%;
             display: flex;
             flex-direction: column;
-            padding: 30px;
+            padding: 50px;
             background: linear-gradient(145deg, #1a1a1a, #222222);
-            border-radius: 15px;
-            border: 2px solid rgba(255, 102, 0, 0.3);
+            border-radius: 20px;
+            border: 3px solid rgba(255, 102, 0, 0.3);
             box-shadow: 
                 inset 0 1px 0 rgba(255, 255, 255, 0.1),
-                0 10px 25px rgba(0, 0, 0, 0.5);
+                0 15px 35px rgba(0, 0, 0, 0.6);
             position: relative;
             overflow: hidden;
         }
@@ -636,30 +660,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #ff6600, transparent);
-        }
-
-        /* Título de la sección */
-        .section-title {
-            text-align: center;
-            color: #ffcc99;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ff6600, transparent);
+            height: 4px;
+            background: linear-gradient(90deg, #ff6600, #ffcc99, #ff6600);
         }
 
         /* CONTENIDO DEL PANEL */
@@ -668,48 +670,54 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            height: 100%;
         }
 
         /* NOMBRE DEL PERSONAJE */
         .character-name {
             text-align: center;
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             color: #ffcc99;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 102, 0, 0.4);
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
         /* ROL EN EL ESTUDIO */
         .character-role {
             text-align: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #ff6600;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 102, 0, 0.2);
         }
 
         /* INFORMACIÓN DE PAÍS */
         .character-country {
-            margin-bottom: 35px;
+            margin-bottom: 50px;
         }
 
         .country-label {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: #cccccc;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             font-weight: bold;
             display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .country-value {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #ffcc99;
-            padding-left: 20px;
+            padding-left: 30px;
             position: relative;
+            font-weight: 600;
         }
 
         .country-value::before {
@@ -718,33 +726,37 @@
             left: 0;
             top: 50%;
             transform: translateY(-50%);
+            font-size: 1.5rem;
         }
 
         /* HABILIDADES */
         .character-skills {
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .skills-label {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: #cccccc;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: bold;
             display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .skills-list {
             list-style: none;
-            padding-left: 20px;
+            padding-left: 30px;
         }
 
         .skill-item {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: #ffcc99;
-            margin-bottom: 12px;
-            padding-left: 30px;
+            margin-bottom: 18px;
+            padding-left: 40px;
             position: relative;
-            line-height: 1.4;
+            line-height: 1.5;
+            font-weight: 500;
         }
 
         .skill-item::before {
@@ -752,32 +764,88 @@
             position: absolute;
             left: 0;
             color: #ff6600;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            top: 3px;
         }
 
         /* EFECTO DE TRANSICIÓN */
-        .large-character,
-        .character-name,
-        .character-role,
-        .character-country,
-        .character-skills {
+        .vertical-character,
+        .panel-content > div {
             transition: opacity 0.4s ease;
         }
 
+        /* ANIMACIÓN DE ENTRADA */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .panel-content {
+            animation: slideIn 0.6s ease-out;
+        }
+
         /* RESPONSIVE DESIGN */
-        @media (max-width: 1200px) {
+        @media (max-width: 1400px) {
             .horizontal-container {
-                height: 70vh;
-                gap: 30px;
-                padding: 20px;
+                height: 80vh;
+                min-height: 650px;
+                gap: 40px;
+                padding: 30px;
+            }
+            
+            .vertical-character {
+                max-width: 400px;
+                height: 65vh;
             }
             
             .character-name {
-                font-size: 2.4rem;
+                font-size: 2.8rem;
             }
             
             .character-role {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
+            }
+            
+            .selector-item {
+                width: 75px;
+                height: 75px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .horizontal-container {
+                height: 75vh;
+                min-height: 600px;
+                gap: 35px;
+            }
+            
+            .vertical-character {
+                max-width: 350px;
+                height: 60vh;
+            }
+            
+            .right-side {
+                padding: 40px;
+            }
+            
+            .character-name {
+                font-size: 2.5rem;
+            }
+            
+            .character-role {
+                font-size: 1.6rem;
+                margin-bottom: 50px;
+            }
+            
+            .country-value,
+            .skill-item {
+                font-size: 1.4rem;
             }
         }
 
@@ -785,44 +853,109 @@
             .horizontal-container {
                 flex-direction: column;
                 height: auto;
-                min-height: 90vh;
+                min-height: auto;
+                gap: 40px;
             }
             
             .left-side,
             .right-side {
                 flex: 1;
                 width: 100%;
+                max-width: 800px;
+                margin: 0 auto;
             }
             
-            .large-character-container {
+            .vertical-image-container {
+                height: 500px;
+            }
+            
+            .vertical-character {
+                max-width: 400px;
+                height: 450px;
+            }
+            
+            .character-selector-container {
+                margin-top: 20px;
+            }
+            
+            .selector-item {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .horizontal-container {
+                padding: 20px;
+                gap: 30px;
+            }
+            
+            .vertical-image-container {
+                height: 450px;
+                padding: 15px;
+            }
+            
+            .vertical-character {
+                max-width: 350px;
                 height: 400px;
             }
             
+            .right-side {
+                padding: 30px;
+            }
+            
             .character-selector {
-                height: 100px;
+                gap: 15px;
+                padding: 12px 20px;
             }
             
             .selector-item {
                 width: 70px;
                 height: 70px;
             }
-        }
-
-        @media (max-width: 768px) {
-            .horizontal-container {
-                padding: 15px;
-                gap: 20px;
+            
+            .character-name {
+                font-size: 2.2rem;
             }
             
-            .large-character-container {
+            .character-role {
+                font-size: 1.4rem;
+                margin-bottom: 40px;
+            }
+            
+            .country-label,
+            .skills-label {
+                font-size: 1.2rem;
+            }
+            
+            .country-value,
+            .skill-item {
+                font-size: 1.2rem;
+                padding-left: 25px;
+            }
+            
+            .skill-item {
+                padding-left: 35px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .horizontal-container {
+                padding: 15px;
+            }
+            
+            .vertical-image-container {
+                height: 400px;
+            }
+            
+            .vertical-character {
+                max-width: 300px;
                 height: 350px;
-                margin-bottom: 20px;
             }
             
             .character-selector {
                 gap: 10px;
-                padding: 10px;
-                height: 90px;
+                padding: 10px 15px;
             }
             
             .selector-item {
@@ -831,16 +964,16 @@
             }
             
             .right-side {
-                padding: 20px;
+                padding: 25px;
             }
             
             .character-name {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
             
             .character-role {
-                font-size: 1.3rem;
-                margin-bottom: 30px;
+                font-size: 1.2rem;
+                margin-bottom: 35px;
             }
             
             .country-value,
@@ -849,49 +982,26 @@
             }
         }
 
-        @media (max-width: 480px) {
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 20px;
-            }
-            
-            .large-character-container {
-                height: 300px;
-            }
-            
-            .character-selector {
-                height: 80px;
-            }
-            
-            .selector-item {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .character-name {
-                font-size: 1.8rem;
-            }
-            
-            .character-role {
-                font-size: 1.1rem;
-                margin-bottom: 25px;
-            }
+        /* TÍTULO DE LA SECCIÓN */
+        .section-title {
+            text-align: center;
+            color: #ffcc99;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+            position: relative;
+            padding-bottom: 20px;
         }
 
-        /* ANIMACIÓN DE ENTRADA */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .horizontal-container {
-            animation: fadeIn 0.8s ease-out;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff6600, transparent);
         }
         
         /* CONTACTO */
@@ -1208,46 +1318,49 @@
         </div>
     </section>
     
-    <!-- SECCIÓN EL EQUIPO - FORMATO HORIZONTAL -->
+    <!-- SECCIÓN EL EQUIPO - FORMATO HORIZONTAL 50/50 -->
     <section id="equipo" class="section">
         <div class="section-content">
             <h2 class="section-title">EL EQUIPO</h2>
             
             <div class="horizontal-container">
-                <!-- LADO IZQUIERDO -->
+                <!-- LADO IZQUIERDO - 50% -->
                 <div class="left-side">
-                    <!-- PERSONAJE GRANDE -->
-                    <div class="large-character-container">
+                    <!-- CONTENEDOR DE IMAGEN VERTICAL -->
+                    <div class="vertical-image-container">
                         <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="María Chen" class="large-character" id="largeCharacter">
+                             alt="María Chen" class="vertical-character" id="largeCharacter">
                     </div>
                     
                     <!-- SELECTOR DE PERSONAJES -->
-                    <div class="character-selector">
-                        <div class="selector-item active" data-index="0">
-                            <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="Maty Dev">
-                        </div>
-                        <div class="selector-item" data-index="1">
-                            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="María Chen">
-                        </div>
-                        <div class="selector-item" data-index="2">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="Samuel Kim">
-                        </div>
-                        <div class="selector-item" data-index="3">
-                            <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="Lena Wagner">
-                        </div>
-                        <div class="selector-item" data-index="4">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="Carlos Méndez">
+                    <div class="character-selector-container">
+                        <div class="selector-label">SELECCIONA UN MIEMBRO</div>
+                        <div class="character-selector">
+                            <div class="selector-item active" data-index="0">
+                                <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Maty Dev">
+                            </div>
+                            <div class="selector-item" data-index="1">
+                                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                     alt="María Chen">
+                            </div>
+                            <div class="selector-item" data-index="2">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Samuel Kim">
+                            </div>
+                            <div class="selector-item" data-index="3">
+                                <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Lena Wagner">
+                            </div>
+                            <div class="selector-item" data-index="4">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                     alt="Carlos Méndez">
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- LADO DERECHO - PANEL DE INFORMACIÓN -->
+                <!-- LADO DERECHO - 50% - PANEL DE INFORMACIÓN -->
                 <div class="right-side">
                     <div class="panel-content" id="panelContent">
                         <!-- El contenido se actualizará dinámicamente -->
@@ -1389,7 +1502,7 @@
                     "Gestión de Proyectos Creativos",
                     "Desarrollo de Negocio"
                 ],
-                largeImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                largeImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 thumbImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1402,7 +1515,7 @@
                     "Unity Engine & Optimización",
                     "Arquitectura de Software"
                 ],
-                largeImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                largeImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 thumbImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1415,7 +1528,7 @@
                     "Concept Art & Diseño Visual",
                     "Animación de Personajes"
                 ],
-                largeImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                largeImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 thumbImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1428,7 +1541,7 @@
                     "Diseño de Efectos de Sonido",
                     "Audio 3D & Espacialización"
                 ],
-                largeImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                largeImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 thumbImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1441,24 +1554,24 @@
                     "Análisis de Experiencia de Usuario",
                     "Control de Calidad y Balance"
                 ],
-                largeImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                largeImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                 thumbImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             }
         ];
 
         // ELEMENTOS DEL DOM
         const selectorItems = document.querySelectorAll('.selector-item');
-        const largeCharacterImg = document.getElementById('largeCharacter');
+        const verticalCharacterImg = document.getElementById('largeCharacter');
         const panelContent = document.getElementById('panelContent');
-        let currentMemberIndex = 0;
+        let currentMemberIndex = 1; // Inicia con María Chen
 
         // FUNCIÓN PARA ACTUALIZAR LA VISTA
         function updateTeamView(index) {
             const member = teamData[index];
             
-            // Actualizar imagen grande
-            largeCharacterImg.src = member.largeImage;
-            largeCharacterImg.alt = member.name;
+            // Actualizar imagen vertical grande
+            verticalCharacterImg.src = member.largeImage;
+            verticalCharacterImg.alt = member.name;
             
             // Actualizar panel de información
             panelContent.innerHTML = `
@@ -1490,12 +1603,18 @@
             });
             
             // Animación de transición
-            largeCharacterImg.style.opacity = '0';
+            verticalCharacterImg.style.opacity = '0';
             panelContent.style.opacity = '0';
             
             setTimeout(() => {
-                largeCharacterImg.style.opacity = '1';
+                verticalCharacterImg.style.opacity = '1';
                 panelContent.style.opacity = '1';
+                
+                // Re-aplicar animación de entrada
+                panelContent.style.animation = 'none';
+                setTimeout(() => {
+                    panelContent.style.animation = 'slideIn 0.6s ease-out';
+                }, 10);
             }, 200);
             
             currentMemberIndex = index;
@@ -1533,14 +1652,14 @@
             }
         });
 
-        // CARRUSEL AUTOMÁTICO (OPCIONAL)
+        // CARRUSEL AUTOMÁTICO
         let autoRotateInterval;
         
         function startAutoRotate() {
             autoRotateInterval = setInterval(() => {
                 const nextIndex = (currentMemberIndex + 1) % teamData.length;
                 updateTeamView(nextIndex);
-            }, 6000); // Cambia cada 6 segundos
+            }, 7000); // Cambia cada 7 segundos
         }
         
         function stopAutoRotate() {
@@ -1552,9 +1671,10 @@
         equipoSection.addEventListener('mouseenter', stopAutoRotate);
         equipoSection.addEventListener('mouseleave', startAutoRotate);
         
-        // INICIALIZAR CON EL PRIMER MIEMBRO
-        updateTeamView(0);
+        // INICIALIZAR
+        updateTeamView(currentMemberIndex);
         startAutoRotate();
+        
         // Ajustar al redimensionar la ventana
        /* window.addEventListener('resize', () => {
             updateSelector(currentMemberIndex);
