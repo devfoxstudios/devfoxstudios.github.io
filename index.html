@@ -1423,7 +1423,7 @@
         </div>
     </section>
     
-    <!-- SECCIÓN EL EQUIPO - FORMATO HORIZONTAL 50/50 -->
+    <!-- SECCIÓN EL EQUIPO - CORREGIDA -->
     <section id="equipo" class="section">
         <div class="section-content">
             <h2 class="section-title">EL EQUIPO</h2>
@@ -1465,74 +1465,17 @@
                     </div>
                 </div>
                 
-                <!-- LADO DERECHO - 50% - PANEL CON IMAGEN PERSONALIZADA -->
-    <div class="right-side">
-        <!-- IMAGEN DEL PANEL (se actualizará dinámicamente) -->
-        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-             alt="Panel María Chen" class="panel-image" id="panelImage">
-        
-        <!-- INFORMACIÓN SOBREPUESTA EN LA IMAGEN -->
-        <div class="image-overlay" id="panelOverlay">
-            <!-- El contenido se actualizará dinámicamente -->
+                <!-- LADO DERECHO - 50% - PANEL CON IMAGEN -->
+                <div class="right-side">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                         alt="Panel María Chen" class="panel-image" id="panelImage">
+                    <div class="image-overlay" id="panelOverlay">
+                        <!-- Contenido dinámico aquí -->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <script>
-        // DATOS DEL EQUIPO CON IMÁGENES DE PANEL
-        const teamData = [
-            {
-                id: 0,
-                name: "MATY DEV",
-                role: "CEO & FUNDADOR",
-                country: "ARGENTINA",
-                skills: ["Diseño de Juegos", "Gestión Creativa", "Desarrollo de Negocio"],
-                // IMAGEN PARA EL LADO IZQUIERDO (vertical)
-                largeImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                // IMAGEN PARA EL PANEL DERECHO
-                panelImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                thumbImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-            },
-            {
-                id: 1,
-                name: "MARÍA CHEN",
-                role: "LEAD DEVELOPER",
-                country: "ARGENTINA / CHINA",
-                skills: ["Programación C#", "Unity Engine", "Arquitectura de Software"],
-                largeImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                panelImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                thumbImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-            },
-            {
-                id: 2,
-                name: "SAMUEL KIM",
-                role: "ART DIRECTOR",
-                country: "COREA DEL SUR",
-                skills: ["Modelado 3D", "Concept Art", "Animación de Personajes"],
-                largeImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                panelImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                thumbImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-            },
-            {
-                id: 3,
-                name: "LENA WAGNER",
-                role: "SOUND DESIGNER",
-                country: "ALEMANIA",
-                skills: ["Composición Musical", "Diseño de SFX", "Audio 3D"],
-                largeImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                panelImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                thumbImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-            },
-            {
-                id: 4,
-                name: "CARLOS MÉNDEZ",
-                role: "QA LEAD",
-                country: "COLOMBIA",
-                skills: ["Testing de Jugabilidad", "Análisis de UX", "Control de Calidad"],
-                largeImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                panelImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                thumbImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
-            }
-        ];
+    </section>
         
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto" class="section">
@@ -1654,19 +1597,16 @@
             });
         });
 
-        // DATOS DEL EQUIPO
+        // DATOS DEL EQUIPO (versión única y corregida)
         const teamData = [
             {
                 id: 0,
                 name: "MATY DEV",
                 role: "CEO & FUNDADOR",
                 country: "ARGENTINA",
-                skills: [
-                    "Diseño de Juegos & Narrativa",
-                    "Gestión de Proyectos Creativos",
-                    "Desarrollo de Negocio"
-                ],
+                skills: ["Diseño de Juegos", "Gestión Creativa", "Desarrollo de Negocio"],
                 largeImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "Images/Equipo_Panel_Data.png",  // Tu imagen local
                 thumbImage: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1674,12 +1614,9 @@
                 name: "MARÍA CHEN",
                 role: "LEAD DEVELOPER",
                 country: "ARGENTINA / CHINA",
-                skills: [
-                    "Programación C# Avanzada",
-                    "Unity Engine & Optimización",
-                    "Arquitectura de Software"
-                ],
+                skills: ["Programación C#", "Unity Engine", "Arquitectura de Software"],
                 largeImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "Images/Equipo_Panel_Data.png",  // Tu imagen local
                 thumbImage: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1687,12 +1624,9 @@
                 name: "SAMUEL KIM",
                 role: "ART DIRECTOR",
                 country: "COREA DEL SUR",
-                skills: [
-                    "Modelado 3D & Escultura Digital",
-                    "Concept Art & Diseño Visual",
-                    "Animación de Personajes"
-                ],
+                skills: ["Modelado 3D", "Concept Art", "Animación de Personajes"],
                 largeImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "Images/Equipo_Panel_Data.png",  // Tu imagen local
                 thumbImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1700,12 +1634,9 @@
                 name: "LENA WAGNER",
                 role: "SOUND DESIGNER",
                 country: "ALEMANIA",
-                skills: [
-                    "Composición Musical Original",
-                    "Diseño de Efectos de Sonido",
-                    "Audio 3D & Espacialización"
-                ],
+                skills: ["Composición Musical", "Diseño de SFX", "Audio 3D"],
                 largeImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "Images/Equipo_Panel_Data.png",  // Tu imagen local
                 thumbImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             },
             {
@@ -1713,12 +1644,9 @@
                 name: "CARLOS MÉNDEZ",
                 role: "QA LEAD",
                 country: "COLOMBIA",
-                skills: [
-                    "Testing de Jugabilidad",
-                    "Análisis de Experiencia de Usuario",
-                    "Control de Calidad y Balance"
-                ],
+                skills: ["Testing de Jugabilidad", "Análisis de UX", "Control de Calidad"],
                 largeImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                panelImage: "Images/Equipo_Panel_Data.png",  // Tu imagen local
                 thumbImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
             }
         ];
@@ -1734,6 +1662,8 @@
         function updateTeamView(index) {
             const member = teamData[index];
             
+            console.log('Actualizando vista para:', member.name);
+            
             // Actualizar imagen vertical izquierda
             verticalCharacterImg.src = member.largeImage;
             verticalCharacterImg.alt = member.name;
@@ -1744,17 +1674,18 @@
             
             // Actualizar información sobrepuesta en el panel
             panelOverlay.innerHTML = `
-                <div class="panel-name">${member.name}</div>
-                <div class="panel-role">${member.role}</div>
-                
-                <div class="panel-info">
-                    <div class="info-item">
-                        <span class="info-label">PAÍS:</span>
-                        <span class="info-value">${member.country}</span>
+                <div class="panel-content">
+                    <div class="panel-name">${member.name}</div>
+                    <div class="panel-role">${member.role}</div>
+                    <div class="character-country">
+                        <span class="country-label">PAÍS</span>
+                        <div class="country-value">${member.country}</div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-label">HABILIDADES:</span>
-                        <span class="info-value">${member.skills.join(', ')}</span>
+                    <div class="character-skills">
+                        <span class="skills-label">HABILIDADES</span>
+                        <ul class="skills-list">
+                            ${member.skills.map(skill => `<li class="skill-item">${skill}</li>`).join('')}
+                        </ul>
                     </div>
                 </div>
             `;
@@ -1785,7 +1716,7 @@
         // EVENTOS PARA LOS ITEMS DEL SELECTOR
         selectorItems.forEach(item => {
             item.addEventListener('click', function() {
-                const index = parseInt(this.dataset.index);
+                const index = parseInt(this.getAttribute('data-index'));
                 updateTeamView(index);
             });
             
@@ -1814,14 +1745,14 @@
             }
         });
 
-        // CARRUSEL AUTOMÁTICO
+        // CARRUSEL AUTOMÁTICO (opcional)
         let autoRotateInterval;
         
         function startAutoRotate() {
             autoRotateInterval = setInterval(() => {
                 const nextIndex = (currentMemberIndex + 1) % teamData.length;
                 updateTeamView(nextIndex);
-            }, 7000); // Cambia cada 7 segundos
+            }, 7000);
         }
         
         function stopAutoRotate() {
@@ -1834,13 +1765,52 @@
         equipoSection.addEventListener('mouseleave', startAutoRotate);
         
         // INICIALIZAR
-        updateTeamView(currentMemberIndex);
+        updateTeamView(1); // Comienza con María Chen
         startAutoRotate();
+
+        // SCROLL SUAVE (para otras secciones)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
         
-        // Ajustar al redimensionar la ventana
-       /* window.addEventListener('resize', () => {
-            updateSelector(currentMemberIndex);
-        });*/
+        // RESALTAR ENLACE ACTIVO
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                
+                if(window.scrollY >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                
+                if(link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
