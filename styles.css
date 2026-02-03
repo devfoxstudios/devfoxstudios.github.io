@@ -212,12 +212,14 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    margin-top: 0px !important;
+    margin-top: 40px !important;
     margin-bottom: 20px !important;
-    text-shadow: 0 0 30px rgba(255, 102, 0, 0.4);
+    text-shadow: 0 0 20px rgba(255, 102, 0, 0.4);
     position: relative;
     display: inline-block;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .section-title::after {
@@ -452,28 +454,6 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
-}
-
-/* TÍTULO DE LA SECCIÓN EL EQUIPO (SOLO ESTO SE MANTIENE) */
-#equipo .section-title {
-    text-align: center;
-    color: #ffcc99;
-    font-size: 2.8rem;
-    margin-bottom: 50px;
-    text-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
-    position: relative;
-    padding-bottom: 20px;
-}
-
-#equipo .section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #ff6600, transparent);
 }
 
 /* CONTACTO */
