@@ -231,15 +231,6 @@ body {
     background: linear-gradient(90deg, transparent, #ff6600, transparent);
 }
 
-.section-subtitle {
-    font-size: 1.4rem !important;
-    color: #cccccc !important;
-    margin-bottom: 50px !important;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* Contenedor para tarjetas en todas las secciones */
 .cards-container {
     position: relative;
@@ -272,7 +263,7 @@ body {
     max-width: 350px;
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 350px;
 }
 
 .enhanced-card:hover {
@@ -558,10 +549,6 @@ footer {
     .section-title {
         font-size: 2.5rem !important;
     }
-    
-    .section-subtitle {
-        font-size: 1.2rem !important;
-    }
 }
 
 @media (max-width: 576px) {
@@ -589,10 +576,6 @@ footer {
     
     .section-title {
         font-size: 2.2rem !important;
-    }
-    
-    .section-subtitle {
-        font-size: 1.1rem !important;
     }
 }
 
