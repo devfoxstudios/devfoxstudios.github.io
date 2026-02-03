@@ -12,7 +12,7 @@
     left: 0;
     width: 100%;
     background-color: transparent !important;
-    padding: 12.5px 0;
+    padding: 10px 0;
     z-index: 1000;
     transition: padding 0.3s ease;
 }
