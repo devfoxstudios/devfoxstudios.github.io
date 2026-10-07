@@ -3,222 +3,1216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEV FOX STUDIOS</title>
+
+    <title>Kitsu Studios | Videojuegos, Tecnología y Educación</title>
+
+    <meta name="description" content="Kitsu Studios crea videojuegos, desarrolla proyectos digitales y enseña a crear videojuegos mediante clases online.">
+    <meta name="keywords" content="Kitsu Studios, desarrollo de videojuegos, Unity, C#, Blender, videojuegos, programación, clases de Unity">
+    <meta name="author" content="Kitsu Studios">
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <!-- BARRA DE NAVEGACIÓN -->
+
+    <!-- =====================================================
+         NAVEGACIÓN
+    ====================================================== -->
+
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <img src="Images/Topbar_Tittle_2.png" alt="DEV FOX STUDIOS" class="logo-img">
+
+            <a href="#inicio" class="brand">
+                <img
+                    src="Images/Topbar_Tittle_2.png"
+                    alt="Kitsu Studios"
+                    class="logo-img"
+                >
+            </a>
+
             <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#academy">Academy</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#juegos">Nuestros Juegos</a></li>
-                <li><a href="#equipo">El Equipo</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
+
+            <a href="#academy" class="nav-cta">
+                🎓 Empezar a aprender
+            </a>
+
+            <button class="mobile-menu-button" type="button" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
         </div>
     </nav>
-    
-    <!-- HERO SECTION -->
-    <section id="inicio" class="section hero">
-        <div class="hero-content">
-            <h1>Creando mundos. Contando historias.</h1>
-            <p>Creating worlds. Telling stories.</p>
-        </div>
-        <a href="#portfolio" class="hero-button">VER PORTFOLIO</a>
-    </section>
-    
-    <!-- SECCIÓN PORTFOLIO -->
-    <section id="portfolio" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Mira algunos ejemplos de lo que somos capaces de hacer</h2>
-            
-            <div class="cards-container">
-                <a href="https://devfoxstudios.com/portfolio/juegos-completos" target="_blank" class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Desarrollo de Juegos" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Juegos Completos</h3>
-                            <p>Proyectos finalizados desde el concepto inicial hasta la publicación en tiendas digitales.</p>
-                            <span class="card-badge">Game Dev</span>
-                        </div>
-                        <div class="card-action">→</div>
-                    </div>
-                </a>
-                
-                <a href="https://devfoxstudios.com/portfolio/modelado-3d" target="_blank" class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Modelado 3D" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Modelado 3D</h3>
-                            <p>Personajes, entornos y assets optimizados para videojuegos y aplicaciones interactivas.</p>
-                            <span class="card-badge">3D Art</span>
-                        </div>
-                        <div class="card-action">→</div>
-                    </div>
-                </a>
-                
-                <a href="https://devfoxstudios.com/portfolio/diseno-grafico" target="_blank" class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Diseño Gráfico" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Diseño Gráfico</h3>
-                            <p>Interfaces de usuario, ilustraciones y elementos visuales especializados en gaming.</p>
-                            <span class="card-badge">UI/UX Design</span>
-                        </div>
-                        <div class="card-action">→</div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SECCIÓN SERVICIOS MEJORADA -->
-    <section id="servicios" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Soluciones completas para hacer realidad tu proyecto</h2>
-            
-            <div class="cards-container">
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Desarrollo de Videojuegos" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Desarrollo</h3>
-                            <p>Videojuegos, Herramientas, Páginas Web y Más.</p>
-                            <span class="card-badge">Full Cycle</span>
-                        </div>
-                        <div class="card-action">+</div>
-                    </div>
+
+
+    <main>
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section id="inicio" class="section hero">
+
+            <div class="hero-background"></div>
+
+            <div class="hero-content">
+
+                <span class="hero-eyebrow">
+                    KITSU STUDIOS
+                </span>
+
+                <h1>
+                    Creamos videojuegos.<br>
+                    <span>Enseñamos a crearlos.</span>
+                </h1>
+
+                <p>
+                    Desarrollo de videojuegos, tecnología, arte digital
+                    y educación desde un estudio independiente.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="#academy" class="primary-button">
+                        🎓 Aprender con Kitsu
+                    </a>
+
+                    <a href="#servicios" class="secondary-button">
+                        💼 Trabajar con Kitsu
+                    </a>
+
                 </div>
-                
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Aplicaciones Interactivas" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Diseño</h3>
-                            <p>Modelado 3D, Gráficos 2D, Branding y Más.</p>
-                            <span class="card-badge">VR/AR</span>
-                        </div>
-                        <div class="card-action">+</div>
-                    </div>
+
+                <div class="hero-tags">
+                    <span>Game Development</span>
+                    <span>Education</span>
+                    <span>Technology</span>
+                    <span>Digital Art</span>
                 </div>
-                
-                <div class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Asset Store" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Producción</h3>
-                            <p>Instrumentales, Sonidos, Edición De Video y Más.</p>
-                            <span class="card-badge">Resources</span>
+
+            </div>
+
+            <a href="#que-es-kitsu" class="scroll-indicator" aria-label="Descubrir Kitsu">
+                <span></span>
+            </a>
+
+        </section>
+
+
+        <!-- =====================================================
+             QUÉ ES KITSU
+        ====================================================== -->
+
+        <section id="que-es-kitsu" class="section intro-section">
+
+            <div class="section-content">
+
+                <span class="section-eyebrow">
+                    MÁS QUE UN ESTUDIO
+                </span>
+
+                <h2 class="section-title">
+                    Un estudio. Muchas formas de crear.
+                </h2>
+
+                <p class="section-description">
+                    Kitsu Studios combina desarrollo, creatividad y educación
+                    para crear nuestros propios proyectos y ayudar a otros
+                    a convertir sus ideas en realidad.
+                </p>
+
+
+                <div class="feature-grid">
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            🎮
                         </div>
-                        <div class="card-action">+</div>
-                    </div>
+
+                        <h3>Game Development</h3>
+
+                        <p>
+                            Creamos videojuegos y experiencias interactivas,
+                            desde la idea inicial hasta un producto funcional.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            🎓
+                        </div>
+
+                        <h3>Education</h3>
+
+                        <p>
+                            Enseñamos desarrollo de videojuegos y herramientas
+                            digitales mediante clases online y en vivo.
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            💻
+                        </div>
+
+                        <h3>Digital Services</h3>
+
+                        <p>
+                            Ayudamos a creadores y empresas a desarrollar
+                            productos digitales, videojuegos y contenido visual.
+                        </p>
+
+                    </article>
+
                 </div>
+
             </div>
-        </div>
-    </section>
-    
-    <!-- SECCIÓN NUESTROS JUEGOS MEJORADA -->
-    <section id="juegos" class="section">
-        <div class="section-content">
-            <h2 class="section-title">Explora nuestras creaciones y proyectos en desarrollo</h2>
-            
-            <div class="cards-container">
-                <a href="https://play.google.com/store/apps/details?id=com.devfoxstudios.kiubyrush" target="_blank" class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Kiuby Rush" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Kiuby Rush</h3>
-                            <p>Aventura móvil llena de acción y desafíos. Recolecta gemas, esquiva obstáculos y alcanza la cima.</p>
-                            <span class="platform-badge">✅ Disponible</span>
-                        </div>
-                        <div class="card-action">🎮</div>
-                        <small>Versión Alpha 1.1.3 - Play Store</small>
+
+        </section>
+
+
+        <!-- =====================================================
+             KITSU ACADEMY
+        ====================================================== -->
+
+        <section id="academy" class="section academy-section">
+
+            <div class="section-content">
+
+                <div class="academy-header">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            KITSU ACADEMY
+                        </span>
+
+                        <h2 class="section-title">
+                            Aprende a crear videojuegos.
+                        </h2>
+
+                        <p class="section-description">
+                            Clases online y completamente en vivo para aprender
+                            desarrollo de videojuegos y las herramientas que
+                            utilizan los creadores.
+                        </p>
+
                     </div>
-                </a>
-                
-                <a href="https://mati-dev.itch.io/reality-hole" target="_blank" class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Reality Hole" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Reality Hole</h3>
-                            <p>Experiencia de realidad alternativa donde las dimensiones se colapsan y la física se distorsiona.</p>
-                            <span class="platform-badge">✅ Disponible</span>
-                        </div>
-                        <div class="card-action">🎮</div>
-                        <small>Versión Alpha 1.0 - Itch.io</small>
+
+                    <div class="academy-badge">
+                        <span>🎓</span>
+                        <strong>Clases online</strong>
+                        <small>En vivo</small>
                     </div>
-                </a>
-                
-                <a href="https://store.steampowered.com/app/comingsoon" target="_blank" class="enhanced-card">
-                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                         alt="Juego Plataformas" class="enhanced-card-image">
-                    <div class="enhanced-card-content">
-                        <div>
-                            <h3>Juegos De Pc</h3>
-                            <p>10 Títulos actualmente en desarrollo.</p>
-                            <span class="platform-badge in-dev">🛠️ En desarrollo</span>
-                        </div>
-                        <div class="card-action">🎮</div>
-                        <small>Próximamente en Steam</small>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- SECCIÓN EL EQUIPO - VACÍA PERO CON ESTRUCTURA -->
-    <section id="equipo" class="section">
-        <div class="section-content">
-            <h2 class="section-title">EL EQUIPO</h2>
-            
-            <div class="team-empty-container">
-                <!-- Esta sección está vacía por ahora -->
-                <div class="placeholder-text">
-                    <p>Sección del equipo en construcción</p>
-                    <small>Próximamente podrás conocer a nuestro equipo</small>
+
                 </div>
+
+
+                <div class="academy-grid">
+
+                    <!-- UNITY -->
+
+                    <article class="course-card featured">
+
+                        <div class="course-card-top">
+
+                            <span class="course-number">
+                                01
+                            </span>
+
+                            <span class="course-status">
+                                DISPONIBLE
+                            </span>
+
+                        </div>
+
+                        <div class="course-icon">
+                            🎮
+                        </div>
+
+                        <h3>
+                            Unity 6
+                        </h3>
+
+                        <p>
+                            Aprende a utilizar Unity y comienza a desarrollar
+                            tus propios videojuegos desde cero.
+                        </p>
+
+                        <ul class="course-list">
+                            <li>Fundamentos de Unity</li>
+                            <li>Escenas y GameObjects</li>
+                            <li>Física y componentes</li>
+                            <li>Desarrollo de proyectos</li>
+                        </ul>
+
+                        <a href="#contacto" class="course-link">
+                            Ver clases →
+                        </a>
+
+                    </article>
+
+
+                    <!-- C# -->
+
+                    <article class="course-card">
+
+                        <div class="course-card-top">
+
+                            <span class="course-number">
+                                02
+                            </span>
+
+                            <span class="course-status">
+                                DISPONIBLE
+                            </span>
+
+                        </div>
+
+                        <div class="course-icon">
+                            💻
+                        </div>
+
+                        <h3>
+                            Programación C#
+                        </h3>
+
+                        <p>
+                            Aprende programación aplicada directamente
+                            al desarrollo de videojuegos.
+                        </p>
+
+                        <ul class="course-list">
+                            <li>Fundamentos de programación</li>
+                            <li>Variables y funciones</li>
+                            <li>Clases y objetos</li>
+                            <li>Lógica para videojuegos</li>
+                        </ul>
+
+                        <a href="#contacto" class="course-link">
+                            Ver clases →
+                        </a>
+
+                    </article>
+
+
+                    <!-- BLENDER -->
+
+                    <article class="course-card">
+
+                        <div class="course-card-top">
+
+                            <span class="course-number">
+                                03
+                            </span>
+
+                            <span class="course-status">
+                                DISPONIBLE
+                            </span>
+
+                        </div>
+
+                        <div class="course-icon">
+                            🧊
+                        </div>
+
+                        <h3>
+                            Blender
+                        </h3>
+
+                        <p>
+                            Aprende modelado 3D y crea tus propios assets
+                            para videojuegos y proyectos digitales.
+                        </p>
+
+                        <ul class="course-list">
+                            <li>Modelado 3D</li>
+                            <li>Materiales</li>
+                            <li>UV y texturas</li>
+                            <li>Assets para videojuegos</li>
+                        </ul>
+
+                        <a href="#contacto" class="course-link">
+                            Ver clases →
+                        </a>
+
+                    </article>
+
+
+                    <!-- UNREAL -->
+
+                    <article class="course-card coming-soon">
+
+                        <div class="course-card-top">
+
+                            <span class="course-number">
+                                04
+                            </span>
+
+                            <span class="course-status">
+                                PRÓXIMAMENTE
+                            </span>
+
+                        </div>
+
+                        <div class="course-icon">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Unreal Engine
+                        </h3>
+
+                        <p>
+                            Una nueva ruta de aprendizaje para descubrir
+                            Unreal Engine y sus herramientas.
+                        </p>
+
+                        <div class="coming-soon-label">
+                            Próximamente
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="academy-steps">
+
+                    <div class="academy-step">
+
+                        <span>01</span>
+
+                        <div>
+                            <h4>Elige tu ruta</h4>
+                            <p>
+                                Encuentra el contenido que mejor se adapte
+                                a tus objetivos.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="academy-step">
+
+                        <span>02</span>
+
+                        <div>
+                            <h4>Aprende en vivo</h4>
+                            <p>
+                                Clases online con acompañamiento y práctica.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="academy-step">
+
+                        <span>03</span>
+
+                        <div>
+                            <h4>Construye</h4>
+                            <p>
+                                Aplica lo aprendido creando tus propios proyectos.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="academy-cta">
+
+                    <h3>
+                        ¿Listo para empezar a crear?
+                    </h3>
+
+                    <p>
+                        Conoce el programa de clases y descubre cómo
+                        comenzar tu camino en el desarrollo de videojuegos.
+                    </p>
+
+                    <a href="#contacto" class="primary-button">
+                        Quiero información
+                    </a>
+
+                </div>
+
             </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICIOS
+        ====================================================== -->
+
+        <section id="servicios" class="section services-section">
+
+            <div class="section-content">
+
+                <span class="section-eyebrow">
+                    KITSU SERVICES
+                </span>
+
+                <h2 class="section-title">
+                    ¿Tenés una idea?<br>
+                    <span>Hagámosla realidad.</span>
+                </h2>
+
+                <p class="section-description">
+                    Desarrollo, diseño y tecnología para transformar
+                    una idea en un proyecto real.
+                </p>
+
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            01
+                        </span>
+
+                        <div class="service-icon">
+                            🎮
+                        </div>
+
+                        <h3>
+                            Desarrollo de videojuegos
+                        </h3>
+
+                        <p>
+                            Desarrollo de videojuegos, prototipos,
+                            sistemas de gameplay e interfaces.
+                        </p>
+
+                        <span class="service-tag">
+                            GAME DEV
+                        </span>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            02
+                        </span>
+
+                        <div class="service-icon">
+                            📱
+                        </div>
+
+                        <h3>
+                            Aplicaciones
+                        </h3>
+
+                        <p>
+                            Aplicaciones y experiencias interactivas
+                            para diferentes plataformas.
+                        </p>
+
+                        <span class="service-tag">
+                            APPS
+                        </span>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            03
+                        </span>
+
+                        <div class="service-icon">
+                            🌐
+                        </div>
+
+                        <h3>
+                            Desarrollo web
+                        </h3>
+
+                        <p>
+                            Landing pages, sitios web y experiencias
+                            digitales adaptadas a cada proyecto.
+                        </p>
+
+                        <span class="service-tag">
+                            WEB
+                        </span>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            04
+                        </span>
+
+                        <div class="service-icon">
+                            🧊
+                        </div>
+
+                        <h3>
+                            Modelado 3D
+                        </h3>
+
+                        <p>
+                            Personajes, objetos, escenarios y assets
+                            optimizados para proyectos digitales.
+                        </p>
+
+                        <span class="service-tag">
+                            3D ART
+                        </span>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            05
+                        </span>
+
+                        <div class="service-icon">
+                            🎨
+                        </div>
+
+                        <h3>
+                            UI / UX
+                        </h3>
+
+                        <p>
+                            Interfaces visuales para videojuegos,
+                            aplicaciones y productos digitales.
+                        </p>
+
+                        <span class="service-tag">
+                            DESIGN
+                        </span>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            06
+                        </span>
+
+                        <div class="service-icon">
+                            ✨
+                        </div>
+
+                        <h3>
+                            Branding
+                        </h3>
+
+                        <p>
+                            Logos, identidad visual y piezas gráficas
+                            para proyectos y marcas.
+                        </p>
+
+                        <span class="service-tag">
+                            BRANDING
+                        </span>
+
+                    </article>
+
+                </div>
+
+
+                <div class="services-cta">
+
+                    <h3>
+                        ¿Tenés un proyecto en mente?
+                    </h3>
+
+                    <p>
+                        Contanos qué querés crear y estudiemos juntos
+                        la mejor forma de hacerlo realidad.
+                    </p>
+
+                    <a href="#contacto" class="primary-button">
+                        Solicitar presupuesto →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROYECTOS
+        ====================================================== -->
+
+        <section id="proyectos" class="section projects-section">
+
+            <div class="section-content">
+
+                <span class="section-eyebrow">
+                    KITSU PROJECTS
+                </span>
+
+                <h2 class="section-title">
+                    Lo que estamos creando.
+                </h2>
+
+                <p class="section-description">
+                    Videojuegos, herramientas y experiencias que forman
+                    parte del universo de Kitsu Studios.
+                </p>
+
+
+                <div class="projects-grid">
+
+                    <!-- FUR FUN PARK -->
+
+                    <article class="project-card project-featured">
+
+                        <div class="project-image">
+                            <img
+                                src="Images/Projects/fur-fun-park.jpg"
+                                alt="Fur Fun Park"
+                            >
+
+                            <span class="project-status">
+                                EN DESARROLLO
+                            </span>
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                HORROR · GAME DEV
+                            </span>
+
+                            <h3>
+                                Fur Fun Park
+                            </h3>
+
+                            <p>
+                                Un juego de terror ambientado en un parque
+                                de diversiones donde los animatrónicos
+                                esconden una historia mucho más oscura.
+                            </p>
+
+                            <a href="#" class="project-link">
+                                Ver proyecto →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- KITSU LAB -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="Images/Projects/kitsu-lab.jpg"
+                                alt="Kitsu Lab"
+                            >
+
+                            <span class="project-status">
+                                EN DESARROLLO
+                            </span>
+
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                EDUCATION · APP
+                            </span>
+
+                            <h3>
+                                Kitsu Lab
+                            </h3>
+
+                            <p>
+                                Una plataforma gamificada para aprender
+                                desarrollo de videojuegos de una manera
+                                práctica y entretenida.
+                            </p>
+
+                            <a href="#" class="project-link">
+                                Ver proyecto →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- DEV FOX GENESIS -->
+
+                    <article class="project-card">
+
+                        <div class="project-image">
+
+                            <img
+                                src="Images/Projects/dev-fox-genesis.jpg"
+                                alt="Dev Fox Genesis"
+                            >
+
+                            <span class="project-status completed">
+                                PROYECTO
+                            </span>
+
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-category">
+                                ANDROID · EMULATION
+                            </span>
+
+                            <h3>
+                                Dev Fox Genesis
+                            </h3>
+
+                            <p>
+                                Proyecto de emulación para dispositivos
+                                Android desarrollado como parte de la
+                                evolución tecnológica del estudio.
+                            </p>
+
+                            <a href="#" class="project-link">
+                                Ver proyecto →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="projects-more">
+
+                    <a href="#contacto" class="secondary-button">
+                        Ver todos los proyectos →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             EN DESARROLLO / DEVLOG
+        ====================================================== -->
+
+        <section class="section devlog-section">
+
+            <div class="section-content">
+
+                <div class="devlog-content">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            DETRÁS DE KITSU
+                        </span>
+
+                        <h2 class="section-title">
+                            Seguinos mientras creamos.
+                        </h2>
+
+                        <p class="section-description">
+                            Desarrollo de videojuegos, experimentos,
+                            tutoriales y todo lo que ocurre detrás
+                            de nuestros proyectos.
+                        </p>
+
+                        <a href="#" class="primary-button">
+                            Ver YouTube →
+                        </a>
+
+                    </div>
+
+                    <div class="devlog-placeholder">
+
+                        <span class="devlog-icon">
+                            ▶
+                        </span>
+
+                        <strong>
+                            Kitsu Studios
+                        </strong>
+
+                        <small>
+                            Devlogs · Tutoriales · Game Development
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             NOSOTROS
+        ====================================================== -->
+
+        <section id="nosotros" class="section about-section">
+
+            <div class="section-content">
+
+                <span class="section-eyebrow">
+                    SOBRE KITSU
+                </span>
+
+                <h2 class="section-title">
+                    Un estudio independiente<br>
+                    con ganas de crear.
+                </h2>
+
+
+                <div class="about-grid">
+
+                    <div class="about-visual">
+
+                        <div class="about-logo">
+                            🦊
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-content">
+
+                        <p class="about-lead">
+                            Kitsu Studios es un estudio independiente
+                            enfocado en videojuegos, tecnología,
+                            arte digital y educación.
+                        </p>
+
+                        <p>
+                            Creamos nuestros propios proyectos mientras
+                            ayudamos a otras personas y equipos a convertir
+                            sus ideas en experiencias digitales.
+                        </p>
+
+                        <p>
+                            También creemos que desarrollar videojuegos
+                            debería ser algo que cualquiera pueda aprender
+                            con las herramientas y el acompañamiento adecuados.
+                        </p>
+
+
+                        <div class="about-founder">
+
+                            <span class="founder-label">
+                                FUNDADOR
+                            </span>
+
+                            <h3>
+                                Matías
+                            </h3>
+
+                            <p>
+                                Developer · Game Developer · Creator
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             COMUNIDAD
+        ====================================================== -->
+
+        <section class="section community-section">
+
+            <div class="section-content">
+
+                <span class="section-eyebrow">
+                    SEGUÍ EL DESARROLLO
+                </span>
+
+                <h2 class="section-title">
+                    Formá parte de la comunidad.
+                </h2>
+
+                <p class="section-description">
+                    Acompañanos en el desarrollo de nuestros proyectos
+                    y descubrí nuevo contenido.
+                </p>
+
+
+                <div class="social-grid">
+
+                    <a href="#" class="social-card">
+                        <span>▶</span>
+                        <strong>YouTube</strong>
+                        <small>Devlogs y tutoriales</small>
+                    </a>
+
+                    <a href="#" class="social-card">
+                        <span>💬</span>
+                        <strong>Discord</strong>
+                        <small>Comunidad Kitsu</small>
+                    </a>
+
+                    <a href="#" class="social-card">
+                        <span>◎</span>
+                        <strong>Instagram</strong>
+                        <small>Arte y proyectos</small>
+                    </a>
+
+                    <a href="#" class="social-card">
+                        <span>◈</span>
+                        <strong>GitHub</strong>
+                        <small>Desarrollo</small>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CONTACTO
+        ====================================================== -->
+
+        <section id="contacto" class="section contact-section">
+
+            <div class="section-content">
+
+                <span class="section-eyebrow">
+                    CONTACTO
+                </span>
+
+                <h2 class="section-title">
+                    ¿Hablamos?
+                </h2>
+
+                <p class="section-description">
+                    Elegí cómo querés trabajar con Kitsu Studios.
+                </p>
+
+
+                <div class="contact-options">
+
+                    <!-- ALUMNOS -->
+
+                    <article class="contact-card">
+
+                        <div class="contact-icon">
+                            🎓
+                        </div>
+
+                        <span class="contact-label">
+                            QUIERO APRENDER
+                        </span>
+
+                        <h3>
+                            Empezá tu camino en el desarrollo de videojuegos.
+                        </h3>
+
+                        <p>
+                            Consultanos sobre las clases online,
+                            programas disponibles y próximas fechas.
+                        </p>
+
+                        <a href="mailto:kitsu.corp.2026@gmail.com?subject=Consulta%20sobre%20Kitsu%20Academy"
+                           class="primary-button">
+                            Consultar sobre las clases
+                        </a>
+
+                    </article>
+
+
+                    <!-- CLIENTES -->
+
+                    <article class="contact-card">
+
+                        <div class="contact-icon">
+                            💼
+                        </div>
+
+                        <span class="contact-label">
+                            TENGO UN PROYECTO
+                        </span>
+
+                        <h3>
+                            Hagamos realidad tu idea.
+                        </h3>
+
+                        <p>
+                            Contanos qué necesitás desarrollar y
+                            evaluemos juntos tu proyecto.
+                        </p>
+
+                        <a href="mailto:kitsu.corp.2026@gmail.com?subject=Consulta%20sobre%20un%20proyecto"
+                           class="secondary-button">
+                            Solicitar presupuesto
+                        </a>
+
+                    </article>
+
+                </div>
+
+
+                <div class="contact-direct">
+
+                    <p>
+                        También podés escribirnos directamente:
+                    </p>
+
+                    <a href="mailto:kitsu.corp.2026@gmail.com">
+                        kitsu.corp.2026@gmail.com
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <img
+                    src="Images/Topbar_Tittle_2.png"
+                    alt="Kitsu Studios"
+                >
+
+                <p>
+                    Creamos videojuegos.<br>
+                    Enseñamos a crearlos.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Kitsu
+                </h4>
+
+                <a href="#inicio">Inicio</a>
+                <a href="#academy">Academy</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Comunidad
+                </h4>
+
+                <a href="#">YouTube</a>
+                <a href="#">Discord</a>
+                <a href="#">Instagram</a>
+                <a href="#">TikTok</a>
+                <a href="#">GitHub</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Contacto
+                </h4>
+
+                <a href="mailto:kitsu.corp.2026@gmail.com">
+                    Email
+                </a>
+
+                <a href="#academy">
+                    Clases
+                </a>
+
+                <a href="#servicios">
+                    Servicios
+                </a>
+
+            </div>
+
         </div>
-    </section>
-    
-    <!-- SECCIÓN CONTACTO -->
-    <section id="contacto" class="section">
-        <div class="section-content">
-            <h2 class="section-title">¿Tienes un proyecto en mente? Hablemos</h2>
-            
-            <div class="unity-badge">
-                📧 kitsu.corp.2026@gmail.com<br>
-                🐦 @72727272727272727<br>
-                📱 +72727272727272
-            </div>
-            
-            <p style="margin-top: 30px; font-size: 1rem; color: #888;">
-                ¡Estamos listos para convertir tus ideas en realidad!
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Kitsu Studios™. Todos los derechos reservados.
             </p>
-        </div>
-    </section>
-    
-    <footer>
-        <div>
-            <p>© 2019-2026 DEV FOX STUDIOS™</p>
-            <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">
-                No abandones tus sueños...
+
+            <p>
+                No abandones tus sueños.
             </p>
+
         </div>
+
     </footer>
-    
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
     <script src="script.js"></script>
+
 </body>
 </html>
