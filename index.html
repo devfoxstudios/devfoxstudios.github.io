@@ -59,23 +59,98 @@
     </header>
 
     <main>
-      <section id="inicio" class="hero section">
-        <div class="hero-art" aria-hidden="true"></div>
-        <div class="hero-content">
-          <span class="eyebrow">KITSU STUDIOS · DESARROLLO CREATIVO</span>
-          <h1>Ideas que<br><span>cobran vida.</span></h1>
-          <p>Videojuegos, aplicaciones, sitios web, modelos 3D, diseño y mucho más. Todo en un solo lugar.</p>
-          <div class="hero-actions">
-            <a href="#contacto" class="button button-primary">✉ Hablemos de tu proyecto</a>
-            <a href="#servicios" class="button button-ghost">Ver mis servicios <span aria-hidden="true">↓</span></a>
-          </div>
-          <div class="hero-highlights">
-            <div><span class="highlight-icon cyan">✦</span><span>Soluciones creativas<br>y profesionales</span></div>
-            <div><span class="highlight-icon violet">◇</span><span>Para negocios,<br>creadores y marcas</span></div>
-            <div><span class="highlight-icon pink">◆</span><span>Calidad, compromiso<br>y atención personalizada</span></div>
-          </div>
+      
+      <!-- Hero Carrousel Ver. -->
+      
+<section id="inicio" class="hero section hero-carousel" aria-label="Servicios de Kitsu Studios">
+  <div class="hero-art" aria-hidden="true"></div>
+
+  <div class="hero-slides" aria-live="off">
+
+    <article class="hero-slide is-active" data-slide="0">
+      <div class="hero-content">
+        <span class="eyebrow">01 · DESARROLLO DIGITAL</span>
+        <h1>Apps y juegos<br><span>sin límites.</span></h1>
+        <p>Desarrollamos aplicaciones móviles y videojuegos a medida, desde la primera idea hasta un proyecto real.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="button button-primary">Crear mi proyecto ↗</a>
+          <a href="#servicios" class="button button-ghost">Explorar servicios ↓</a>
         </div>
-      </section>
+      </div>
+    </article>
+
+    <article class="hero-slide" data-slide="1" aria-hidden="true" inert>
+      <div class="hero-content">
+        <span class="eyebrow">02 · SOLUCIONES PARA NEGOCIOS</span>
+        <h1>Tu negocio,<br><span>más digital.</span></h1>
+        <p>Herramientas digitales y productos personalizados para emprendedores, comerciantes y marcas que quieren crecer.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="button button-primary">Impulsar mi negocio ↗</a>
+          <a href="#servicios" class="button button-ghost">Conocer servicios ↓</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hero-slide" data-slide="2" aria-hidden="true" inert>
+      <div class="hero-content">
+        <span class="eyebrow">03 · KITSU ACADEMY</span>
+        <h1>Aprendé.<br><span>Creá. Jugá.</span></h1>
+        <p>Aprendé a crear tus propias aplicaciones y videojuegos con clases prácticas de desarrollo y programación.</p>
+        <div class="hero-actions">
+          <a href="#academy" class="button button-primary">Consultar por clases ↗</a>
+          <a href="#academy" class="button button-ghost">Conocer Academy ↓</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hero-slide" data-slide="3" aria-hidden="true" inert>
+      <div class="hero-content">
+        <span class="eyebrow">04 · DISEÑO Y FABRICACIÓN 3D</span>
+        <h1>Del diseño<br><span>a tus manos.</span></h1>
+        <p>Convertimos ideas en objetos reales mediante diseños personalizados e impresión 3D para proyectos y negocios.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="button button-primary">Consultar impresión 3D ↗</a>
+          <a href="#proyectos" class="button button-ghost">Ver proyectos ↓</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="hero-slide" data-slide="4" aria-hidden="true" inert>
+      <div class="hero-content">
+        <span class="eyebrow">05 · DESARROLLO WEB</span>
+        <h1>Tu presencia<br><span>en internet.</span></h1>
+        <p>Páginas web modernas para presentar tus servicios, mostrar tu catálogo y conectar con tus clientes.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="button button-primary">Crear mi página web ↗</a>
+          <a href="#proyectos" class="button button-ghost">Ver proyectos ↓</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <button class="hero-arrow hero-prev" type="button"
+          aria-label="Servicio anterior">‹</button>
+  <button class="hero-arrow hero-next" type="button"
+          aria-label="Servicio siguiente">›</button>
+
+  <div class="hero-carousel-footer">
+    <div class="hero-dots" role="group" aria-label="Elegir servicio">
+      <button type="button" class="hero-dot is-active"
+              aria-label="Servicio 1 de 5" aria-current="true"></button>
+      <button type="button" class="hero-dot"
+              aria-label="Servicio 2 de 5"></button>
+      <button type="button" class="hero-dot"
+              aria-label="Servicio 3 de 5"></button>
+      <button type="button" class="hero-dot"
+              aria-label="Servicio 4 de 5"></button>
+      <button type="button" class="hero-dot"
+              aria-label="Servicio 5 de 5"></button>
+    </div>
+    <span class="hero-counter" aria-hidden="true">01 / 05</span>
+  </div>
+</section>
+
 
       <section id="servicios" class="section services-section">
         <div class="section-heading">
