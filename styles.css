@@ -298,3 +298,16 @@ button { font: inherit; }
   visibility: visible !important;
   opacity: 1 !important;
 }
+
+/* Tablets y celulares: ocultar anuncios laterales */
+@media (max-width: 1050px) {
+  .side-visual,
+  .side-visual-left,
+  .side-visual-right {
+    display: none !important;
+  }
+
+  .site-shell {
+    width: 100%;
+  }
+}
