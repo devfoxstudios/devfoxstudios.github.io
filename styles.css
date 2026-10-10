@@ -175,7 +175,7 @@ button { font: inherit; }
   .nav-menu { gap: 12px; }.nav-menu a { font-size: .75rem; }.nav-cta { padding: 10px 12px; font-size: .74rem; }
 }
 @media (max-width: 1050px) {
-  .ad-rail { display: none; }.site-shell { width: min(var(--content-width), 100%); }
+  .ad-rail { display: flex !important; }.site-shell { width: min(var(--content-width), 100%); }
   .navbar { padding-inline: 22px; }.nav-menu { gap: 14px; }
   .hero { min-height: 520px; }.hero-art { background-position: 58% center; }
   .why-grid { grid-template-columns: repeat(3, 1fr); }
