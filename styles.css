@@ -217,25 +217,21 @@ button { font: inherit; }
 @keyframes rise-in { from { opacity: .65; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @media (prefers-reduced-motion: reduce) { .js-ready .will-animate, .js-ready .will-animate.is-visible { animation: none; } }
 
+
 .ad-creative {
-  display: block;
-  width: 100%;
-  height: 100%;
-  padding: 0;
+  padding: 0 !important;
   overflow: hidden;
-  border-radius: 12px;
+}
+
+.ad-creative::before,
+.ad-creative::after {
+  display: none !important;
 }
 
 .ad-image {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-  transition: transform 0.3s ease;
 }
-
-.ad-creative:hover .ad-image {
-  transform: scale(1.03);
-}
-
