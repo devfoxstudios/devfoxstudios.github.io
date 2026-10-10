@@ -84,6 +84,11 @@
 
    // Carrusel automático de los servicios principales.
   const heroCarousel = document.querySelector('.hero-carousel');
+  console.log('KITSU CARRUSEL:', {
+  carrusel: !!heroCarousel,
+  diapositivas: heroCarousel?.querySelectorAll('.hero-slide').length,
+  flechaSiguiente: !!heroCarousel?.querySelector('.hero-next')
+});
 
   if (heroCarousel) {
     const slides = [...heroCarousel.querySelectorAll('.hero-slide')];
