@@ -262,7 +262,8 @@ button { font: inherit; }
 .side-visual-right {
   position: fixed;
   top: 8px;
-  left: 8px;
+  right: 8px;
+  left: auto;
   bottom: auto;
   width: clamp(76px, 8.4vw, 132px);
   height: calc(100vh - 16px);
@@ -274,6 +275,7 @@ button { font: inherit; }
   opacity: 1 !important;
   pointer-events: auto;
 }
+
 
 .side-visual-link-right {
   display: block;
