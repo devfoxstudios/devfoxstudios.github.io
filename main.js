@@ -82,12 +82,7 @@
     if (window.innerWidth > 820) closeMenu();
   }, { passive: true });
 
-  // Ayuda para revisar la carga durante el desarrollo.
-  document.documentElement.classList.add('js-ready');
-})();
-
-
-  // Carrusel automático de los servicios principales.
+   // Carrusel automático de los servicios principales.
   const heroCarousel = document.querySelector('.hero-carousel');
 
   if (heroCarousel) {
@@ -206,3 +201,6 @@
     reduceMotion.addEventListener?.('change', startTimer);
   }
 
+  // Ayuda para revisar la carga durante el desarrollo.
+  document.documentElement.classList.add('js-ready');
+})();
