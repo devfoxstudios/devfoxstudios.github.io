@@ -11,28 +11,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Laterales publicitarios: reemplazá el contenido de cada .ad-creative por tu banner/enlace.
-       Los anuncios propios no necesitan código de AdSense. -->
+  <!-- Elementos visuales laterales de Kitsu Studios. -->
   
-<!-- Publicidad izquierda -->
-<aside class="ad-rail ad-rail-left" aria-label="Pub_Space">
-  <a class="ad-creative ad-creative-left"
+<!-- Imagen lateral izquierda -->
+<aside class="side-visual side-visual-left" aria-label="Imagen lateral izquierda">
+  <a class="side-visual-link side-visual-link-left"
      href="#contacto"
-     aria-label="Publicidad para negocios">
+     aria-label="Ver información de contacto">
     <img
-      src="Images/Banners/baanner-izquierdo.png"
-      alt="Publicidad de un negocio"
-      class="ad-image">
+      src="Images/Banners/banner-izquierdo.png"
+      alt="Banner visual de Kitsu Studios"
+      class="side-visual-image">
   </a>
 </aside>
 
-  <aside class="ad-rail ad-rail-right" aria-label="Espacio publicitario">
-    <a class="ad-creative ad-creative-right" href="#contacto" aria-label="Anunciá tu marca en Kitsu Studios">
-      <span class="ad-kicker">Tu marca</span>
+  <aside class="side-visual side-visual-right" aria-label="Imagen lateral derecha">
+    <a class="side-visual-link side-visual-link-right" href="#contacto" aria-label="Conocé las opciones para tu marca">
+      <span class="side-label">Tu marca</span>
       <strong>AQUÍ</strong>
-      <span class="ad-target" aria-hidden="true">◎</span>
-      <span class="ad-copy">Anunciá en Kitsu Studios</span>
-      <span class="ad-bottom">Pedí información</span>
+      <span class="side-symbol" aria-hidden="true">◎</span>
+      <span class="side-caption">Tu marca puede estar aquí</span>
+      <span class="side-footer">Pedí información</span>
     </a>
   </aside>
 
@@ -181,69 +180,11 @@
         <div class="footer-brand"><img src="Images/Topbar_Tittle_2.png" alt="Kitsu Studios" loading="lazy"><p>Videojuegos, apps, diseño, 3D y más.<br>Ideas que cobran vida.</p></div>
         <div class="footer-column"><h3>Navegación</h3><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#proyectos">Portafolio</a><a href="#academy">Academy</a><a href="#nosotros">Sobre mí</a></div>
         <div class="footer-column"><h3>Servicios</h3><a href="#servicios">Juegos y Apps</a><a href="#servicios">Sitios Web</a><a href="#servicios">Modelado 3D</a><a href="#servicios">Diseño Gráfico</a><a href="#servicios">Productos personalizados</a></div>
-        <div class="footer-column"><h3>Contacto</h3><a href="mailto:kitsu.corp.2026@gmail.com">Email</a><a href="#contacto">Solicitar presupuesto</a><a href="#contacto">Publicidad para negocios</a></div>
+        <div class="footer-column"><h3>Contacto</h3><a href="mailto:kitsu.corp.2026@gmail.com">Email</a><a href="#contacto">Solicitar presupuesto</a><a href="#contacto">Opciones para negocios</a></div>
       </div>
       <div class="footer-bottom"><span>© 2026 Kitsu Studios. Todos los derechos reservados.</span><span>Diseñado con <b>♥</b> por Kitsu Studios.</span></div>
     </footer>
   </div>
-
-  
-<script>
-(() => {
-  const selector = '.ad-rail-left';
-
-  function diagnose(origen) {
-    const el = document.querySelector(selector);
-
-    if (!el) {
-      console.error('[ANUNCIO] El elemento no existe en el DOM.', origen);
-      return;
-    }
-
-    const css = getComputedStyle(el);
-    const img = el.querySelector('img');
-    const imgCss = img ? getComputedStyle(img) : null;
-
-    console.log('[ANUNCIO]', origen, {
-      conectadoAlDOM: el.isConnected,
-      display: css.display,
-      visibility: css.visibility,
-      opacity: css.opacity,
-      ancho: el.getBoundingClientRect().width,
-      alto: el.getBoundingClientRect().height,
-      imagenEncontrada: !!img,
-      imagenCargada: img?.complete,
-      imagenNatural: img
-        ? `${img.naturalWidth}x${img.naturalHeight}`
-        : null,
-      displayImagen: imgCss?.display,
-      visibilidadImagen: imgCss?.visibility
-    });
-  }
-
-  diagnose('inicial');
-
-  [0, 50, 250, 1000, 2000].forEach(ms => {
-    setTimeout(() => diagnose(`${ms} ms`), ms);
-  });
-
-  const observer = new MutationObserver(() => {
-    diagnose('cambio en el DOM');
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true,
-    attributes: true,
-    attributeFilter: ['class', 'style', 'hidden']
-  });
-
-  console.log('[ANUNCIO] Diagnóstico activado.');
-})();
-</script>
-<script src="script.js"></script>
-
-  
   <script src="script.js"></script>
 </body>
 </html>
