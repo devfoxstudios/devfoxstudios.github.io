@@ -299,7 +299,37 @@ button { font: inherit; }
   opacity: 1 !important;
 }
 
-/* Tablets y celulares: ocultar anuncios laterales */
+
+/* Banners laterales adaptativos */
+.side-visual {
+  position: fixed;
+  top: 8px;
+  width: clamp(76px, 8vw, 132px);
+  height: calc(100vh - 16px);
+  height: calc(100dvh - 16px);
+  z-index: 20;
+}
+
+.side-visual-left {
+  left: 8px;
+}
+
+.side-visual-right {
+  right: 8px;
+}
+
+/* Laptop: reducir el espacio reservado a los anuncios */
+@media (min-width: 1051px) and (max-width: 1499px) {
+  .side-visual {
+    width: 76px;
+  }
+
+  .site-shell {
+    width: calc(100% - 190px);
+  }
+}
+
+/* Tablet: dejar espacio al contenido */
 @media (max-width: 1050px) {
   .side-visual,
   .side-visual-left,
