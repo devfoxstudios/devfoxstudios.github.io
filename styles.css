@@ -218,20 +218,42 @@ button { font: inherit; }
 @media (prefers-reduced-motion: reduce) { .js-ready .will-animate, .js-ready .will-animate.is-visible { animation: none; } }
 
 
-.ad-creative {
-  padding: 0 !important;
+
+/* Anuncio izquierdo: mantener visible y estable */
+.ad-rail-left {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  bottom: auto;
+  width: clamp(76px, 8.4vw, 132px);
+  height: calc(100vh - 16px);
+  height: calc(100dvh - 16px);
+  min-height: 0;
+  z-index: 9999;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+.ad-creative-left {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: 0;
   overflow: hidden;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-.ad-creative::before,
-.ad-creative::after {
-  display: none !important;
-}
-
-.ad-image {
+.ad-creative-left .ad-image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   object-position: center;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
